@@ -1,157 +1,203 @@
-from distutils import text_files
-from tabnanny import verbose
-from time import time, timezone
-from turtle import update
-from wsgiref.validate import validator
+from time import timezone
 from django.db import models
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
+from django.core.mail import send_mail
 
-class UserModel (models.Model) :
-  user_id = models.IntegerField(
+class UserModel(BaseUserManager):
+  
+  
+    use_in_migrations = True
+  
+    def _create_user(self, email, password, **extra_fields):
+
+        if not email:
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+  
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+  
+    def create_user(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(email, password, **extra_fields)
+  
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+  
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+  
+        return self._create_user(email, password, **extra_fields)
+
+class User(AbstractBaseUser, PermissionsMixin) :
+  
+  
+    email = models.EmailField(('email address'), unique=True)
+    first_name = models.CharField(('first name'), max_length=30, blank=True)
+    last_name = models.CharField(('last name'), max_length=150, blank=True)
+  
+    is_staff = models.BooleanField(
+        ('staff status'),
+        default=False,
+        help_text=('Designates whether the user can log into this admin site.'),
+    )
+    is_active = models.BooleanField(
+        ('active'),
+        default=True,
+        help_text=('Designates whether this user should be treated as active.' 'Unselect this instead of deleting accounts.'),
+    )
+    date_joined = models.DateTimeField(('date joined'), default=timezone)
+  
+    objects = UserModel()
+  
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+  
+    class Meta:
+        verbose_name = ('user')
+        verbose_name_plural = ('users')
+  
+    def get_full_name(self):
+        """Return the first_name plus the last_name, with a space in
+        between."""
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
+  
+    def get_short_name(self):
+        """Return the short name for the user."""
+        return self.first_name
+  
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """Send an email to this user."""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
+    user_id = models.IntegerField(
+      verbose_name='',
+      blank=True,
+      null=True,
+      default=0,
+    )
+    login_id = models.IntegerField(verbose_name='',
+      blank=True,
+      null=True,
+      default=0,
+    )
+    password = models.IntegerField(verbose_name='',
+      blank=True,
+      null=True,
+      default=0,
+    )
+    create_data = models.DateField()
+    update_data = models.DateField()
+    delete_data = models.DateField()
+
+class MedicineMangement(models.Model) :
+  user_id = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+  name = models.ForeignKey(User, on_delete=models.CASCADE)
+  medicine = models.CharField(
     verbose_name='',
     blank=True,
     null=True,
-    default=0,
-    validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)]
+    max_length=50,
+    default='',
   )
-  login_id = models.IntegerField(verbose_name='',
+  taking_dossage = models.IntegerField(verbose_name='',
     blank=True,
     null=True,
     default=0,
-    validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-  password = models.IntegerField(verbose_name='',
+  )
+  taking_unit = models.IntegerField(verbose_name='',
     blank=True,
     null=True,
     default=0,
-    validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-  create_data = models.DateField()
-  update_data = models.DateField()
-  delete_data = models.DateField()
-
-  class Medicine_Mangement(models.Model) :
-    user_id = models.ForeignKey(on_delete=models.CASCADE)
-    name = models.ForeignKey(user_id, on_delete=models.CASCADE)
-    medicine = models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-      )
-    taking_dossage = models.IntegerField(verbose_name='',
-      blank=True,
-      null=True,
-      default=0,
-      validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-    taking_unit = models.IntegerField(verbose_name='',
-      blank=True,
-      null=True,
-      default=0,
-      validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-    taking_time = models.ForeignKey(user_id, on_delete=models.CASCADE)
-    taking_start = models.DateTimeField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      default=timezone.now
-    )
-    taking_end = models.DateTimeField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      default=timezone.now
-    )
-    text = models.TextField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=1000,
-    )
-  class Medicine_name_management(models.Model) :
-    user_id = models.ForeignKey(on_delete=models.CASCADE)
-    name = models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-    )
-  
-  class Medicine_Register(models.Model) :
-    verbose_name = models.ForeignKey(user_id, on_delete=models.CASCADE)
-    name = models.ForeignKey(user_id, on_delete=models.CASCADE)
-    kinds = models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-    )
-    dosage_form = models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-    )
-    socienty = models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-    )
-  
-  class taking_dosage(models.Model) :
-    user_id = models.ForeignKey(null, on_delete=models.CASCADE)
-    name = models.ForeignKey(user_id, on_delete=models.CASCADE)
-    madicine =models.CharField(
-      verbose_name='',
-      blank=True,
-      null=True,
-      max_length=50,
-      default='',
-      validators=[validators.RegexValidator(
-        regex=u'[ぁｰんァ-ヶ]+$',
-        massage='全角のひらがな・カタカナ・漢字で入力してください',
-      )]
-    )
-    taking_dosage = models.IntegerField(verbose_name='',
-      blank=True,
-      null=True,
-      default=0,
-      validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-    taking_unit = models.IntegerField(verbose_name='',
+  )
+  taking_time = models.ForeignKey(User, on_delete=models.CASCADE)
+  taking_start = models.DateTimeField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    default=timezone
+  )
+  taking_end = models.DateTimeField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    default=timezone
+  )
+  text = models.TextField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=1000,
+  )
+class MedicineNameManagement(models.Model) :
+  user_id = models.ForeignKey(MedicineMangement, on_delete=models.CASCADE)
+  name = models.CharField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=50,
+    default='',
+  ) 
+class MedicineRegister(models.Model) :
+  medicine_name = models.ForeignKey(MedicineNameManagement, on_delete=models.CASCADE)
+  name = models.ForeignKey(MedicineMangement, on_delete=models.CASCADE)
+  kinds = models.CharField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=50,
+    default='',
+  )
+  dosage_form = models.CharField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=50,
+    default='',
+  )
+  socienty = models.CharField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=50,
+    default='',
+  )
+class TakingDosage(models.Model) :
+  user_id = models.ForeignKey(MedicineNameManagement, on_delete=models.CASCADE)
+  name = models.ForeignKey(MedicineMangement, on_delete=models.CASCADE)
+  madicine =models.CharField(
+    verbose_name='',
+    blank=True,
+    null=True,
+    max_length=50,
+    default='',
+  )
+  taking_dosage = models.IntegerField(verbose_name='',
     blank=True,
     null=True,
     default=0,
-    validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-    taking_number = models.IntegerField(verbose_name='',
-      blank=True,
-      null=True,
-      default=0,
-      validators=[validators.MinValueValidator(0),validators.MaxValueValidator(100)])
-  
-  class taking_time_alarm(models.Model) :
-    taking_time = models.TimeField
+  )
+  taking_unit = models.IntegerField(verbose_name='',
+    blank=True,
+    null=True,
+    default=0,
+  )
+  taking_number = models.IntegerField(verbose_name='',
+    blank=True,
+    null=True,
+    default=0,
+  )
+class TakingTimeAlarm(models.Model) :
+  taking_time = models.TimeField
 
 # Create your models here.
