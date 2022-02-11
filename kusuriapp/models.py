@@ -3,7 +3,11 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from time import timezone
+from time import time 
 from django.contrib.auth.base_user import BaseUserManager
+
+def get_upload_file_name(filename):
+    return  "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
 class UserModel(BaseUserManager):
     
     use_in_migrations = True
@@ -51,7 +55,11 @@ class User(AbstractBaseUser, PermissionsMixin) :
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
-  
+    def __str__(self):
+        return self.first_name
+    
+    def __str__(self):
+        return self.last_name
     class Meta:
         verbose_name = ('user')
         verbose_name_plural = ('users')
@@ -81,9 +89,9 @@ class User(AbstractBaseUser, PermissionsMixin) :
     null=True,
     default=0,
   )
-    create_data = models.DateField()
-    update_data = models.DateField()
-    delete_data = models.DateField()
+    create_data = models.DateField(auto_now_add=True)
+    update_data = models.DateField(auto_now=True)
+    delete_data = models.DateField(default=None, null=True, blank=True)
 class MedicineNameManagement(models.Model) :
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.CharField(
