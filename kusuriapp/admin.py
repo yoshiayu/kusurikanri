@@ -3,6 +3,12 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
 from .models import User
+from .models import MedicineMangement
+from .models import MedicineNameManagement
+from .models import TakingTimeAlarm
+from .models import TakingDosage
+from .models import MedicineRegister
+
   
 class MyUserChangeForm(UserChangeForm):
     class Meta:
@@ -37,6 +43,10 @@ class MyUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
   
-  
+# Register your models here. 
 admin.site.register(User, MyUserAdmin)
-# Register your models here.
+admin.site.register(MedicineMangement)
+admin.site.register(MedicineNameManagement)
+admin.site.register(TakingTimeAlarm)
+admin.site.register(TakingDosage)
+admin.site.register(MedicineRegister)
