@@ -1,3 +1,8 @@
+import pandas as pd
+import dask
+import dask.dataframe as dd
+from dask.delayed import delayed
+import sqlite3
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
@@ -8,8 +13,15 @@ from .models import MedicineNameManagement
 from .models import TakingTimeAlarm
 from .models import TakingDosage
 from .models import MedicineRegister
+from .models import CompanyMedicineName
 
-  
+Data = pd.read_excel( "./link/ all.xlsx" ,sheet_name = "" )
+
+aaaaa = dask.delayed(pd.read_excel)( "./link/ all.xlsx" ,sheet_name = "" )
+Data = dd.from_delayed( aaaaa ).compute()
+
+conn = sqlite3.connect( "会社薬リスト.db" )
+conn.close()
 class MyUserChangeForm(UserChangeForm):
     class Meta:
         model = User
@@ -50,3 +62,4 @@ admin.site.register(MedicineNameManagement)
 admin.site.register(TakingTimeAlarm)
 admin.site.register(TakingDosage)
 admin.site.register(MedicineRegister)
+admin.site.register(CompanyMedicineName)
