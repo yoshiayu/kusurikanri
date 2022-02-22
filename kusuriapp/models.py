@@ -1,14 +1,11 @@
 import datetime
-import sqlite3
+from tabnanny import verbose
 from django.db import models
 from django.core.mail import send_mail
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from time import time
 from django.contrib.auth.base_user import BaseUserManager
-
-dbname = ('link.db')
-conn = sqlite3.connect(dbname, isolation_level=None)
 
 def get_upload_file_name(filename):
     return  "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
@@ -533,8 +530,11 @@ class TakingTimeAlarm(models.Model) :
         return str(self.taking_time)
 
 class CompanyMedicineName(models.Model) :
-    company_id = models.IntegerField(verbose_name='会社ID')
-    company_name = models.CharField(max_length=20, verbose_name='会社名')
-    medicine_id = models.IntegerField(verbose_name='薬ID')
-    medicine_name = models.CharField(max_length=30, verbose_name='薬名')
-    initials = models.CharField(max_length=1, verbose_name='頭文字')
+    company_id = models.IntegerField(verbose_name='会社ID', blank=True, null=True)
+    company_name = models.CharField(max_length=20, verbose_name='会社名', blank=True, null=True)
+    medicine_id = models.IntegerField(verbose_name='薬ID', blank=True, null=True)
+    medicine_name = models.CharField(max_length=30, verbose_name='薬名', blank=True, null=True)
+    initials = models.CharField(max_length=1, verbose_name='頭文字', blank=True, null=True)   
+    class Meta:
+        db_table = 'link'
+        verbose_name_plural = '薬及び会社リスト'

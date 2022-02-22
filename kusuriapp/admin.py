@@ -1,8 +1,3 @@
-import pandas as pd
-import dask
-import dask.dataframe as dd
-from dask.delayed import delayed
-import sqlite3
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
@@ -14,14 +9,9 @@ from .models import TakingTimeAlarm
 from .models import TakingDosage
 from .models import MedicineRegister
 from .models import CompanyMedicineName
-
-Data = pd.read_excel( "./link/ all.xlsx" ,sheet_name = "" )
-
-aaaaa = dask.delayed(pd.read_excel)( "./link/ all.xlsx" ,sheet_name = "" )
-Data = dd.from_delayed( aaaaa ).compute()
-
-conn = sqlite3.connect( "会社薬リスト.db" )
-conn.close()
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+from import_export.fields import Field
 class MyUserChangeForm(UserChangeForm):
     class Meta:
         model = User
@@ -54,6 +44,22 @@ class MyUserAdmin(UserAdmin):
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
+class CompanyMedicineNameResource(resources.ModelResource):
+    company_id = Field(attribute='company_id' ,column_name='company_id')
+    company_name = Field(attribute='company_name', column_name='company_name')
+    medicine_id = Field(attribute='medicine_id', column_name='medicine_id')
+    medicine_name = Field(attribute='medicine_name', column_name='medicine_name')
+    initials = Field(attribute='initials', column_name='initials')
+    
+    class Meta:
+        model = CompanyMedicineName
+        skip_unchanged = True
+        use_bulk = True
+
+class CompanyMedicineNameAdmin(ImportExportModelAdmin):
+    ordering = ['id']
+    list_display = ('company_id', 'company_name', 'medicine_id','medicine_name', 'initials')
+    resource_class = CompanyMedicineNameResource
   
 # Register your models here. 
 admin.site.register(User, MyUserAdmin)
