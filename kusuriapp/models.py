@@ -6,6 +6,13 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from time import time
 from django.contrib.auth.base_user import BaseUserManager
+from kusuriapp.models import Kusuri_Data
+
+class Question(models.Model):
+    pass
+class Kusuri_Data(models.Model):
+    pass
+
 
 def get_upload_file_name(filename):
     return  "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)

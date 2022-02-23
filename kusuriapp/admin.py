@@ -12,6 +12,7 @@ from .models import CompanyMedicineName
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.fields import Field
+from kusuriapp.models import Kusuri_Data
 class MyUserChangeForm(UserChangeForm):
     class Meta:
         model = User
