@@ -1,19 +1,19 @@
 from django.core.management.base import BaseCommand, CommandError
-from kusuriapp.models import Question as Kusuri_Data
+from kusuriapp.models import Question as KusuriData
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
+    help = 'Closes the specified KusuriData for voting'
 
     def add_arguments(self, parser):
-        parser.add_argument('poll_ids', nargs='+', type=int)
+        parser.add_argument('kusuri_datas', nargs='+', type=int)
 
     def handle(self, *args, **options):
-        for kusuri_data in options['poll_ids']:
+        for kusuri_datas in options['kusuri_datas']:
             try:
-                kusuri_data = Kusuri_Data.objects.get(pk=kusuri_data)
-            except kusuri_data.DoesNotExist:
-                raise CommandError('Poll "%s" does not exist' % kusuri_data)
+                kusuri_datas = KusuriData.objects.get(pk=kusuri_datas)
+            except KusuriData.DoesNotExist:
+                raise CommandError('KusuriData "%s" does not exist' % kusuri_datas)
 
-            kusuri_data.opened = False
-            kusuri_data.save()
+            KusuriData.opened = False
+            KusuriData.save()
 
-            self.stdout.write(self.style.SUCCESS('Successfully closed poll "%s"' % kusuri_data))
+            self.stdout.write(self.style.SUCCESS('Successfully closed KusuriData "%s"' % kusuri_datas))

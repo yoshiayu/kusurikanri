@@ -6,13 +6,11 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from time import time
 from django.contrib.auth.base_user import BaseUserManager
-from kusuriapp.models import Kusuri_Data
-
 class Question(models.Model):
     pass
-class Kusuri_Data(models.Model):
-    pass
 
+class KusuriData(models.Model):
+    pass
 
 def get_upload_file_name(filename):
     return  "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
@@ -543,5 +541,5 @@ class CompanyMedicineName(models.Model) :
     medicine_name = models.CharField(max_length=30, verbose_name='薬名', blank=True, null=True)
     initials = models.CharField(max_length=1, verbose_name='頭文字', blank=True, null=True)   
     class Meta:
-        db_table = 'link'
+        db_table = 'kusuri_datas'
         verbose_name_plural = '薬及び会社リスト'

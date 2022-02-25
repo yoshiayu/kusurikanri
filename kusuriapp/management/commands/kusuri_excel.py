@@ -1,27 +1,16 @@
 from django.core.management.base import BaseCommand
-from kusuriapp.models import Kusuri_Data
 import openpyxl
-import sys
-
-file_xlsx = "static/kusuriapp/link.xlsx"
+import os
 
 class Command(BaseCommand):
-    help = 'Displays current time'
 
     def handle(self, *args, **kwargs):
-#
-        sys.stderr.write("*** start ***\n")
-        fp = open(file_xlsx, 'r')
-        reader = openpyxl.reader(fp)
-        for rr in reader:
-            print(rr)
-            hh = Kusuri_Data()
-            hh.company_id = rr[0]
-            hh.ccompany_name = rr[1]
-            hh.medicine_id = rr[2]
-            hh.medicine_name = rr[3]
-            hh.initials = rr[4]
-            hh.save()
-#
-        sys.stderr.write("*** end ***\n")
-        fp.close()
+        for folder, subFolder, files in os.walk('static'):
+            for file in files:
+                if file.endswith('.xlsx'):
+                    wb = openpyxl.load_workbook(f'{folder}/{file}')
+                    for sheet_name in wb.sheetnames:  # シートでループ
+                        ws = wb[sheet_name]
+                        for row in ws.iter_rows(min_row=2):  # 一行目はヘッダーなのでスキップし、行でループ
+                            for cell in row:  # セルでループ
+                                print(f'row: {cell.row}, column: {cell.column}, value: {cell.value}')

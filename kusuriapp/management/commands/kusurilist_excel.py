@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from kusuriapp.models import Kusuri_Data
+from kusuriapp.models import KusuriData
 import sys
 
 class Command(BaseCommand):
@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         sys.stderr.write("*** start ***\n")
 #
-        for h in Kusuri_Data.objects.all():
+        for h in KusuriData.objects.all():
             print(h.company_id,"\t", end="")
             print(h.company_name,"\t", end="")
             print(h.medicine_id,"\t", end="")
