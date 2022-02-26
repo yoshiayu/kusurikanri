@@ -9,9 +9,6 @@ from django.contrib.auth.base_user import BaseUserManager
 class Question(models.Model):
     pass
 
-class KusuriData(models.Model):
-    pass
-
 def get_upload_file_name(filename):
     return  "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
 
@@ -466,14 +463,10 @@ COMPANY_LIST = (
     )    
 class MedicineRegister(models.Model) :
     name = models.ForeignKey(MedicineNameManagement, on_delete=models.CASCADE, verbose_name='服用者')
-    medicine = models.CharField(
-        verbose_name='服用薬',
-        blank=True,
-        null=True,
-        max_length=50,
-        default='',
-    )
-   
+    medicine = models.ForeignKey('CompanyMedicineName', on_delete=models.CASCADE, verbose_name='服用薬', default=None)
+    def __str__(self):
+        return self.medicine('CompanyMedicineName')
+    
     kinds = models.CharField(
         verbose_name='種別',
         blank=True,
@@ -496,17 +489,14 @@ class MedicineRegister(models.Model) :
     def __str__(self):
         return self.dosage_form
    
-    socienty = models.CharField(
-        verbose_name='メーカー',
-        blank=True,
-        null=True,
-        max_length=50,
-        default='',
-        choices=COMPANY_LIST
-    )
-    def __str__(self):
-        return self.socienty
-
+    # socienty = models.CharField(
+    #    verbose_name='メーカー',
+    #    blank=True,
+    #    null=True,
+    #    max_length=50,
+    #    default='',
+    #    choices=COMPANY_LIST
+    # )
 class TakingDosage(models.Model) :
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.ForeignKey(MedicineNameManagement, on_delete=models.CASCADE, verbose_name='服用者')
@@ -541,5 +531,7 @@ class CompanyMedicineName(models.Model) :
     medicine_name = models.CharField(max_length=30, verbose_name='薬名', blank=True, null=True)
     initials = models.CharField(max_length=1, verbose_name='頭文字', blank=True, null=True)   
     class Meta:
-        db_table = 'kusuri_datas'
         verbose_name_plural = '薬及び会社リスト'
+    def __str__(self):
+        return self.medicine_name
+

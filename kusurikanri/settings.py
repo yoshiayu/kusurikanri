@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kusuriapp.apps.KusuriappConfig',
+    'import_export', 
 ]
 
 AUTH_USER_MODEL = 'kusuriapp.User'
