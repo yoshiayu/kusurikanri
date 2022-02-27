@@ -464,8 +464,8 @@ COMPANY_LIST = (
 class MedicineRegister(models.Model) :
     name = models.ForeignKey(MedicineNameManagement, on_delete=models.CASCADE, verbose_name='服用者')
     medicine = models.ForeignKey('CompanyMedicineName', on_delete=models.CASCADE, verbose_name='服用薬', default=None)
-    def __str__(self):
-        return self.medicine('CompanyMedicineName')
+    # def __str__(self):
+    #    return self.medicine('CompanyMedicineName')
     
     kinds = models.CharField(
         verbose_name='種別',
@@ -475,8 +475,8 @@ class MedicineRegister(models.Model) :
         default='',
         choices=KINDS_LIST
     )
-    def __str__(self):
-        return self.kinds
+    # def __str__(self):
+    #    return self.kinds
     
     dosage_form = models.CharField(
         verbose_name='剤型',
@@ -486,8 +486,8 @@ class MedicineRegister(models.Model) :
         default='',
         choices=DOSAGE_FORM
     )
-    def __str__(self):
-        return self.dosage_form
+    # def __str__(self):
+    #    return self.dosage_form
    
     # socienty = models.CharField(
     #    verbose_name='メーカー',
@@ -533,5 +533,5 @@ class CompanyMedicineName(models.Model) :
     class Meta:
         verbose_name_plural = '薬及び会社リスト'
     def __str__(self):
-        return self.medicine_name
+        return self.medicine_name if self.medicine_name else 'None'
 
