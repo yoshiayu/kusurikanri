@@ -47,11 +47,11 @@
 
 </head>
 
-<body class="text-center">
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
   <main class="form-signin">
-    {% extends 'base.html' %}
-
-    {% block content %}
     <div class="container">
     <form class="form-signin" method='post'>
         <img class="mb-4" src="../../images/medicine09.webp" alt="薬のイメージ図" width="150" height="150">
@@ -74,9 +74,7 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">登録</button>
     </form>
     </div>
-    {% endblock content %}
     </main>
-    
     <footer class="footer">
       <div>
           <a class="footer-logo">
@@ -86,7 +84,6 @@
         </div>
       </div>
   </footer>
-    </body>
-
-
+{% endblock content %}
+  </body>
 </html>

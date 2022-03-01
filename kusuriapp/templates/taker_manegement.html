@@ -46,14 +46,16 @@
     <link href="signin.css" rel="stylesheet">
 
 </head>
-<body class="text-center">
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
   <main class="form-taker">
-    {% block header %}
-    {% endblock header %}
       <div class="container">
         <form class="form-signin" method='post'>
             <img class="mb-4" src="../../images/medicine16.webp" alt="薬のイメージ図" width="150" height="150">
-    <div class="accordion accordion-flush" id="accordionFlushExample">
+            <h1 class="h3 mb-3 fw-normal">服用者管理</h1>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -115,8 +117,6 @@
         </div>
       </div>
     </main>
-    {% block content %}
-    {% endblock content %}
     <footer class="footer">
       <div>
           <a class="footer-logo">
@@ -126,7 +126,7 @@
         </div>
       </div>
   </footer>
-    </body>
+  {% endblock content %}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

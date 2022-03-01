@@ -41,7 +41,10 @@
       }
     </style>
   </head>
-  <body class="text-center">
+  <body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
     <main class="main">
         <div class="container">
             <form class="form-top" method='post'>
@@ -49,9 +52,6 @@
                 <img class="mb-2" src="../../images/medicine07.webp" alt="薬のイメージ図" width="150" height="150">
                 <h1 class="h5 mb-1 fw-normal">薬登録</h1>
             </div>    
-    {% block header %}
-    {% endblock header %}
-
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-1 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
@@ -100,11 +100,18 @@
 
       <select class="form-select" aria-label="Default select example">
 
-        <option button>製造メーカー</option>
+        <option selected>製造メーカー</option>
+        <option value="1">あ行</option>
+        <option value="2">か行</option>
+        <option value="3">さ行</option>
+        <option value="4">た行</option>
+        <option value="5">な行</option>
+        <option value="6">は行</option>
+        <option value="7">ま行</option>
+        <option value="8">や行</option>
+        <option value="9">ら行</option>
+        <option value="10">わ行</option>
       </select>
-
-    {% block content %}
-    {% endblock content %}
     <footer class="footer">
         <div>
             <a class="footer-logo">
@@ -114,6 +121,7 @@
           </div>
         </div>
     </footer>
+{% endblock content %}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

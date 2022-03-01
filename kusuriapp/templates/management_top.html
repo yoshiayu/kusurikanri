@@ -41,45 +41,42 @@
       }
     </style>
   </head>
-  <body class="text-center">
+  <body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
     <main class="main">
-        <div class="container">
+      <div class="container">
             <form class="form-top" method='post'>
             <div class="title">
                 <img class="mb-4" src="../../images/medicine07.webp" alt="薬のイメージ図" width="150" height="150">
                 <h1 class="h3 mb-3 fw-normal">薬管理</h1>
-            </div>    
-    {% block header %}
-    {% endblock header %}
+            </div>
     <select class="form-select" aria-label="Default select example">
-
         <option selected>服用者</option>
         <option value="1">本人</option>
         <option value="2">家族1</option>
         <option value="3">家族2</option>
         <option value="4">家族3</option>
         <option value="5">家族4</option>
-      </select>
+        <option value="6">家族5</option>
+    </select>
     
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option button>薬名</option>
-      </select>
+    </select>
 
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option selected>飲み始め</option>
         <option value=""></option>
-      </select>
+    </select>
 
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option selected>服用期間</option>
         <option value=""></option>
-      </select>
+    </select>
 
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option selected>服用間隔</option>
         <option value="1">毎日</option>
         <option value="2">1日</option>
@@ -88,41 +85,37 @@
         <option value="5">4日</option>
         <option value="5">5日</option>
         <option value="5">6日</option>
-      </select>
+    </select>
 
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option button>服用量</option>
-      </select>
+    </select>
 
-      <select class="form-select" aria-label="Default select example">
-
+    <select class="form-select" aria-label="Default select example">
         <option button>服用時刻</option>
-      </select>
+    </select>
       
       
-      <label for="switch" class="switch_label">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">アラームスイッチ</label>
-        </div>
+    <label for="switch" class="switch_label">
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">アラームスイッチ</label>
+    </div>
         
-      <div class="form-floating">
+    <div class="form-floating">
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
         <label for="floatingTextarea">薬メモ</label>
-      </div>
-    
-    {% block content %}
-    {% endblock content %}
+    </div> 
     <footer class="footer">
         <div>
             <a class="footer-logo">
               <img class="mt-2 mb-3" src="../../images/medicine11.webp" alt="薬のイメージ図" width="150" height="150">
             </a>
             <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>
-          </div>
         </div>
     </footer>
+  </div>
+{% endblock content %}   
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
