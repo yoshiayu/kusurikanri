@@ -492,8 +492,8 @@ class MedicineRegister(models.Model):
     medicine = models.ForeignKey(
         'CompanyMedicineName', on_delete=models.CASCADE, verbose_name='服用薬', blank=True, null=True, default=1)
 
-    def __str__(self):
-        return self.medicine('CompanyMedicineName')
+    # def __str__(self):
+    #    return self.medicine('CompanyMedicineName')
 
     kinds = models.CharField(
         verbose_name='種別',
@@ -577,4 +577,4 @@ class CompanyMedicineName(models.Model):
         verbose_name_plural = '薬及び会社リスト'
 
     def __str__(self):
-        return self.medicine_name if self.medicine_name else 'None'
+        return self.medicine_name

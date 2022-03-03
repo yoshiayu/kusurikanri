@@ -1,64 +1,36 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
-from .models import User, MedicineMangement, MedicineNameManagement, TakingTimeAlarm
 
 
-class AppList(ListView):
-    template_name = 'signin.html'
-    models = User
+def signinview(request):
+    print(request.POST.get('email_data'))
+    return render(request, 'signin.html', {'somedata': 100})
 
 
-class AppList(ListView):
-    template_name = 'management_top.html'
-    models = MedicineMangement
+def topview(request):
+    print(request.POST.get(''))
+    return render(request, 'top.html', {'somedata': 100})
 
 
-class AppList(ListView):
-    template_name = 'medicine_registration.html'
-    models = MedicineNameManagement
+def timesettingview(request):
+    print(request.POST.get(''))
+    return render(request, 'time_setting.html', {'somedata': 100})
 
 
-class AppList(ListView):
-    template_name = 'time_setting.html'
-    models = TakingTimeAlarm
+def takermanegementview(request):
+    print(request.POST.get(''))
+    return render(request, 'taker_manegement.html', {'somedata': 100})
 
 
-class AppDetail(DetailView):
-    template_name = 'signin.html'
-    models = User
+def settingtopview(request):
+    print(request.POST.get(''))
+    return render(request, 'setting_top.html', {'somedata': 100})
 
 
-class AppDetail(DetailView):
-    template_name = 'management_top.html'
-    models = MedicineMangement
+def medicineregistrationview(request):
+    print(request.POST.get(''))
+    return render(request, 'medicine_registration.html', {'somedata': 100})
 
 
-class AppDetail(DetailView):
-    template_name = 'medicine_registration.html'
-    models = MedicineNameManagement
-
-
-class AppDetail(DetailView):
-    template_name = 'time_setting.html'
-    models = TakingTimeAlarm
-
-
-class AppCreate(CreateView):
-    template_name = 'signin.html'
-    models = User
-
-
-class AppCreate(CreateView):
-    template_name = 'management_top.html'
-    models = MedicineMangement
-
-
-class AppCreate(CreateView):
-    template_name = 'medicine_registration.html'
-    models = MedicineNameManagement
-
-
-class AppCreate(CreateView):
-    template_name = 'time_setting.html'
-    models = TakingTimeAlarm
-# Create your views here.
+def managementtopview(request):
+    print(request.POST.get(''))
+    return render(request, 'management_top.html', {'somedata': 100})
