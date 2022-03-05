@@ -5,7 +5,7 @@ from .views import signinview, topview, timesettingview, takermanegementview, se
 
 urlpatterns = [
     path("signin", signinview, name="signin"),
-    path("top", topview, name="top"),
+    path("top/", topview, name="top"),
     path("timesetting", timesettingview, name="timesetting"),
     path("takermanegement", takermanegementview, name="takermanegement"),
     path("settingtop", settingtopview, name="settingtop"),
