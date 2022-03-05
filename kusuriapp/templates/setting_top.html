@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="text-center">
     <main class="main">
         <div class="container">
@@ -13,7 +14,7 @@
         <button class="btn btn-primary" type="button">個人管理</button>
         <button class="btn btn-primary" type="button">薬の管理</button>
         <button class="btn btn-primary" type="button">家族管理</button>
-        <button class="btn btn-primary" type="button">アラーム時間設定</button>        
+        <a href="{% url 'timesetting' %}" class="btn btn-primary">アラーム時間設定</a>        
       </div>
     <footer class="footer">
         <div>
