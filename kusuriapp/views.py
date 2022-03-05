@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import TakingTimeAlarm
+from .models import TakingTimeAlarm, CompanyMedicineName
 from .forms import TimeSettingForm
 
 def signinview(request):
@@ -36,8 +36,8 @@ def settingtopview(request):
 
 
 def medicineregistrationview(request):
-    print(request.POST.get(''))
-    return render(request, 'medicine_registration.html', {'somedata': 100})
+    object_list = CompanyMedicineName.objects.all()
+    return render(request, 'medicine_registration.html', {'object_list': object_list})
 
 
 def managementtopview(request):
