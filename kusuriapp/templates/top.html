@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="container">
   <div class="text-center">
     <main class="main">
@@ -12,13 +13,12 @@
         </div>
     <div class='container'>
       <div class="d-grid gap-4 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">薬の管理</button>
-        <button class="btn btn-primary" type="button">登録薬</button>
-        <button class="btn btn-primary" type="button">服用カレンダー</button>
-        <button class="btn btn-primary" type="button">設定</button>
+        <a href="{% url 'managementtop' %}" class="btn btn-primary">薬の管理</a>
+        <a href="{% url 'medicineregistration' %}" class="btn btn-primary">登録薬</a>
+        <a href="{% url 'timesetting' %}" class="btn btn-primary">服用カレンダー</a>
+        <a href="{% url 'settingtop' %}" class="btn btn-primary">設定</a>
       </div>
     </div>
-
     <footer class="footer">
       <div class="text-center">
         <div>

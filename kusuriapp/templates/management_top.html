@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="text-center">
     <main class="main">
       <div class="container">
-            <form class="form-top" method='post'>
+            <form class="form-top" method='post'>{% csrf_token %}
             <div class="title">
                 <img class="mb-4" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
                 <h1 class="h3 mb-3 fw-normal">薬管理</h1>
             </div>
+    {% for object in object_list %}
+       <p>{{ object.taking_start }}</p>
+       <p>{{ object.taking_dossage }}</p>
+       <p>{{ object.name }}</p>
+       <p>{{ object.taking_unit }}</p>
+       <p>{{ object.taking_end }}</p>
+       <p>{{ object.text }}</p>
+    {% endfor %}
     <select class="form-select" aria-label="Default select example">
         <option selected>服用者</option>
         <option value="1">本人</option>

@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
   <div class="text-center">
     <main class="main">
     <div class="container">
-      <form class="form-time" method='post'>
+
+      {% if messages %}
+      <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+          {{ messages }}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h2>登録状況</h2>
+      {% for item in object_list %}
+        <p>{{ item.taking_time|date:'H:i' }}</p>
+      {% endfor %}
+
+      {{ errors }}
+
+      <form class="form-time" method='post'>{% csrf_token %}
           <img class="mb-4" src="{% static './kusuriapp/medicine17.webp' %}" alt="薬のイメージ図" width="150" height="150"> 
           <h1 class="h3 mb-3 fw-normal">服用時間管理</h1>
           <dt>
@@ -15,25 +32,38 @@
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <p>食前<label class="form-check-label" for="inlineRadio2"></label></p>
+        <p>
+          食前<label class="form-check-label" for="inlineRadio2"></label>
+          <input type="text" name="taking_time">
+        </p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-        <p>食後<label class="form-check-label" for="inlineRadio3"></label></p>
+        <p>
+          食後<label class="form-check-label" for="inlineRadio3"></label>
+          <input type="time">
+        </p>
       </div>
     </dt>
       <dt>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-        <p>昼<label class="form-check-label" for="inlineRadio4"></label></p>
+        <p>
+          昼<label class="form-check-label" for="inlineRadio4"></label></p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-        <p>食前<label class="form-check-label" for="inlineRadio5"></label></p>
+        <p>
+          食前<label class="form-check-label" for="inlineRadio5"></label>
+          <input type="time">
+        </p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-        <p>食後<label class="form-check-label" for="inlineRadio6"></label></p>
+        <p>
+          食後<label class="form-check-label" for="inlineRadio6"></label>
+          <input type="time">
+        </p>
       </div>
       </dt>
       <dt>
@@ -43,27 +73,44 @@
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="option8">
-        <p>食前<label class="form-check-label" for="inlineRadio8"></label></p>
+        <p>
+          食前<label class="form-check-label" for="inlineRadio8"></label>
+          <input type="time">
+        </p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio9" value="option9">
-        <p>食後<label class="form-check-label" for="inlineRadio9"></label></p>
+        <p>
+          食後<label class="form-check-label" for="inlineRadio9"></label>
+          <input type="time">
+        </p>
       </div>
     </dt>
     <dt>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio10" value="option10">
-        <p>就寝前<label class="form-check-label" for="inlineRadio10"></label></p>
+        <p>
+          就寝前<label class="form-check-label" for="inlineRadio10"></label>
+          <input type="time">
+        </p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio11" value="option11">
-        <p>食間（朝昼）<label class="form-check-label" for="inlineRadio11"></label></p>
+        <p>
+          食間（朝昼）<label class="form-check-label" for="inlineRadio11"></label>
+          <input type="time">
+        </p>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio12" value="option12">
-        <p>食間（昼夕）<label class="form-check-label" for="inlineRadio12"></label></p>
+        <p>
+          食間（昼夕）<label class="form-check-label" for="inlineRadio12"></label>
+          <input type="time">
+        </p>
       </div>
     </dt>
+    <button class="btn btn-primary">登録する</button>
+  </form>
   </main>
   <footer class="footer">
     <div>

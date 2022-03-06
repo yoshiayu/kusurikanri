@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% for item in object_list %}
+  {{ item.email }}
+  {{ item.user_id }}
+  {{ item.login_id }}
+{% endfor %}
 <div class="text-center">
   <main class="form-signin">
     <div class="container">
-    <form class="form-signin" method='post'>
+    <form class="form-signin" method='post'>{% csrf_token %}
         <img class="mb-4" src="{% static './kusuriapp/medicine09.webp' %}" alt="薬のイメージ図" width="150" height="150">
         <h1 class="h3 mb-3 fw-normal">サインイン</h1>
 

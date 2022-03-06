@@ -5,11 +5,11 @@ from .views import signinview, topview, timesettingview, takermanegementview, se
 
 urlpatterns = [
     path("signin", signinview, name="signin"),
-    path("top", topview, name="top"),
-    path("timesetting", timesettingview, name="timesetting"),
+    path("top/", topview, name="top"),
+    path("timesetting/", timesettingview, name="timesetting"),
     path("takermanegement", takermanegementview, name="takermanegement"),
     path("settingtop", settingtopview, name="settingtop"),
-    path("medicineregistration", medicineregistrationview,
+    path("medicineregistration/", medicineregistrationview,
          name="medicineregistration"),
-    path("managementtop", managementtopview, name="managementtop"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path("managementtop/", managementtopview, name="managementtop"),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
