@@ -2,12 +2,13 @@
 {% block content %}
 {% load static %}
 
+
   <div class="text-center">
     <main class="main">
     <div class="container">
 
       {% if messages %}
-      <div class="alert alert-danger" role="alert">
+      <div class="alert alert-danger">
         {% for message in messages %}
           {{ messages }}
         {% endfor %}
@@ -34,7 +35,7 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
         <p>
           食前<label class="form-check-label" for="inlineRadio2"></label>
-          <input type="text" name="taking_time">
+          <input type="time" name="item.taking_time">
         </p>
       </div>
       <div class="form-check form-check-inline">

@@ -64,55 +64,53 @@
             <div class="accordion-body">
         <strong>
         <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <div>
-                <a class="nav-link active" aria-current="true" href="#">あ行</a>
-                {% for object in object_list %}
-                <p>{{ object.initials }}</p>
-                {% endfor %}
-                </div> 
+          <form class="card-header">
+            <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+              {% for initial in 'あかさたなはまやらわ' %}
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link {% if forloop.first %}active{% endif %}"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab{{ forloop.counter }}"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab{{ forloop.counter }}"
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                >
+                  {{ initial }}行
+                </button>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">か行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">さ行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">た行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">な行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">は行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">ま行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">や行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">ら行</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">わ行</a>
-              </li>
+              {% endfor %}
             </ul>
+            
+            <div class="tab-content mt-2" id="myTabContent">
+              {% for object in object_list %}
+                {% ifchanged object.initials %}
+                  {% if not forloop.first %}</ul></div>{% endif %}
+                  <div
+                    id="tab{% if object.initials == 'あ' %}1{% elif object.initials == 'か' %}2{% elif object.initials == 'さ' %}3{% elif object.initials == 'た' %}4{% elif object.initials == 'な' %}5{% elif object.initials == 'は' %}6{% elif object.initials == 'ま' %}7{% elif object.initials == 'や' %}8{% elif object.initials == 'ら' %}9{% elif object.initials == 'わ' %}10{% endif %}"
+                    class="tab-pane fade {% if forloop.first %}show active{% endif %}" role="tabpanel"
+                  >
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <div class="fw-bold">{{ object.medicine_name }}</div>
+                      {{ object.company_name }}
+                    </li>
+                {% else %}
+                  <li class="list-group-item">
+                    <div class="fw-bold">{{ object.medicine_name }}</div>
+                    {{ object.company_name }}
+                  </li>
+                {% endifchanged %}
+              {% endfor %}
+            </div>
           </div>
-          <div class="card-body">
-            <h4 class="card-title">会社一覧</h4>
-            <p class="card-text">会社一覧から薬を選択する</p>
-            <a href="#" class="btn btn-primary">追加</a>
-          </strong>
         </div>
-          </div>
+        </form>
         </div>
         </div>
       </div>
+      <a href="#" class="btn btn-primary">追加</a>
     <footer class="footer">
         <div>
             <a class="footer-logo">

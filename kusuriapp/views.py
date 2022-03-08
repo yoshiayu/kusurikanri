@@ -1,7 +1,22 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement
-from .forms import TimeSettingForm, ManagementTopForm
+from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, User
+from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm
+from django.views.generic import DeleteView, UpdateView
+from django.urls import reverse_lazy
+
+
+class TakermanegemenDelete(DeleteView):
+    template_name = 'taker_manegement.html'
+    model = TakingDosage
+    success_url = reverse_lazy('list')
+
+
+class TopUpdate(UpdateView):
+    template_name = 'top.html'
+    model = User
+    fields = ('email')
+    success_url = reverse_lazy('list')
 
 
 def signinview(request):
@@ -38,7 +53,9 @@ def settingtopview(request):
 
 
 def medicineregistrationview(request):
-    object_list = CompanyMedicineName.objects.all()
+    object_list = CompanyMedicineName.objects.filter(
+        initials__isnull=False).order_by('initials')
+
     return render(request, 'medicine_registration.html', {'object_list': object_list})
 
 
@@ -55,4 +72,5 @@ def managementtopview(request):
                 taking_end=request.POST['taking_end'],
                 text=request.POST['text']
             )
+            messages.success(request, '登録されました。')
     return render(request, 'management_top.html', {'object_list': object_list})
