@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, User
+from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
 from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm
-from django.views.generic import DeleteView, UpdateView
+from django.views.generic import DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
+from django.db import IntegrityError
+from django.contrib.auth.models import User
 
 
 class TakermanegemenDelete(DeleteView):
@@ -12,16 +14,52 @@ class TakermanegemenDelete(DeleteView):
     success_url = reverse_lazy('list')
 
 
-class TopUpdate(UpdateView):
+class MedicineRegistrationCreate(CreateView):
     template_name = 'top.html'
+    model = MedicineRegister
+    fields = ('medicine')
+    success_url = reverse_lazy('list')
+
+
+class TakerManegementCreate(CreateView):
+    template_name = 'taker_manegement.html'
+    model = TakingDosage
+    fields = ('name')
+    success_url = reverse_lazy('list')
+
+
+class TimeSettingUpdate(UpdateView):
+    template_name = 'time_setting.html'
+    model = MedicineMangement
+    fields = ('text')
+    success_url = reverse_lazy('list')
+
+
+class ManagementTopCreate(CreateView):
+    template_name = 'management_top.html'
+    model = TakingTimeAlarm
+    fields = ('taking_time')
+    success_url = reverse_lazy('list')
+
+
+class SigninCreate(CreateView):
+    template_name = 'signin.html'
     model = User
-    fields = ('email')
+    fields = ('email_data', 'password_data')
     success_url = reverse_lazy('list')
 
 
 def signinview(request):
-    print(request.POST.get('email_data'))
-    return render(request, 'signin.html', {'somedata': 100})
+    if request.method == 'POST':
+        email_data = request.POST['email_data']
+        password_data = request.POST['password_data']
+        try:
+            User.objects.create_user(email_data, password_data)
+        except IntegrityError:
+            return render(request, 'signin.html', {'error': 'このユーザーは既に登録されています。'})
+    else:
+        return render(request, 'signin.html', {})
+    return render(request, 'signin.html', {})
 
 
 def topview(request):

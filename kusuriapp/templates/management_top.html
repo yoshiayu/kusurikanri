@@ -70,6 +70,11 @@
         
     <div class="form-floating">
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <form action='' method='POST'>{% csrf_token %}  
+            {{ form.as_p}}
+          <!-- <input type="submit" value='登録する'> -->
+          <button type="submit" class="btn btn-outline-primary">登録する</button>
+          </form>
         <label for="floatingTextarea">薬メモ</label>
     </div> 
     <footer class="footer">

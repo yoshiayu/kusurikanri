@@ -12,7 +12,9 @@
     <form class="form-signin" method='post'>{% csrf_token %}
         <img class="mb-4" src="{% static './kusuriapp/medicine09.webp' %}" alt="薬のイメージ図" width="150" height="150">
         <h1 class="h3 mb-3 fw-normal">サインイン</h1>
-
+{% if error %}
+{{ error }}
+{% endif %}
         <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name=email_data required autofoncus>
         <label for="floatingInput">Emailアドレス</label>
@@ -27,7 +29,12 @@
             <input type="checkbox" value="remember-me"> ログイン状態を保持する
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">登録</button>
+        <form action='' method='POST'>{% csrf_token %}  
+          {{ form.as_p}}
+        <!-- <input type="submit" value='登録する'> -->
+        <button class="w-100 btn btn-lg btn-primary" type="submit">登録する</button>
+        </form>
+        
     </form>
     </div>
     </main>

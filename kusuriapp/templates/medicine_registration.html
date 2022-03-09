@@ -110,7 +110,10 @@
         </div>
         </div>
       </div>
-      <a href="#" class="btn btn-primary">追加</a>
+      <form action='' method='POST'>{% csrf_token %}
+        {{ form.as_p}}
+      <input type="submit" value='登録する'>
+      </form>
     <footer class="footer">
         <div>
             <a class="footer-logo">
