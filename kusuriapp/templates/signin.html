@@ -29,12 +29,14 @@
             <input type="checkbox" value="remember-me"> ログイン状態を保持する
         </label>
         </div>
+        <input type="submit" class="btn btn-primary" value='登録する'>
+      </form>
+        {% if user.is_authenticated %}
         <form action='' method='POST'>{% csrf_token %}  
-          {{ form.as_p}}
-        <!-- <input type="submit" value='登録する'> -->
-        <button class="w-100 btn btn-lg btn-primary" type="submit">登録する</button>
+          {% else %}
+        <a href="{% url 'top' %}">設定</a>
         </form>
-        
+        {% endif %}
     </form>
     </div>
     </main>
@@ -47,6 +49,10 @@
         </div>
       </div>
   </footer>
+  <script>
+    'user script'
+    window.alert('登録が完了しました。')
+  </script>
 {% endblock content %}
   </body>
 </html>

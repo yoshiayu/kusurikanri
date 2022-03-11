@@ -120,3 +120,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
+#　ログイン画面に関する設定
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+
+LOGIN_REDIRECT_URL = 'kusuriapp:top'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'kusuriapp:signin'

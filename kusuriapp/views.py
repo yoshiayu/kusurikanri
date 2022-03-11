@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
 from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm
 from django.views.generic import DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.db import IntegrityError
-from django.contrib.auth.models import User
+from .models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 class TakermanegemenDelete(DeleteView):
@@ -60,6 +62,21 @@ def signinview(request):
     else:
         return render(request, 'signin.html', {})
     return render(request, 'signin.html', {})
+
+
+@login_required
+def loginview(request):
+    if request.method == 'POST':
+        email_data = request.POST['email_data']
+        password_data = request.POST['password_data']
+        user = authenticate(request, username=email_data,
+                            password=password_data)
+        if user is not None:
+            login(request, user)
+            return redirect('top')
+        else:
+            return render(request, 'top.html')
+    return render(request, 'top.html')
 
 
 def topview(request):

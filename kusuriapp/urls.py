@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import signinview, topview, timesettingview, takermanegementview, settingtopview, medicineregistrationview, managementtopview, TakermanegemenDelete, MedicineRegistrationCreate, TakerManegementCreate, ManagementTopCreate, SigninCreate, TimeSettingUpdate
+from .views import signinview, loginview, topview, timesettingview, takermanegementview, settingtopview, medicineregistrationview, managementtopview, TakermanegemenDelete, MedicineRegistrationCreate, TakerManegementCreate, ManagementTopCreate, SigninCreate, TimeSettingUpdate
 
 urlpatterns = [
-    path("signin", signinview, name="signin"),
+    path("signin/", signinview, name="signin"),
+    path("login/", loginview, name="login"),
     path("top/", topview, name="top"),
     path("timesetting/", timesettingview, name="timesetting"),
     path("takermanegement", takermanegementview, name="takermanegement"),
