@@ -1,5 +1,6 @@
 from django import forms
-from .models import TakingTimeAlarm, MedicineMangement, CompanyMedicineName
+from .models import TakingTimeAlarm, MedicineMangement, CompanyMedicineName, Item
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput, DatePickerInput, TimePickerInput
 
 
 class TimeSettingForm(forms.ModelForm):
@@ -12,6 +13,12 @@ class ManagementTopForm(forms.ModelForm):
     class Meta:
         model = MedicineMangement
         fields = '__all__'
+        widgets = {
+            'taking_start': DateTimePickerInput(options={
+                'format': 'YYYY/MM/DD HH:mm',
+                'locale': 'ja',
+            })
+        }
 
 
 class CompanyMedicineNameForm(forms.ModelForm):

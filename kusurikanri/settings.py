@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kusuriapp.apps.KusuriappConfig',
     'import_export',
+    'bootstrap_datepicker_plus',
 ]
 
 AUTH_USER_MODEL = 'kusuriapp.User'

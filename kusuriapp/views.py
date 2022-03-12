@@ -57,14 +57,13 @@ def signinview(request):
         password_data = request.POST['password_data']
         try:
             User.objects.create_user(email_data, password_data)
+            return redirect('top')
         except IntegrityError:
             return render(request, 'signin.html', {'error': 'このユーザーは既に登録されています。'})
     else:
         return render(request, 'signin.html', {})
-    return render(request, 'signin.html', {})
 
 
-@login_required
 def loginview(request):
     if request.method == 'POST':
         email_data = request.POST['email_data']
@@ -79,6 +78,7 @@ def loginview(request):
     return render(request, 'top.html')
 
 
+@login_required
 def topview(request):
     return render(request, 'top.html')
 
@@ -115,6 +115,7 @@ def medicineregistrationview(request):
 
 
 def managementtopview(request):
+    form = ManagementTopForm()
     object_list = MedicineMangement.objects.all()
     if request.method == 'POST':
         form = ManagementTopForm(request.POST)
@@ -128,4 +129,4 @@ def managementtopview(request):
                 text=request.POST['text']
             )
             messages.success(request, '登録されました。')
-    return render(request, 'management_top.html', {'object_list': object_list})
+    return render(request, 'management_top.html', {'object_list': object_list, 'form': form})
