@@ -115,6 +115,7 @@ def medicineregistrationview(request):
 
 
 def managementtopview(request):
+    form = ManagementTopForm()
     object_list = MedicineMangement.objects.all()
     if request.method == 'POST':
         form = ManagementTopForm(request.POST)
@@ -128,4 +129,4 @@ def managementtopview(request):
                 text=request.POST['text']
             )
             messages.success(request, '登録されました。')
-    return render(request, 'management_top.html', {'object_list': object_list})
+    return render(request, 'management_top.html', {'object_list': object_list, 'form': form})
