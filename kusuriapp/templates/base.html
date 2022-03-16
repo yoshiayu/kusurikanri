@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="ja">
   {% load static %}
-  <link href="{% static 'top.css' %}" rel="stylesheet">
+  <link href="{% static 'top.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'taker_manegement.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'signin.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'management_top.css' %}?{% now "U" %}" rel="stylesheet">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

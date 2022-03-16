@@ -4,27 +4,29 @@
 
 <div class="container">
   <div class="text-center">
+    
     <main class="main">
             <form class="form-top" method='post'>{% csrf_token %}
-            <div class="title">
+
+              <div class="title">
                 <img class="mb-4" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
                 <h1 class="h3 mb-3 fw-normal">薬管理</h1>
-            </div>
-        </div>
-    <div class='container'>
-      <div class="d-grid gap-4 col-6 mx-auto">
-        <a href="{% url 'managementtop' %}" class="btn btn-primary">薬の管理</a>
-        <a href="{% url 'medicineregistration' %}" class="btn btn-primary">登録薬</a>
-        <a href="{% url 'settingtop' %}" class="btn btn-primary">設定</a>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="text-center">
-        <div>
-            <a class="footer-logo">
-              <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
-            </a>
-            <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>
-        </div>
-    </footer>
+              </div>       
+    
+
+              <div class="d-grid gap-4 col-6 mx-auto">    
+                <a href="{% url 'managementtop' %}" class="btn btn-primary">薬の管理</a>    
+                <a href="{% url 'medicineregistration' %}" class="btn btn-primary">登録薬</a>    
+                <a href="{% url 'settingtop' %}" class="btn btn-primary">設定</a>    
+              </div>
+        
+
+              <div class="text-center">
+                <a class="footer-logo">        
+                <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">        
+                </a>        
+                <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>        
+              </div>
+  </div>
+</div>
 {% endblock content %}

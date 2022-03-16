@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.first-view {
+    background-color: rgb(162, 247, 226);
+}
+
+.container h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+.form-floating label{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.checkbox {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+@media (max-width:800px) {
+    
+}

@@ -7,28 +7,25 @@
     margin: 0;
 }
 
-.container {
-    background-color: rgb(211, 248, 239);
+.first-view {
+    background-color: rgb(162, 247, 226);
 }
 
-.title h1 {
+.container h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
 }
 
-.d-grid a {
+.form-floating {
     font-family: 'Montserrat', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
+    font-style: oblique;
 }
 
-p {
+.accordion-body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-}
-
-.footer {
-    background-color: rgb(211, 248, 239);
-    
+    font-size: 20px;
+    color: blue;
 }
 
 @media (max-width:800px) {

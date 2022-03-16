@@ -18,9 +18,12 @@
        <p>{{ object.taking_end }}</p>
        <p>{{ object.text }}</p>
     {% endfor %}
+    <div class="title">
     <div class="form-floating">
         <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name=name required autofoncus>
+        
         <label for="floatingInput">服用者</label>
+        </div>
     </div>
     
     
@@ -72,28 +75,29 @@
     </select>
     {{ form.taking_start }}
       
-    <label for="switch" class="switch_label">
+    <div class="switch">
     <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">アラームスイッチ</label>
     </div>
+</div>
         
+    <div class="footer-title">
     <div class="form-floating">
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
         <form action='' method='POST'>{% csrf_token %}  
           <!-- {{ form.as_p}} -->
           <!-- <input type="submit" value='登録する'> -->
-          <button type="submit" class="btn btn-outline-primary">登録する</button>
+          <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
           </form>
         <label for="floatingTextarea">薬メモ</label>
+        </div>
     </div> 
-    <footer class="footer">
         <div>
             <a class="footer-logo">
               <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
             </a>
             <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>
         </div>
-    </footer>
   </div>
 {% endblock content %} 

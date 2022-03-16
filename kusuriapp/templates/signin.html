@@ -9,7 +9,7 @@
 <div class="text-center">
   <main class="form-signin">
     <div class="container">
-    <form class="form-signin" method='post'>{% csrf_token %}
+      <form class="form-signin" method='post'>{% csrf_token %}
         <img class="mb-4" src="{% static './kusuriapp/medicine09.webp' %}" alt="薬のイメージ図" width="150" height="150">
         <h1 class="h3 mb-3 fw-normal">サインイン</h1>
 {% if error %}
@@ -46,17 +46,16 @@
         </form>
         {% endif %}
     </form>
-    </div>
-    </main>
-    <footer class="footer">
-      <div>
+    
+        <div>
           <a class="footer-logo">
             <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
           </a>
           <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>
         </div>
-      </div>
-  </footer>
+    </div>
+  </main>
+</div>
   <script>
     'user script'
     window.alert('登録が完了しました。')
