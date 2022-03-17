@@ -3,50 +3,51 @@
 {% load static %}
 
 <div class="text-center">
-    <main class="main">
-        <div class="container">
-            <form class="form-top" method='post'>{% csrf_token %}
-            <div class="title">
-                <img class="mb-2" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
-                <h1 class="h5 mb-1 fw-normal">薬登録</h1>
+  <main class="main">
+    <div class="container">
+      <form class="form-top" method='post'>{% csrf_token %}
+        <div class="title">
+          <img class="mb-2" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
+            <h1 class="h5 mb-1 fw-normal">薬登録</h1>
+            
+            <div class="local-nav">
+              <input id="js-search-text" type="search" class="form-control" placeholder="検索ワード">
+              <button type="bytton" class="button-common" id="js-search-btn">検索する</button>
+            </div>
+
+        </div>
+      </form>      
         <div>
-        <form class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
-      </div>      
-      </div>
-      <div>
-    <select class="form-select" aria-label="Default select example">
-      <option selected>薬名</option>
-      {% for object in object_list %}
-      <option><p>{{ object.medicine_name }}</p></option>
-      {% endfor %}      
-      </select>
-    </div>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>薬名</option>
+            {% for object in object_list %}
+            <option><p>{{ object.medicine_name }}</p></option>
+            {% endfor %}      
+          </select>
+        </div>
 
-    <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>種別</option>
+          <option value="1">処方</option>
+          <option value="2">処方(ジェネリック)</option>
+          <option value="3">処方(漢方)</option>
+          <option value="4">市販薬</option>
+          <option value="5">市販薬(子供用)</option>
+          <option value="5">セルフメディケーション税剤対象</option>
+        </select>
 
-        <option selected>種別</option>
-        <option value="1">処方</option>
-        <option value="2">処方(ジェネリック)</option>
-        <option value="3">処方(漢方)</option>
-        <option value="4">市販薬</option>
-        <option value="5">市販薬(子供用)</option>
-        <option value="5">セルフメディケーション税剤対象</option>
-      </select>
+        <select class="form-select" aria-label="Default select example">
 
-      <select class="form-select" aria-label="Default select example">
-
-        <option selected>剤型</option>
-        <option value="1">散剤</option>
-        <option value="2">錠剤</option>
-        <option value="3">カプセル</option>
-        <option value="4">液剤</option>
-        <option value="5">外用薬</option>
-        <option value="6">注射剤</option>
-        <option value="7">自己注射剤</option>
-        <option value="8">その他</option>
-      </select>
+          <option selected>剤型</option>
+          <option value="1">散剤</option>
+          <option value="2">錠剤</option>
+          <option value="3">カプセル</option>
+          <option value="4">液剤</option>
+          <option value="5">外用薬</option>
+          <option value="6">注射剤</option>
+          <option value="7">自己注射剤</option>
+          <option value="8">その他</option>
+        </select>
 
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -57,357 +58,368 @@
               </h4>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-            <strong>
-            <div class="card text-center">
-              <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                  <li class="nav-item">
-                    <div>
-                    <a class="nav-link active" aria-current="true" href="#">あ行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>株式会社浅田飴</option>
-                      <option value="1">旭化成ファーマ株式会社</option>
-                      <option value="2">アサヒグループ食品株式会社</option>
-                      <option value="3">アサヒフードアンドヘルスケア株式会社</option>
-                      <option value="4">あすか製薬株式会社</option>
-                      <option value="5">アステラス製薬株式会社</option>
-                      <option value="6">アストラゼネカ株式会社'</option>
-                      <option value="7">阿蘇製薬株式会社</option>
-                      <option value="8">アッヴィ合同会社</option>
-                      <option value="9">アミカス・セラピューティクス株式会社</option>
-                      <option value="10">あゆみ製薬株式会社</option>
-                      <option value="11">アラクス株式会社</option>
-                      <option value="12">アルフレッサファーマ株式会社</option>
-                      <option value="13">アース製薬株式会社</option>
-                      <option value="14">株式会社池田模範堂</option>
-                      <option value="15">イスクラ産業株式会社</option>
-                      <option value="16">伊丹製薬</option>
-                      <option value="17">イチジク製薬株式会社</option>
-                      <option value="18">井藤漢方製薬株式会社</option>
-                      <option value="19">岩城製薬株式会社</option>
-                      <option value="20">EAファーマ株式会社</option>
-                      <option value="21">うすき製薬株式会社</option>
-                      <option value="22">宇津救命丸株式会社</option>
-                      <option value="23">エスエス製薬株式会社</option>
-                      <option value="24">株式会社 エッセンシャルファーマ</option>
-                      <option value="25">エフピー株式会社</option>
-                      <option value="26">Me ファルマ株式会社</option>
-                      <option value="27">MSD株式会社</option>
-                      <option value="28">エムジーファーマ株式会社</option>
-                      <option value="29">LTLファーマ株式会社</option>
-                      <option value="30">エーザイ株式会社</option>
-                      <option value="31">株式会社大石膏盛堂</option>
-                      <option value="32">大木製薬株式会社</option>
-                      <option value="33">大杉製薬株式会社</option>
-                      <option value="34">株式会社太田胃散</option>
-                      <option value="35">大塚製薬株式会社</option>
-                      <option value="36">株式会社 大塚製薬工場</option>
-                      <option value="37">大原薬品工業株式会社</option>
-                      <option value="38">岡山大鵬薬品株式会社</option>
-                      <option value="39">奥田製薬株式会社</option>
-                      <option value="40">株式会社奥田又右衛門膏本舗</option>
-                      <option value="41">樋屋製薬株式会社</option>
-                      <option value="42">小野薬品工業株式会社</option>
-                      <option value="43">株式会社オーファンパシフィック</option>
-                      <option value="44">株式会社オーヤラックス</option>
-                      <option value="45">ヴィーブヘルスケア株式会社</option>
-                    </select>
-                  </div>
-                  </li>
+                  <strong>
+                    <div class="card text-center">
+                      <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                          <li class="nav-item">
+                            <div>
+                              <a class="nav-link active" aria-current="true" href="#">あ行</a>
+                                <select class="form-select" aria-label="Default select example">
+                                <option selected>株式会社浅田飴</option>
+                                <option value="1">旭化成ファーマ株式会社</option>
+                                <option value="2">アサヒグループ食品株式会社</option>
+                                <option value="3">アサヒフードアンドヘルスケア株式会社</option>
+                                <option value="4">あすか製薬株式会社</option>
+                                <option value="5">アステラス製薬株式会社</option>
+                                <option value="6">アストラゼネカ株式会社'</option>
+                                <option value="7">阿蘇製薬株式会社</option>
+                                <option value="8">アッヴィ合同会社</option>
+                                <option value="9">アミカス・セラピューティクス株式会社</option>
+                                <option value="10">あゆみ製薬株式会社</option>
+                                <option value="11">アラクス株式会社</option>
+                                <option value="12">アルフレッサファーマ株式会社</option>
+                                <option value="13">アース製薬株式会社</option>
+                                <option value="14">株式会社池田模範堂</option>
+                                <option value="15">イスクラ産業株式会社</option>
+                                <option value="16">伊丹製薬</option>
+                                <option value="17">イチジク製薬株式会社</option>
+                                <option value="18">井藤漢方製薬株式会社</option>
+                                <option value="19">岩城製薬株式会社</option>
+                                <option value="20">EAファーマ株式会社</option>
+                                <option value="21">うすき製薬株式会社</option>
+                                <option value="22">宇津救命丸株式会社</option>
+                                <option value="23">エスエス製薬株式会社</option>
+                                <option value="24">株式会社 エッセンシャルファーマ</option>
+                                <option value="25">エフピー株式会社</option>
+                                <option value="26">Me ファルマ株式会社</option>
+                                <option value="27">MSD株式会社</option>
+                                <option value="28">エムジーファーマ株式会社</option>
+                                <option value="29">LTLファーマ株式会社</option>
+                                <option value="30">エーザイ株式会社</option>
+                                <option value="31">株式会社大石膏盛堂</option>
+                                <option value="32">大木製薬株式会社</option>
+                                <option value="33">大杉製薬株式会社</option>
+                                <option value="34">株式会社太田胃散</option>
+                                <option value="35">大塚製薬株式会社</option>
+                                <option value="36">株式会社 大塚製薬工場</option>
+                                <option value="37">大原薬品工業株式会社</option>
+                                <option value="38">岡山大鵬薬品株式会社</option>
+                                <option value="39">奥田製薬株式会社</option>
+                                <option value="40">株式会社奥田又右衛門膏本舗</option>
+                                <option value="41">樋屋製薬株式会社</option>
+                                <option value="42">小野薬品工業株式会社</option>
+                                <option value="43">株式会社オーファンパシフィック</option>
+                                <option value="44">株式会社オーヤラックス</option>
+                                <option value="45">ヴィーブヘルスケア株式会社</option>
+                                </select>
+                            </div>
+                          </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">か行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>カイゲンファーマ株式会社</option>
-                      <option value="1">化研生薬株式会社</option>
-                      <option value="2">科研製薬株式会社</option>
-                      <option value="3">兼一薬品工業株式会社</option>
-                      <option value="4">株式会社キタニ</option>
-                      <option value="5">北日本製薬株式会社</option>
-                      <option value="6">キッセイ薬品工業株式会社</option>
-                      <option value="7">救心製薬株式会社</option>
-                      <option value="8">共創未来ファーマ株式会社</option>
-                      <option value="9">杏林製薬株式会社</option>
-                      <option value="10">協和化学工業株式会社</option>
-                      <option value="11">共和クリティケア株式会社</option>
-                      <option value="12">共和薬品工業株式会社</option>
-                      <option value="13">協和薬品工業株式会社</option>
-                      <option value="14">キョーリンリメディオ株式会社</option>
-                      <option value="15">株式会社金冠堂</option>
-                      <option value="16">金陽製薬</option>
-                      <option value="17">ギリアド・サイエンシズ株式会社</option>
-                      <option value="18">クラシエ薬品株式会社</option>
-                      <option value="19">グラクソ・スミスクライン株式会社</option>
-                      <option value="20">グラクソ・スミスクライン・CHJ</option>
-                      <option value="21">啓芳堂製薬株式会社</option>
-                      <option value="22">株式会社恵命堂</option>
-                      <option value="23">健栄製薬株式会社</option>
-                      <option value="24">皇漢堂製薬株式会社</option>
-                      <option value="25">興和株式会社</option>
-                      <option value="26">小太郎漢方製薬株式会社</option>
-                      <option value="27">株式会社近江兄弟社</option>
-                      <option value="28">小林化工株式会社</option>
-                      <option value="29">小林製薬株式会社</option>
-                      <option value="30">小林薬品工業株式会社</option>
-                      <option value="31">コーアイセイ株式会社</option>
-                      <option value="32">コーアバイオテックベイ株式会社</option>
-                    </select>
-                  </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="true" href="#">か行</a>
+                              <select class="form-select" aria-label="Default select example">
+                              <option selected>カイゲンファーマ株式会社</option>
+                              <option value="1">化研生薬株式会社</option>
+                              <option value="2">科研製薬株式会社</option>
+                              <option value="3">兼一薬品工業株式会社</option>
+                              <option value="4">株式会社キタニ</option>
+                              <option value="5">北日本製薬株式会社</option>
+                              <option value="6">キッセイ薬品工業株式会社</option>
+                              <option value="7">救心製薬株式会社</option>
+                              <option value="8">共創未来ファーマ株式会社</option>
+                              <option value="9">杏林製薬株式会社</option>
+                              <option value="10">協和化学工業株式会社</option>
+                              <option value="11">共和クリティケア株式会社</option>
+                              <option value="12">共和薬品工業株式会社</option>
+                              <option value="13">協和薬品工業株式会社</option>
+                              <option value="14">キョーリンリメディオ株式会社</option>
+                              <option value="15">株式会社金冠堂</option>
+                              <option value="16">金陽製薬</option>
+                              <option value="17">ギリアド・サイエンシズ株式会社</option>
+                              <option value="18">クラシエ薬品株式会社</option>
+                              <option value="19">グラクソ・スミスクライン株式会社</option>
+                              <option value="20">グラクソ・スミスクライン・CHJ</option>
+                              <option value="21">啓芳堂製薬株式会社</option>
+                              <option value="22">株式会社恵命堂</option>
+                              <option value="23">健栄製薬株式会社</option>
+                              <option value="24">皇漢堂製薬株式会社</option>
+                              <option value="25">興和株式会社</option>
+                              <option value="26">小太郎漢方製薬株式会社</option>
+                              <option value="27">株式会社近江兄弟社</option>
+                              <option value="28">小林化工株式会社</option>
+                              <option value="29">小林製薬株式会社</option>
+                              <option value="30">小林薬品工業株式会社</option>
+                              <option value="31">コーアイセイ株式会社</option>
+                              <option value="32">コーアバイオテックベイ株式会社</option>
+                              </select>
+                          </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">さ行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>株式会社阪本漢法製薬</option>
-                      <option value="1">千金丹ケアーズ株式会</option>
-                      <option value="2">佐藤製薬株式会社</option>
-                      <option value="3">サノフィ株式会社</option>
-                      <option value="4">サラヤ株式会社</option>
-                      <option value="5">沢井製薬株式会社</option>
-                      <option value="6">株式会社三九製薬</option>
-                      <option value="7">サンスター</option>
-                      <option value="8">参天製薬株式会社</option>
-                      <option value="9">サンド株式会社</option>
-                      <option value="10">サンファーマ株式会社</option>
-                      <option value="11">三宝製薬株式会社</option>
-                      <option value="12">株式会社三和化学研究所</option>
-                      <option value="13">三和生薬株式会社</option>
-                      <option value="14">剤盛堂薬品株式会社</option>
-                      <option value="15">シオエ製薬株式会社</option>
-                      <option value="16">塩野義製薬株式会社</option>
-                      <option value="17">シオノギヘルスケア</option>
-                      <option value="18">シオノケミカル株式会社</option>
-                      <option value="19">滋賀県製薬株式会社</option>
-                      <option value="20">資生堂薬品株式会社</option>
-                      <option value="21">昭和薬品化工株式会社</option>
-                      <option value="22">新新薬品工業株式会社</option>
-                      <option value="23">神農製薬株式会社</option>
-                      <option value="24">CSLベーリング株式会社</option>
-                      <option value="25">JCRファーマ株式会社</option>
-                      <option value="26">ジェイドルフ製薬株式会社</option>
-                      <option value="27">ジェーピーエス製薬株式会社</option>
-                      <option value="28">ジャパンメディック株式会社</option>
-                      <option value="29">ジョンソン・エンド・ジョンソン株式会社</option>
-                      <option value="30">翠松堂製薬</option>
-                      <option value="31">スノーデン株式会社</option>
-                      <option value="32">生晃栄養薬品株式会社</option>
-                      <option value="33">セオリア ファーマ株式会社</option>
-                      <option value="34">セルトリオン・ヘルスケア・ジャパン株式会社</option>
-                      <option value="35">千寿製薬株式会社</option>
-                      <option value="36">ゼネル薬品工業株式会社</option>
-                      <option value="37">ゼリア新薬工業株式会社</option>
-                      <option value="38">全星薬品工業株式会社</option>
-                      <option value="39">全薬工業株式会社</option>
-                      <option value="40">ゾンネボード製薬株式会社</option>
-                    </select>
-                  </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="true" href="#">さ行</a>
+                              <select class="form-select" aria-label="Default select example">
+                                <option selected>株式会社阪本漢法製薬</option>
+                                <option value="1">千金丹ケアーズ株式会</option>
+                                <option value="2">佐藤製薬株式会社</option>
+                                <option value="3">サノフィ株式会社</option>
+                                <option value="4">サラヤ株式会社</option>
+                                <option value="5">沢井製薬株式会社</option>
+                                <option value="6">株式会社三九製薬</option>
+                                <option value="7">サンスター</option>
+                                <option value="8">参天製薬株式会社</option>
+                                <option value="9">サンド株式会社</option>
+                                <option value="10">サンファーマ株式会社</option>
+                                <option value="11">三宝製薬株式会社</option>
+                                <option value="12">株式会社三和化学研究所</option>
+                                <option value="13">三和生薬株式会社</option>
+                                <option value="14">剤盛堂薬品株式会社</option>
+                                <option value="15">シオエ製薬株式会社</option>
+                                <option value="16">塩野義製薬株式会社</option>
+                                <option value="17">シオノギヘルスケア</option>
+                                <option value="18">シオノケミカル株式会社</option>
+                                <option value="19">滋賀県製薬株式会社</option>
+                                <option value="20">資生堂薬品株式会社</option>
+                                <option value="21">昭和薬品化工株式会社</option>
+                                <option value="22">新新薬品工業株式会社</option>
+                                <option value="23">神農製薬株式会社</option>
+                                <option value="24">CSLベーリング株式会社</option>
+                                <option value="25">JCRファーマ株式会社</option>
+                                <option value="26">ジェイドルフ製薬株式会社</option>
+                                <option value="27">ジェーピーエス製薬株式会社</option>
+                                <option value="28">ジャパンメディック株式会社</option>
+                                <option value="29">ジョンソン・エンド・ジョンソン株式会社</option>
+                                <option value="30">翠松堂製薬</option>
+                                <option value="31">スノーデン株式会社</option>
+                                <option value="32">生晃栄養薬品株式会社</option>
+                                <option value="33">セオリア ファーマ株式会社</option>
+                                <option value="34">セルトリオン・ヘルスケア・ジャパン株式会社</option>
+                                <option value="35">千寿製薬株式会社</option>
+                                <option value="36">ゼネル薬品工業株式会社</option>
+                                <option value="37">ゼリア新薬工業株式会社</option>
+                                <option value="38">全星薬品工業株式会社</option>
+                                <option value="39">全薬工業株式会社</option>
+                                <option value="40">ゾンネボード製薬株式会社</option>
+                                </select>
+                            </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">た行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>大幸薬品株式会社</option>
-                      <option value="1">大正製薬株式会社</option>
-                      <option value="2">タイヘイ薬品株式会社</option>
-                      <option value="3">大鵬薬品工業株式会社</option>
-                      <option value="4">太陽ファルマ株式会社</option>
-                      <option value="5">大和製薬株式会社</option>
-                      <option value="6">高田製薬株式会社</option>
-                      <option value="7">株式会社タカミツ</option>
-                      <option value="8">武田コンシューマーヘルスケア</option>
-                      <option value="9">武田テバファーマ株式会社</option>
-                      <option value="10">武田テバ薬品株式会社</option>
-                      <option value="11">武田薬品工業株式会社</option>
-                      <option value="12">辰巳化学株式会社</option>
-                      <option value="13">株式会社建林松鶴堂</option>
-                      <option value="14">田辺三菱製薬株式会社</option>
-                      <option value="15">玉川衛材株式会社</option>
-                      <option value="16">株式会社田村治照堂</option>
-                      <option value="17">田村薬品工業株式会社</option>
-                      <option value="18">丹平製薬株式会社</option>
-                      <option value="19">第一三共株式会社</option>
-                      <option value="20">第一三共エスファ株式会社</option>
-                      <option value="21">第一三共ヘルスケア株式会社</option>
-                      <option value="22">第一薬品産業株式会社</option>
-                      <option value="23">大興製薬株式会社</option>
-                      <option value="24">大東製薬工業株式会社</option>
-                      <option value="25">ダイト株式会社</option>
-                      <option value="26">大日本住友製薬株式会社</option>
-                      <option value="27">ダイヤ製薬株式会社</option>
-                      <option value="28">株式会社大和生物研究所</option>
-                      <option value="29">ダンヘルスケア株式会社</option>
-                      <option value="30">中外製薬株式会社</option>
-                      <option value="31">長生堂製薬株式会社</option>
-                      <option value="32">株式会社ツムラ</option>
-                      <option value="33">鶴原製薬株式会社</option>
-                      <option value="34">テイカ製薬株式会社</option>
-                      <option value="35">帝國製薬株式会社</option>
-                      <option value="36">テイコクファルマケア株式会社</option>
-                      <option value="37">帝人ファーマ株式会社</option>
-                      <option value="38">テルモ株式会社</option>
-                      <option value="39">東亜新薬株式会社</option>
-                      <option value="40">株式会社東京甲子社</option>
-                      <option value="41">東光クリエート株式会社</option>
-                      <option value="42">東菱薬品工業株式会社</option>
-                      <option value="43">東和薬品株式会社</option>
-                      <option value="44">常盤薬品工業株式会社</option>
-                      <option value="45">株式会社トクホン</option>
-                      <option value="46">富山めぐみ製薬</option>
-                      <option value="47">鳥居薬品株式会社</option>
-                      <option value="48">トーアエイヨー株式会社</option>
-                    </select>
-                  </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" aria-current="true" href="#">た行</a>
+                                <select class="form-select" aria-label="Default select example">
+                                  <option selected>大幸薬品株式会社</option>
+                                  <option value="1">大正製薬株式会社</option>
+                                  <option value="2">タイヘイ薬品株式会社</option>
+                                  <option value="3">大鵬薬品工業株式会社</option>
+                                  <option value="4">太陽ファルマ株式会社</option>
+                                  <option value="5">大和製薬株式会社</option>
+                                  <option value="6">高田製薬株式会社</option>
+                                  <option value="7">株式会社タカミツ</option>
+                                  <option value="8">武田コンシューマーヘルスケア</option>
+                                  <option value="9">武田テバファーマ株式会社</option>
+                                  <option value="10">武田テバ薬品株式会社</option>
+                                  <option value="11">武田薬品工業株式会社</option>
+                                  <option value="12">辰巳化学株式会社</option>
+                                  <option value="13">株式会社建林松鶴堂</option>
+                                  <option value="14">田辺三菱製薬株式会社</option>
+                                  <option value="15">玉川衛材株式会社</option>
+                                  <option value="16">株式会社田村治照堂</option>
+                                  <option value="17">田村薬品工業株式会社</option>
+                                  <option value="18">丹平製薬株式会社</option>
+                                  <option value="19">第一三共株式会社</option>
+                                  <option value="20">第一三共エスファ株式会社</option>
+                                  <option value="21">第一三共ヘルスケア株式会社</option>
+                                  <option value="22">第一薬品産業株式会社</option>
+                                  <option value="23">大興製薬株式会社</option>
+                                  <option value="24">大東製薬工業株式会社</option>
+                                  <option value="25">ダイト株式会社</option>
+                                  <option value="26">大日本住友製薬株式会社</option>
+                                  <option value="27">ダイヤ製薬株式会社</option>
+                                  <option value="28">株式会社大和生物研究所</option>
+                                  <option value="29">ダンヘルスケア株式会社</option>
+                                  <option value="30">中外製薬株式会社</option>
+                                  <option value="31">長生堂製薬株式会社</option>
+                                  <option value="32">株式会社ツムラ</option>
+                                  <option value="33">鶴原製薬株式会社</option>
+                                  <option value="34">テイカ製薬株式会社</option>
+                                  <option value="35">帝國製薬株式会社</option>
+                                  <option value="36">テイコクファルマケア株式会社</option>
+                                  <option value="37">帝人ファーマ株式会社</option>
+                                  <option value="38">テルモ株式会社</option>
+                                  <option value="39">東亜新薬株式会社</option>
+                                  <option value="40">株式会社東京甲子社</option>
+                                  <option value="41">東光クリエート株式会社</option>
+                                  <option value="42">東菱薬品工業株式会社</option>
+                                  <option value="43">東和薬品株式会社</option>
+                                  <option value="44">常盤薬品工業株式会社</option>
+                                  <option value="45">株式会社トクホン</option>
+                                  <option value="46">富山めぐみ製薬</option>
+                                  <option value="47">鳥居薬品株式会社</option>
+                                  <option value="48">トーアエイヨー株式会社</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">な行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>内外薬品株式会社</option>
-                      <option value="1">中北薬品株式会社</option>
-                      <option value="2">長野県製薬株式会社</option>
-                      <option value="3">日医工株式会社</option>
-                      <option value="4">ニチバン</option>
-                      <option value="5">日新製薬株式会社</option>
-                      <option value="6">日新薬品工業</option>
-                      <option value="7">日水製薬医薬品販売株式会社</option>
-                      <option value="8">日東メディック株式会社</option>
-                      <option value="9">日東薬品工業株式会社</option>
-                      <option value="10">日邦薬品工業株式会社</option>
-                      <option value="11">一般社団法人 日本血液製剤機構</option>
-                      <option value="12">ニプロ株式会社</option>
-                      <option value="13">ニプロESファーマ株式会社</option>
-                      <option value="14">ニプロファーマ株式会社</option>
-                      <option value="15">日本アルコン株式会社</option>
-                      <option value="16">日本イーライリリー株式会社</option>
-                      <option value="17">日本化薬株式会社</option>
-                      <option value="18">日本ケミファ株式会社</option>
-                      <option value="19">日本歯科薬品株式会社</option>
-                      <option value="20">日本新薬株式会社</option>
-                      <option value="21">日本ジェネリック株式会社</option>
-                      <option value="22">日本製薬株式会社</option>
-                      <option value="23">日本臓器製薬株式会社</option>
-                      <option value="24">株式会社日本点眼薬研究所</option>
-                      <option value="25">日本ベーリンガーインゲルハイム株式会社</option>
-                      <option value="26">日本薬品工業株式会社</option>
-                      <option value="27">株式会社ヤクルト本社</option>
-                      <option value="28">ノバルティスファーマ株式会社</option>
-                      <option value="29">ノボノルディスクファーマ株式会社</option>
-                      <option value="30">ノーベルファーマ株式会社</option>
-                    </select>
-                  </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">な行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>内外薬品株式会社</option>
+                                  <option value="1">中北薬品株式会社</option>
+                                  <option value="2">長野県製薬株式会社</option>
+                                  <option value="3">日医工株式会社</option>
+                                  <option value="4">ニチバン</option>
+                                  <option value="5">日新製薬株式会社</option>
+                                  <option value="6">日新薬品工業</option>
+                                  <option value="7">日水製薬医薬品販売株式会社</option>
+                                  <option value="8">日東メディック株式会社</option>
+                                  <option value="9">日東薬品工業株式会社</option>
+                                  <option value="10">日邦薬品工業株式会社</option>
+                                  <option value="11">一般社団法人 日本血液製剤機構</option>
+                                  <option value="12">ニプロ株式会社</option>
+                                  <option value="13">ニプロESファーマ株式会社</option>
+                                  <option value="14">ニプロファーマ株式会社</option>
+                                  <option value="15">日本アルコン株式会社</option>
+                                  <option value="16">日本イーライリリー株式会社</option>
+                                  <option value="17">日本化薬株式会社</option>
+                                  <option value="18">日本ケミファ株式会社</option>
+                                  <option value="19">日本歯科薬品株式会社</option>
+                                  <option value="20">日本新薬株式会社</option>
+                                  <option value="21">日本ジェネリック株式会社</option>
+                                  <option value="22">日本製薬株式会社</option>
+                                  <option value="23">日本臓器製薬株式会社</option>
+                                  <option value="24">株式会社日本点眼薬研究所</option>
+                                  <option value="25">日本ベーリンガーインゲルハイム株式会社</option>
+                                  <option value="26">日本薬品工業株式会社</option>
+                                  <option value="27">株式会社ヤクルト本社</option>
+                                  <option value="28">ノバルティスファーマ株式会社</option>
+                                  <option value="29">ノボノルディスクファーマ株式会社</option>
+                                  <option value="30">ノーベルファーマ株式会社</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">は行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>原沢製薬工業</option>
-                      <option value="1">バイエル薬品株式会社</option>
-                      <option value="2">バイオジェン・ジャパン株式会社</option>
-                      <option value="3">光製薬株式会社</option>
-                      <option value="4">久光製薬株式会社</option>
-                      <option value="5">七ふく製薬</option>
-                      <option value="6">日野製薬株式会社</option>
-                      <option value="7">ビオフェルミン製薬株式会社</option>
-                      <option value="8">株式会社ビオメディクス</option>
-                      <option value="9">備前化成</option>
-                      <option value="10">株式会社ビーブランド・メディコーデンタル</option>
-                      <option value="11">ファイザー株式会社</option>
-                      <option value="12">フェリング・ファーマ株式会社</option>
-                      <option value="13">株式会社フェルゼンファーマ</option>
-                      <option value="14">株式会社伏見製薬所</option>
-                      <option value="15">富士化学工業株式会社</option>
-                      <option value="16">富士製薬工業株式会社</option>
-                      <option value="17">藤永製薬株式会社</option>
-                      <option value="18">藤本製薬株式会社</option>
-                      <option value="19">株式会社富士薬品</option>
-                      <option value="20">扶桑薬品工業株式会社</option>
-                      <option value="21">ブリストル・マイヤーズ スクイブ株式会社</option>
-                      <option value="22">報国製薬株式会社</option>
-                      <option value="23">堀井薬品工業株式会社</option>
-                      <option value="24">本草製薬</option>
-                    </select>
-                  </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">は行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>原沢製薬工業</option>
+                                  <option value="1">バイエル薬品株式会社</option>
+                                  <option value="2">バイオジェン・ジャパン株式会社</option>
+                                  <option value="3">光製薬株式会社</option>
+                                  <option value="4">久光製薬株式会社</option>
+                                  <option value="5">七ふく製薬</option>
+                                  <option value="6">日野製薬株式会社</option>
+                                  <option value="7">ビオフェルミン製薬株式会社</option>
+                                  <option value="8">株式会社ビオメディクス</option>
+                                  <option value="9">備前化成</option>
+                                  <option value="10">株式会社ビーブランド・メディコーデンタル</option>
+                                  <option value="11">ファイザー株式会社</option>
+                                  <option value="12">フェリング・ファーマ株式会社</option>
+                                  <option value="13">株式会社フェルゼンファーマ</option>
+                                  <option value="14">株式会社伏見製薬所</option>
+                                  <option value="15">富士化学工業株式会社</option>
+                                  <option value="16">富士製薬工業株式会社</option>
+                                  <option value="17">藤永製薬株式会社</option>
+                                  <option value="18">藤本製薬株式会社</option>
+                                  <option value="19">株式会社富士薬品</option>
+                                  <option value="20">扶桑薬品工業株式会社</option>
+                                  <option value="21">ブリストル・マイヤーズ スクイブ株式会社</option>
+                                  <option value="22">報国製薬株式会社</option>
+                                  <option value="23">堀井薬品工業株式会社</option>
+                                  <option value="24">本草製薬</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">ま行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>マイランEPD合同会社</option>
-                      <option value="1">マイラン製薬株式会社</option>
-                      <option value="2">松浦漢方株式会社</option>
-                      <option value="3">松浦薬業株式会社</option>
-                      <option value="4">松田薬品工業株式会社</option>
-                      <option value="5">松本製薬工業株式会社</option>
-                      <option value="6">摩耶堂製薬株式会社</option>
-                      <option value="7">丸石製薬株式会社</option>
-                      <option value="8">マルホ株式会社</option>
-                      <option value="9">三笠製薬株式会社</option>
-                      <option value="10">株式会社ミズホメディー</option>
-                      <option value="11">株式会社 ミノファーゲン製薬</option>
-                      <option value="12">ミヤリサン製薬株式会社</option>
-                      <option value="13">ムネ製薬株式会社</option>
-                      <option value="14">ムンディファーマ株式会社</option>
-                      <option value="15">株式会社メイクトモロー</option>
-                      <option value="16">株式会社明治</option>
-                      <option value="17">Meiji Seika ファルマ株式会社</option>
-                      <option value="18">明治薬品</option>
-                      <option value="19">持田製薬株式会社</option>
-                      <option value="20">森下仁丹株式会社</option>
-                    </select>
-                  </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">ま行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>マイランEPD合同会社</option>
+                                  <option value="1">マイラン製薬株式会社</option>
+                                  <option value="2">松浦漢方株式会社</option>
+                                  <option value="3">松浦薬業株式会社</option>
+                                  <option value="4">松田薬品工業株式会社</option>
+                                  <option value="5">松本製薬工業株式会社</option>
+                                  <option value="6">摩耶堂製薬株式会社</option>
+                                  <option value="7">丸石製薬株式会社</option>
+                                  <option value="8">マルホ株式会社</option>
+                                  <option value="9">三笠製薬株式会社</option>
+                                  <option value="10">株式会社ミズホメディー</option>
+                                  <option value="11">株式会社 ミノファーゲン製薬</option>
+                                  <option value="12">ミヤリサン製薬株式会社</option>
+                                  <option value="13">ムネ製薬株式会社</option>
+                                  <option value="14">ムンディファーマ株式会社</option>
+                                  <option value="15">株式会社メイクトモロー</option>
+                                  <option value="16">株式会社明治</option>
+                                  <option value="17">Meiji Seika ファルマ株式会社</option>
+                                  <option value="18">明治薬品</option>
+                                  <option value="19">持田製薬株式会社</option>
+                                  <option value="20">森下仁丹株式会社</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">や行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>八ツ目製薬株式会社</option>
-                      <option value="1">株式会社山崎帝国堂</option>
-                      <option value="2">山本漢方製薬</option>
-                      <option value="3">ヤンセン ファーマ株式会社</option>
-                      <option value="4">祐徳薬品工業株式会社</option>
-                      <option value="5">ユニテックメディカル</option>
-                      <option value="6">ユーシービージャパン株式会社</option>
-                      <option value="7">ユースキン製薬株式会社</option>
-                      <option value="8">株式会社陽進堂</option>
-                      <option value="9">養命酒製造株式会社</option>
-                      <option value="10">横山製薬株式会社</option>
-                      <option value="11">吉田製薬株式会社</option>
-                      <option value="12">米田薬品株式会社</option>
-                    </select>
-                  </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">や行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>八ツ目製薬株式会社</option>
+                                  <option value="1">株式会社山崎帝国堂</option>
+                                  <option value="2">山本漢方製薬</option>
+                                  <option value="3">ヤンセン ファーマ株式会社</option>
+                                  <option value="4">祐徳薬品工業株式会社</option>
+                                  <option value="5">ユニテックメディカル</option>
+                                  <option value="6">ユーシービージャパン株式会社</option>
+                                  <option value="7">ユースキン製薬株式会社</option>
+                                  <option value="8">株式会社陽進堂</option>
+                                  <option value="9">養命酒製造株式会社</option>
+                                  <option value="10">横山製薬株式会社</option>
+                                  <option value="11">吉田製薬株式会社</option>
+                                  <option value="12">米田薬品株式会社</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">ら行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>ライオン株式会社</option>
-                      <option value="1">株式会社龍角散</option>
-                      <option value="2">レキットベンキーザー・ジャパン株式会社</option>
-                      <option value="3">ロート製薬株式会社</option>
-                    </select>
-                  </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">ら行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>ライオン株式会社</option>
+                                  <option value="1">株式会社龍角散</option>
+                                  <option value="2">レキットベンキーザー・ジャパン株式会社</option>
+                                  <option value="3">ロート製薬株式会社</option>
+                                  </select>
+                              </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">わ行</a>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>わかもと製薬株式会社</option>
-                      <option value="1">株式会社和漢薬研究所</option>
-                      <option value="2">湧永製薬株式会社</option>
-                      <option value="3">ワダカルシウム製薬株式会社</option>
-                    </select>
-                  </li>
-                </ul>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">わ行</a>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>わかもと製薬株式会社</option>
+                                  <option value="1">株式会社和漢薬研究所</option>
+                                  <option value="2">湧永製薬株式会社</option>
+                                  <option value="3">ワダカルシウム製薬株式会社</option>
+                                  </select>
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </strong>
+                </div>
               </div>
-              </strong>
             </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <form action='' method='POST'>{% csrf_token %}
+          </div>             
+      
+        <form action='' method='POST'>{% csrf_token %}
         {{ form.as_p}}
-        <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
-      </form>
-    <footer class="footer">
+          <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
+        </form>
+
         <div>
             <a class="footer-logo">
               <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
             </a>
-            <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p>
-          </div>
-        </div>
-    </footer>
+            <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p> 
+        </div>            
+  </main>
+</div>
+<ul id="js-article-list" class="article-list">
+  {% for item in object_list %}
+    <li class="article-list-item">
+      <a class="link-text" href="{% url 'static:detail' item.pk %}">{{ item.title }}</a>
+      {% comment %} <div class="article-date">作成日: {{ item.published_date|date:"Y年m月d日(D)" }}<br>更新日: {{ item.modified_date|date:"Y年m月d日(D)" }}</div> {% endcomment %}
+      <div class="article-date">作成日: {{ item.published_date|date:"Y-m-d" }}<br>更新日: {{ item.modified_date|date:"Y-m-d" }}</div>
+    </li>
+  {% endfor %}
+</ul>
 {% endblock content %}

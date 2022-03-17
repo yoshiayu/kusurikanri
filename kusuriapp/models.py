@@ -8,6 +8,14 @@ from time import time
 from django.contrib.auth.base_user import BaseUserManager
 
 
+class Article(models.Model):
+    pass
+
+
+class generic(models.Model):
+    pass
+
+
 class Question(models.Model):
     pass
 
@@ -301,6 +309,7 @@ class CompanyMedicineName(models.Model):
         verbose_name='薬ID', blank=True, null=True)
     medicine_name = models.CharField(
         max_length=30, verbose_name='薬名', blank=True, null=True)
+
     initials = models.CharField(
         max_length=1, verbose_name='頭文字', blank=True, null=True)
 
