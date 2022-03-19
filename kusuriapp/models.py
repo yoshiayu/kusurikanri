@@ -8,14 +8,6 @@ from time import time
 from django.contrib.auth.base_user import BaseUserManager
 
 
-class Article(models.Model):
-    pass
-
-
-class generic(models.Model):
-    pass
-
-
 class Question(models.Model):
     pass
 
