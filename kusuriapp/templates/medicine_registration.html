@@ -12,20 +12,14 @@
             
             <div class="local-nav">
               <input id="js-search-text" type="search" class="form-control" placeholder="検索ワード">
-              <button type="bytton" class="button-common" id="js-search-btn">検索する</button>
-            </div>
-
-        </div>
-      </form>      
-        <div>
-          <select class="form-select" aria-label="Default select example">
+              <button type="button" class="button-common" id="js-search-btn">検索する</button>
+              
+          <select id="js-search-item-list" class="form-select" aria-label="Default select example">
             <option selected>薬名</option>
-            {% for object in object_list %}
-            <option><p>{{ object.medicine_name }}</p></option>
-            {% endfor %}      
+             
           </select>
         </div>
-
+      </form>
         <select class="form-select" aria-label="Default select example">
           <option selected>種別</option>
           <option value="1">処方</option>
@@ -398,7 +392,7 @@
                 </div>
               </div>
             </div>
-          </div>             
+                       
       
         <form action='' method='POST'>{% csrf_token %}
         {{ form.as_p}}
@@ -411,15 +405,16 @@
             </a>
             <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p> 
         </div>            
-  </main>
-</div>
-<ul id="js-article-list" class="article-list">
+  
+<ul id="js-medicine-list" class="medicine-list">
   {% for item in object_list %}
-    <li class="article-list-item">
-      <a class="link-text" href="{% url 'static:detail' item.pk %}">{{ item.title }}</a>
-      {% comment %} <div class="article-date">作成日: {{ item.published_date|date:"Y年m月d日(D)" }}<br>更新日: {{ item.modified_date|date:"Y年m月d日(D)" }}</div> {% endcomment %}
-      <div class="article-date">作成日: {{ item.published_date|date:"Y-m-d" }}<br>更新日: {{ item.modified_date|date:"Y-m-d" }}</div>
+    <li class="medicine-list-text">
+      <a class="link-text" href="#">{{ item.initials }}</a>
+      {% comment %} <div class="medicine-date">作成日: {{ item.medicine_name|date:"Y年m月d日(D)" }}<br>更新日: {{ item.company_name|date:"Y年m月d日(D)" }}</div> {% endcomment %}
+      <div class="medicine-date">作成日: {{ item.medicine_name|date:"Y-m-d" }}<br>更新日: {{ item.company_name|date:"Y-m-d" }}</div>
     </li>
   {% endfor %}
 </ul>
+</main>
+</div>
 {% endblock content %}

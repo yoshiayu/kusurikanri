@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="ja">
   {% load static %}
-  <link href="{% static 'top.css' %}?{% now "U" %}" rel="stylesheet">
-  <link href="{% static 'taker_manegement.css' %}?{% now "U" %}" rel="stylesheet">
-  <link href="{% static 'signin.css' %}?{% now "U" %}" rel="stylesheet">
-  <link href="{% static 'management_top.css' %}?{% now "U" %}" rel="stylesheet">
-  <link href="{% static 'medicine_registration.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/base.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/top.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/taker_manegement.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/signin.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/management_top.css' %}?{% now "U" %}" rel="stylesheet">
+  <link href="{% static 'css/medicine_registration.css' %}?{% now "U" %}" rel="stylesheet">
   {% block head %}
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src="{% static 'static/js/index.js' %}" defer></script>
+<script src="{% static 'js/index.js' %}" defer></script>
 {% endblock head %}
   <head>
     <meta charset="utf-8">
@@ -51,6 +52,9 @@
   </head>
   <body>
 {% block header %}
+<div class="link-button-area">
+  <a class="link-btn" href="{% url 'top' %}">戻る</a>
+</div>
 {% endblock header %} 
 {% block content %}
 {% endblock content %}
