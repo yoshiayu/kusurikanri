@@ -12,7 +12,7 @@
             
             <div class="local-nav">
               <input id="js-search-text" type="search" class="form-control" placeholder="検索ワード">
-              <button type="bytton" class="button-common" id="js-search-btn">検索する</button>
+              <button type="button" class="button-common" id="js-search-btn">検索する</button>
             </div>
 
         </div>
@@ -413,13 +413,4 @@
         </div>            
   </main>
 </div>
-<ul id="js-article-list" class="article-list">
-  {% for item in object_list %}
-    <li class="article-list-item">
-      <a class="link-text" href="{% url 'static:detail' item.pk %}">{{ item.title }}</a>
-      {% comment %} <div class="article-date">作成日: {{ item.published_date|date:"Y年m月d日(D)" }}<br>更新日: {{ item.modified_date|date:"Y年m月d日(D)" }}</div> {% endcomment %}
-      <div class="article-date">作成日: {{ item.published_date|date:"Y-m-d" }}<br>更新日: {{ item.modified_date|date:"Y-m-d" }}</div>
-    </li>
-  {% endfor %}
-</ul>
 {% endblock content %}

@@ -2,10 +2,14 @@ const searchText = document.getElementById("js-search-text");
 const searchBtn = document.getElementById("js-search-btn");
 const csrftoken = Cookies.get('csrftoken');
 
+searchText.addEventListener("input", function() {
+    const text = searchText.value;
+    postSearchText(text);
+});
+
 searchBtn.addEventListener("click", function () {
-    console.log("hoge");
-    const text = searchText.Value;
-    postSearchText(item, text);
+    const text = searchText.value;
+    postSearchText(text);
 }, false);
 
 async function postSearchText(searchText) {
@@ -16,13 +20,12 @@ async function postSearchText(searchText) {
     const postData = {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
             "X-CSRFToken": csrftoken,
         },
         body: JSON.stringify(postBody)
     };
-    console.log(postData);
-    const res = await fetch("./", postData)
+    const res = await fetch("/medicine-search/", postData)
     const json = await res.json();
     console.log(json);
 }

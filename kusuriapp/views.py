@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
@@ -8,38 +9,31 @@ from django.db import IntegrityError
 from .models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from kusuriapp.models import Article, generic
+import json
+from django.core import serializers
 
-
-class ArticleListView(generic, ListView):
-    model = Article
+class ArticleListView(ListView):
+    model = CompanyMedicineName
     template_name = "static/static/medicine_registration.html"
 
     def post(self, request, *args, **kwargs):
         json_body = request.body.decode("utf-8")
         body = json.loads(json_body)
-
-        item = body["item"]
         text = body["text"]
 
-        if item == "title":
-            print("Search title word={}".format(text))
-            model_data = self.model.objects.filter(title__icontains=text)
-        elif item == "tag":
-            print("Search tag word={}".format(text))
-            model_data = self.model.objects.filter(tag__name__icontains=text)
-        elif item == "body":
-            print("Search body word={}".format(text))
-            model_data = self.model.objects.filter(body__icontains=text)
-        else:
-            print("Search ??? word={}".format(text))
-            model_data = self.model.objects.all()
+        # バファリン
+        # x: ファリ
+        # o: バファ
+        # o: リン
+        model_data = CompanyMedicineName.objects.filter(medicine_name__icontains=text)
 
         json_data = serializers.serialize(
             "json", model_data, ensure_ascii=False, indent=2)
 
+        '''
         print("json_data:{}".format(type(json_data)))
         print("json_data:{}".format(json_data))
+        '''
 
         return JsonResponse(json_data, safe=False)
 
