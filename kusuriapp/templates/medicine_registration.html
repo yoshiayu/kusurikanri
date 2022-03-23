@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
+{% block content %}
 
 <div class="text-center">
   <main class="main">
@@ -10,11 +10,44 @@
           <img class="mb-2" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
             <h1 class="h5 mb-1 fw-normal">薬登録</h1>
             
-            <div id= "" class="local-nav">
-              <input id="js-search-text" type="search" class="form-control" placeholder="検索ワード">
-              <button type="button" class="button-common" id="js-search-btn">検索する</button>
-              
-          <select id="js-search-item-list" class="form-select" aria-label="Default select example">
+              <div id="nav-search">
+                <form id="nav-search-bar-form" accept-charset="utf-8" action="/s/ref=nb_sb_noss" class="nav-searchbar nav-progressive-attribute" method="GET" name="site-search" role="search">
+                  <div id="nav-search-bar-internationalization-key" class="nav-progressive-content">
+                    <input type="hidden" name="__mk_ja_JP" value="カタカナ">
+                  </div>              
+                    <div class="nav-search-facade" data-value="search-alias=aps">
+                    </div>
+                      <div class="nav-fill">
+                        
+                        <div class="nav-search-field">
+                          <input type="search" id="js-search-text" value="" name="field-keywords" autocomplete="off" placeholder="" class="nav-input nav-progressive-attribute" dir="auto" tabindex="0" aria-label="検索">
+                        </div>
+                        <div id="nav-iss-attach"></div>
+                          <div class="nav-right">
+                            <div class="nav-search-submit nav-sprite">
+                              <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite nav-progressive-attribute" aria-label="検索">
+                                <input id="js-search-btn" type="submit" class="nav-input nav-progressive-attribute" value="検索" tabindex="0">
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
+                </form>
+              </div>
+              <div id="nav-flyout-iss-anchor">
+                <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; position: absolute; top: -11px; left: 375px; width: 469px;">
+                  <div class="nav-template nav-flyout-content"></div>
+                    <div class="autocomplete-results-container">
+                      <div>
+                        
+                            <div id="js-medicine-list" class="s-suggestion-container">
+                              <div class="s-suggestion" role="button" aria-label="null"></div>
+                            </div>
+                          
+                        </div>              
+                      </div>
+                    </div>    
+            <select class="form-select" aria-label="Default select example">
             <option selected>薬名</option>
              
           </select>
@@ -406,12 +439,12 @@
             <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p> 
         </div>            
   
-<ul id="js-medicine-list" class="medicine-list">
+<ul class="medicine-list">
   {% for item in object_list %}
-    <li class="medicine-list-text">
-      <a class="link-text" href="#">{{ item.initials }}</a>
-      {% comment %} <div class="medicine-date">作成日: {{ item.medicine_name|date:"Y年m月d日(D)" }}<br>更新日: {{ item.company_name|date:"Y年m月d日(D)" }}</div> {% endcomment %}
-      <div class="medicine-date">作成日: {{ item.medicine_name|date:"Y-m-d" }}<br>更新日: {{ item.company_name|date:"Y-m-d" }}</div>
+    <li id="nameMedicine" class="medicine-list-text">
+      <a id="medicineInitials" class="link-text" href="# item.pk">{{ item.title }}</a>
+      {% comment %} <div class="medicine-date">薬名: {{ item.medicine_name|date:"Y年m月d日(D)" }}<br>会社名: {{ item.company_name|date:"Y年m月d日(D)" }}</div> {% endcomment %}
+      <div class="medicine-date">薬名: {{ item.medicine_name|date:"Y-m-d" }}<br>会社名: {{ item.company_name|date:"Y-m-d" }}</div>
     </li>
   {% endfor %}
 </ul>

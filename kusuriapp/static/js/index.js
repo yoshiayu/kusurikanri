@@ -3,12 +3,12 @@ const searchBtn = document.getElementById("js-search-btn");
 const csrftoken = Cookies.get('csrftoken');
 const medicinelistElement = document.getElementById("js-medicine-list");
 
-searchText.addEventListener("input", function () {
+searchText.addEventListener("input", () => {
     const text = searchText.value;
     postSearchText(text);
 }, false);
 
-searchBtn.addEventListener("click", function () {
+searchBtn.addEventListener("click", () => {
     const text = searchText.value;
     postSearchText(text);
 }, false);
@@ -40,36 +40,40 @@ async function postSearchText(searchText) {
     }
 
     for (let medicine of filterdMedicines) {
-        console.log("pk", medicine.pk);
-        console.log("initials:", medicine.fields.initials);
-        console.log("medicine_name:", medicine.fields.medicine_name);
-        console.log("company_name:", medicine.fields.company_name);
+        //console.log("pk", medicine.pk);
+        //console.log("initials:", medicine.fields.initials);
+        //console.log("medicine_name:", medicine.fields.medicine_name);
+        //console.log("company_name:", medicine.fields.company_name);
         createFilteredElement(medicine.pk, medicine.fields.initials, medicine.fields.medicine_name, medicine.fields.company_name);
     }
 }
 
 function createFilteredElement(id, initials, medicineName, companyName) {
-    async function createFilteredElement(initials, link, medicineName, companyName) {
-        const listItemElement = document.createElement("li");
-        listItemElement.classList.add("medicine-list-item");
-        console.log(listItemElement);
+    const listItemElement = document.createElement("li");
+    listItemElement.textContent = medicineName;
+    //console.log(medicineName);
+    //document.getElementById('nameMedicine');
+    medicinelistElement.appendChild(listItemElement);
 
-        const linkText = "/static/" + String(id) + "/detail/";
-        console.log(linkText);
-        const listLinkElement = document.createElement("a");
-        listLinkElement.classList.add("link-text");
-        listItemElement.setAttribute("href", linkText);
-        listItemElement.textContent = title;
-        console.log(listLinkElement);
+    //const linkText = "/static/" + String(id) + "/detail/";
+    //console.log(linkText);
+    //const listLinkElement = document.createElement("a");
+    //listLinkElement.classList.add("link-text");
+    //listLinkElement.setAttribute("href", linkText);
+    //listLinkElement.textContent = initials;
+    //console.log(listLinkElement);
 
-        const listDateElement = document.createElement("div");
-        listDateElement.classList.add("medicine-date");
-        listDateElement.classList.innerHTML = "作成日:" + medicineName + "<br>更新日:" + companyName;
-        console.log(listDateElement);
+    const listDateElement = document.createElement("div");
+    listDateElement.classList.add("nav-search-field");
+    //listDateElement.innerHTML = "薬名:" + medicineName + "<br>会社名:" + companyName;
+    listItemElement.appendChild(listDateElement);
 
-        listItemElement.appendChild(listLinkElement);
-        listItemElement.appendChild(listDateElement);
+    //listDateElement.classList.add("medicine-date");
+    //listDateElement.innerHTML = "薬名:" + medicineName + "<br>会社名:" + companyName;
+    //console.log(listDateElement);
 
-        medicinelistElement.appendChild(listItemElement);
-    }
+    //listItemElement.appendChild(listLinkElement);
+    //listItemElement.appendChild(listDateElement);
+
+    //medicineListElement.appendChild(listItemElement);
 }
