@@ -3,6 +3,7 @@ const searchBtn = document.getElementById("js-search-btn");
 const csrftoken = Cookies.get('csrftoken');
 const medicinelistElement = document.getElementById("js-medicine-list");
 
+
 searchText.addEventListener("input", () => {
     const text = searchText.value;
     postSearchText(text);
@@ -49,10 +50,11 @@ async function postSearchText(searchText) {
 }
 
 function createFilteredElement(id, initials, medicineName, companyName) {
-    const listItemElement = document.createElement("li");
+    const listItemElement = document.createElement("div");
     listItemElement.textContent = medicineName;
     //console.log(medicineName);
-    //document.getElementById('nameMedicine');
+    document.getElementById('js-medicine-list');
+    //articleListElement.appendChild(listItemElement);
     medicinelistElement.appendChild(listItemElement);
 
     //const linkText = "/static/" + String(id) + "/detail/";
@@ -63,10 +65,10 @@ function createFilteredElement(id, initials, medicineName, companyName) {
     //listLinkElement.textContent = initials;
     //console.log(listLinkElement);
 
-    const listDateElement = document.createElement("div");
-    listDateElement.classList.add("nav-search-field");
+    //const listDateElement = document.createElement("div");
+    //listDateElement.classList.add("js-medicine-list");
     //listDateElement.innerHTML = "薬名:" + medicineName + "<br>会社名:" + companyName;
-    listItemElement.appendChild(listDateElement);
+    //medicinelistItemElement.appendChild(listDateElement);
 
     //listDateElement.classList.add("medicine-date");
     //listDateElement.innerHTML = "薬名:" + medicineName + "<br>会社名:" + companyName;
