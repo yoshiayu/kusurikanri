@@ -36,10 +36,14 @@ async function postSearchText(searchText) {
     const filterdMedicines = await JSON.parse(json);
     //console.log(filterdMedicines);
 
-    while (medicinelistElement.firstChild) {
-        medicinelistElement.removeChild(medicinelistElement.firstChild);
-    }
+    // while (medicinelistElement.firstChild) {
+    //     medicinelistElement.removeChild(medicinelistElement.firstChild);
+    // }
 
+    const resultsContainer = document.getElementById('autocomplete-results-container');
+    while (resultsContainer.firstChild) {
+        resultsContainer.removeChild(resultsContainer.lastChild);
+    }
     for (let medicine of filterdMedicines) {
         //console.log("pk", medicine.pk);
         //console.log("initials:", medicine.fields.initials);
@@ -51,11 +55,17 @@ async function postSearchText(searchText) {
 
 function createFilteredElement(id, initials, medicineName, companyName) {
     const listItemElement = document.createElement("div");
+    listItemElement.classList.add("s-suggestion");
     listItemElement.textContent = medicineName;
+    listItemElement.addEventListener('click', () => {
+        console.log(medicineName);
+    });
     //console.log(medicineName);
-    document.getElementById('js-medicine-list');
+    // document.getElementById('js-medicine-list');
     //articleListElement.appendChild(listItemElement);
-    medicinelistElement.appendChild(listItemElement);
+    const resultsContainer = document.getElementById('autocomplete-results-container');
+    resultsContainer.appendChild(listItemElement);
+    // medicinelistElement.appendChild(listItemElement);
 
     //const linkText = "/static/" + String(id) + "/detail/";
     //console.log(linkText);

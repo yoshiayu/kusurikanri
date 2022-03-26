@@ -24,13 +24,10 @@ class ArticleListView(ListView):
         text = body["text"]
 
         model_data = CompanyMedicineName.objects.filter(
-            medicine_name__icontains=text)
+            medicine_name__icontains=text)[:10]
 
         json_data = serializers.serialize(
             "json", model_data, ensure_ascii=False, indent=2)
-
-        print("json_data:{}".format(type(json_data)))
-        print("json_data:{}".format(json_data))
 
         return JsonResponse(json_data, safe=False)
 
