@@ -10,3 +10,4 @@ bin/
 !/.nuget/nuget.exe
 # パッケージフォルダ内の .ts ファイルは要らない
 package/**/*.ts
+.DS_Store

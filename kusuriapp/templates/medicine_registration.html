@@ -13,7 +13,7 @@
                 <input type="search" id="js-search-text" value="" name="field-keywords" autocomplete="off" placeholder="" class="nav-input nav-progressive-attribute" dir="auto" tabindex="0" aria-label="検索">                       
                   <form action="" method="POST" class="js-post_include-ready" target="#js-medicine-list">
                     
-                    <div id="js-medicine-list" >
+                    <div id="js-medicine-list" style="position:relative;">
                       <div class="nav-right">
                         <div class="nav-search-submit nav-sprite">
                             
@@ -26,10 +26,9 @@
                             <input type="hidden" name="tp1" value="#js-medicine-list"/>
                   </form>
                       </div>
-                        <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; position: absolute; top: -11px; left: 375px; width: 469px;">
+                        <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; position: absolute; top: 3px; left: 448px; width: 300px;text-align:left;">
                           <div class="nav-template nav-flyout-content"></div>                 
-                            <div class="autocomplete-results-container">
-                          </div>
+                            <div id="autocomplete-results-container" style="background-color:white;"></div>
                           <div id="medicinelistElement" ><p></p></div>   
                     </div>
       </form>
@@ -420,17 +419,7 @@
               <img class="mt-2 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
             </a>
             <p class="mt-1 mb-3 text-muted">&copy; 2017–2021</p> 
-        </div>            
-  
-<ul class="medicine-list">
-  {% for item in object_list %}
-    <li id="nameMedicine" class="medicine-list-text">
-      <a id="medicineInitials" class="link-text" href="# item.pk">{{ item.title }}</a>
-      {% comment %} <div class="medicine-date">薬名: {{ item.medicine_name|date:"Y年m月d日(D)" }}<br>会社名: {{ item.company_name|date:"Y年m月d日(D)" }}</div> {% endcomment %}
-      <div class="medicine-date">薬名: {{ item.medicine_name|date:"Y-m-d" }}<br>会社名: {{ item.company_name|date:"Y-m-d" }}</div>
-    </li>
-  {% endfor %}
-</ul>
+        </div>
 </main>
 </div>
 {% endblock content %}
