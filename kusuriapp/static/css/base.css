@@ -23,7 +23,7 @@
 }
 
 .link-btn:hover {
-    background-color: aquamarine;
+    background-color: rgb(181, 247, 208);
 }
 
 @media (max-width:800px) {

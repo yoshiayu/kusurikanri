@@ -2,6 +2,7 @@ const searchText = document.getElementById("js-search-text");
 const searchBtn = document.getElementById("js-search-btn");
 const csrftoken = Cookies.get('csrftoken');
 const medicinelistElement = document.getElementById("js-medicine-list");
+const searchSelect = document.getElementById("medicineSelect");
 
 
 searchText.addEventListener("input", () => {
@@ -11,6 +12,11 @@ searchText.addEventListener("input", () => {
 
 searchBtn.addEventListener("click", () => {
     const text = searchText.value;
+    postSearchText(text);
+}, false);
+
+searchSelect.addEventListener("click", () => {
+    const text = searchSelect.value;
     postSearchText(text);
 }, false);
 
@@ -36,8 +42,13 @@ async function postSearchText(searchText) {
     const filterdMedicines = await JSON.parse(json);
     //console.log(filterdMedicines);
 
-    while (medicinelistElement.firstChild) {
-        medicinelistElement.removeChild(medicinelistElement.firstChild);
+    //while (medicinelistElement.firstChild) {
+    //    medicinelistElement.removeChild(medicinelistElement.firstChild);
+    //}
+
+    const resultsContainer = document.getElementById('autocomplete-results-container');
+    while (resultsContainer.firstChild) {
+        resultsContainer.removeChild(resultsContainer.lastChild);
     }
 
     for (let medicine of filterdMedicines) {
@@ -51,11 +62,19 @@ async function postSearchText(searchText) {
 
 function createFilteredElement(id, initials, medicineName, companyName) {
     const listItemElement = document.createElement("div");
+    listItemElement.classList.add("s-suggestion");
     listItemElement.textContent = medicineName;
-    //console.log(medicineName);
-    document.getElementById('js-medicine-list');
+    listItemElement.addEventListener('click', () => {
+        document.getElementById('js-search-text').value = medicineName;
+        document.getElementById("medicineSelect").value = medicineName;
+        //console.log(medicineName);
+    }, false);
+
+    //document.getElementById('js-medicine-list');
     //articleListElement.appendChild(listItemElement);
-    medicinelistElement.appendChild(listItemElement);
+    const resultsContainer = document.getElementById('autocomplete-results-container');
+    resultsContainer.appendChild(listItemElement);
+    //medicinelistElement.appendChild(listItemElement);
 
     //const linkText = "/static/" + String(id) + "/detail/";
     //console.log(linkText);
