@@ -2,7 +2,6 @@ const searchText = document.getElementById("js-search-text");
 const searchBtn = document.getElementById("js-search-btn");
 const csrftoken = Cookies.get('csrftoken');
 const medicinelistElement = document.getElementById("js-medicine-list");
-const searchSelect = document.getElementById("medicineSelect");
 
 
 searchText.addEventListener("input", () => {
@@ -12,11 +11,6 @@ searchText.addEventListener("input", () => {
 
 searchBtn.addEventListener("click", () => {
     const text = searchText.value;
-    postSearchText(text);
-}, false);
-
-searchSelect.addEventListener("click", () => {
-    const text = searchSelect.value;
     postSearchText(text);
 }, false);
 
@@ -66,15 +60,34 @@ function createFilteredElement(id, initials, medicineName, companyName) {
     listItemElement.textContent = medicineName;
     listItemElement.addEventListener('click', () => {
         document.getElementById('js-search-text').value = medicineName;
-        document.getElementById("medicineSelect").value = medicineName;
+        //const element = document.getElementById('autocomplete-results-container');
+        //element.remove();
+        const resultsContainer = document.getElementById('autocomplete-results-container');
+        while (resultsContainer.firstChild) {
+            resultsContainer.removeChild(resultsContainer.lastChild);
+        }
+
+        //document.getElementById("medicineSelect").value = medicineName;
         //console.log(medicineName);
-    }, false);
+    });
+    listItemElement.addEventListener('click', () => {
+        const medicineSelect = document.getElementById('medicine-select');
+        const option = document.createElement('option');
+        option.textContent = medicineName;
+        option.selected = true;
+        medicineSelect.appendChild(option);
+    });
 
     //document.getElementById('js-medicine-list');
     //articleListElement.appendChild(listItemElement);
     const resultsContainer = document.getElementById('autocomplete-results-container');
     resultsContainer.appendChild(listItemElement);
     //medicinelistElement.appendChild(listItemElement);
+
+
+
+
+
 
     //const linkText = "/static/" + String(id) + "/detail/";
     //console.log(linkText);

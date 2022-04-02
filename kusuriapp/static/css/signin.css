@@ -9,6 +9,14 @@
     font-size: 30px;
 }
 
+.form-floating{
+    margin-left: 370px;
+}
+
+.form-floating #floatingPassword {
+    margin-left: -10px;
+}
+
 .form-floating label{
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;

@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+.nav-search-field {
+    width: 100%;
+    margin-left: 0px;
+}
+
 .nav-search-field #js-search-text {
     width: 400px;
     height: 46px;
@@ -56,6 +61,16 @@
     line-height: normal;
 }
 
+.form-floating>.form-select{
+    margin-left: -275px;
+    width: 370px;
+}
+
+.accordion {
+    margin-left: 17px;
+    width: 1080px;
+}
+
 .accordion-button {
     padding: 1rem 0.25rem;
 }
@@ -70,6 +85,22 @@
     width: 92%;
     margin: 2px auto 2px 17px;
 }
+
+.footerLog .footer-logo{
+    margin-left: 100px;
+}
+
+.input-button {
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+img {
+    margin-left: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 
 
 @media (max-width:800px) {

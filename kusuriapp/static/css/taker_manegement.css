@@ -1,11 +1,6 @@
 @charset "utf-8";
 
-*,
-::before
-::after{
-    padding: 0;
-    margin: 0;
-}
+
 
 .first-view {
     background-color: rgb(162, 247, 226);
@@ -26,6 +21,22 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     color: blue;
+}
+
+.form-floating #floatingInput {
+    width: 250px;
+    height: 55px;
+    margin-left: -380px;
+}
+
+.accordion-button .form-floating {
+    width: 100px;
+    margin-left: -11px;
+    margin-right: 330px;
+}
+
+.accordion-button::after {
+    margin-left: -74px;
 }
 
 @media (max-width:800px) {
