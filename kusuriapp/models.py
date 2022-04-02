@@ -218,13 +218,15 @@ DOSAGE_FORM = (
 
 
 class MedicineRegister(models.Model):
+    '''
     name = models.ForeignKey(MedicineNameManagement,
                              on_delete=models.CASCADE, verbose_name='服用者')
+    '''
     medicine = models.ForeignKey(
         'CompanyMedicineName', on_delete=models.CASCADE, verbose_name='服用薬', blank=True, null=True, default=1)
 
-    # def __str__(self):
-    #    return self.medicine('CompanyMedicineName')
+    def __str__(self):
+        return str(self.medicine)
 
     kinds = models.CharField(
         verbose_name='種別',
@@ -309,7 +311,7 @@ class CompanyMedicineName(models.Model):
         verbose_name_plural = '薬及び会社リスト'
 
     def __str__(self):
-        return self.medicine_name
+        return str(self.medicine_name)
 
     # サンプル項目1 日付
 

@@ -6,7 +6,7 @@
 <div class="text-center">
   <main class="main">
     <div class="container">
-      <form class="form-top" method='post'>{% csrf_token %}
+      <form class="form-top" method='post' novalidate>{% csrf_token %}
         <div class="title">
           <img class="mb-2" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
             <h1 class="h5 mb-1 fw-normal">薬登録</h1>
@@ -22,26 +22,34 @@
                           </span>
                         </div>
                       </div>
-                    </form>
-                  </nav>
+                  </form>
+                </nav>
                       <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; padding-right: auto; position: absolute; top: 282px; left: 413px; width: 400px;text-align:left;z-index: 1;">
                         <div id="myid" class="nav-template nav-flyout-content"></div>
                         <div id="autocomplete-results-container" style="background-color: white;"></div>
                       </div>
-                  
-                    <select class="form-select" aria-label="Default select example" id="medicine-select">
-                      <option selected>薬名</option>
-                    </select>
-                    <select class="form-select" aria-label="Default select example">
+
+                      <select name="medicine_name" class="form-select" aria-label="Default select example" id="medicine-select">
+                        <option selected>薬名</option>
+                      </select>
+                      
+                      {{ form.kinds }}
+                      {{ form.kinds.errors }}
+                      {{ form.dosage_form}}
+                      {{ form.dosage_form.errors }}
+
+                      {% comment %}
+                      
+                    <select name="kinds" class="form-select" aria-label="Default select example">
                       <option selected>種別</option>
-                      <option value="1">処方</option>
-                      <option value="2">処方(ジェネリック)</option>
-                      <option value="3">処方(漢方)</option>
-                      <option value="4">市販薬</option>
-                      <option value="5">市販薬(子供用)</option>
+                      <option value="0">処方</option>
+                      <option value="1">処方(ジェネリック)</option>
+                      <option value="2">処方(漢方)</option>
+                      <option value="3">市販薬</option>
+                      <option value="4">市販薬(子供用)</option>
                       <option value="5">セルフメディケーション税剤対象</option>
                     </select>
-                    <select class="form-select" aria-label="Default select example">
+                    <select name="dosage_form" class="form-select" aria-label="Default select example">
                       <option selected>剤型</option>
                       <option value="1">散剤</option>
                       <option value="2">錠剤</option>
@@ -52,6 +60,7 @@
                       <option value="7">自己注射剤</option>
                       <option value="8">その他</option>
                     </select>
+                    {% endcomment %}
 
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
@@ -369,21 +378,19 @@
                       <option value="2">湧永製薬株式会社</option>              
                       <option value="3">ワダカルシウム製薬株式会社</option>                    
                     </select>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="input-button">                   
-              <form action='' method='POST'>{% csrf_token %}
-              {{ form.as_p}}
+            <div class="input-button">
                 <br><input type="submit" id="inputButton" class="btn btn-primary" value='登録する'>
-              </form>
             </div>
-              <div class="footerLogo">
+            <div class="footerLogo">
                 <img class="footer-logo" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
                 <p class="text-muted">&copy; 2017–2021</p> 
-              </div> 
-      </div>
+            </div> 
+        </div>
+      </form>
     </div>           
   </main>
 </div>

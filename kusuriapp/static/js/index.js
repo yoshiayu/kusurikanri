@@ -84,11 +84,6 @@ function createFilteredElement(id, initials, medicineName, companyName) {
     resultsContainer.appendChild(listItemElement);
     //medicinelistElement.appendChild(listItemElement);
 
-
-
-
-
-
     //const linkText = "/static/" + String(id) + "/detail/";
     //console.log(linkText);
     //const listLinkElement = document.createElement("a");
