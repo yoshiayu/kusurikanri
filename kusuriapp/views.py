@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
-from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm
+from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm, MedicineRegisterForm
 from django.views.generic import DeleteView, UpdateView, CreateView, ListView
 from django.urls import reverse_lazy
 from django.db import IntegrityError
@@ -100,7 +100,7 @@ def loginview(request):
     return render(request, 'top.html')
 
 
-@login_required
+# @login_required
 def topview(request):
     return render(request, 'top.html')
 
@@ -133,7 +133,19 @@ def medicineregistrationview(request):
     object_list = CompanyMedicineName.objects.filter(
         initials__isnull=False).order_by('initials')
 
-    return render(request, 'medicine_registration.html', {'object_list': object_list})
+    form = MedicineRegisterForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        # POSTデータ
+        medicine_name = request.POST['medicine_name']
+        kinds = request.POST['kinds']
+        dosage_form = request.POST['dosage_form']
+        # データベースに保存
+        medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        MedicineRegister.objects.create(medicine=medicine, kinds=kinds, dosage_form=dosage_form)
+        return redirect('.')
+
+    return render(request, 'medicine_registration.html', {'object_list': object_list, 'form': form})
 
 
 def managementtopview(request):
