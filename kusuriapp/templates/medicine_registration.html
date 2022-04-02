@@ -29,17 +29,16 @@
                         <div id="autocomplete-results-container" style="background-color: white;"></div>
                       </div>
                   
-                    {{ form.medicine_name }}
-                    {{ form.medicine_name.errors }}
+                      <select name="medicine_name" class="form-select" aria-label="Default select example" id="medicine-select">
+                        <option selected>薬名</option>
+                      </select>
                     {{ form.kinds }}
                     {{ form.kinds.errors }}
                     {{ form.dosage_form }}
                     {{ form.dosage_form.errors }}
 
                     {% comment %}
-                    <select name="medicine_name" class="form-select" aria-label="Default select example" id="medicine-select">
-                      <option selected>薬名</option>
-                    </select>
+
                     <select name="kinds" class="form-select" aria-label="Default select example">
                       <option selected>種別</option>
                       <option value="1">処方</option>

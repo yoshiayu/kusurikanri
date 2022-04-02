@@ -30,13 +30,6 @@ class CompanyMedicineNameForm(forms.ModelForm):
 
 
 class MedicineRegisterForm(forms.ModelForm):
-    medicine_name = forms.ChoiceField(
-        choices=[('', '薬名'),],
-        widget=forms.Select(
-            attrs={'class': 'form-select', 'id': 'medicine-select'}
-        )
-    )
-
     class Meta:
         model = MedicineRegister
         fields = ['kinds', 'dosage_form']
