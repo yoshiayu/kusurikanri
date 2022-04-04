@@ -10,12 +10,17 @@ class TimeSettingForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ManagementTopForm(forms.ModelForm):
+class MedicineMangementForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['medicine'].choices = [
+            ("", "薬名")] + list(self.fields['medicine'].choices)[1:]
+
     class Meta:
         model = MedicineMangement
-        fields = '__all__'
+        fields = {'medicine', 'name'}
         widgets = {
-            'medicine_name': forms.Select(attrs={'class': 'form-select'}),
+            'medicine': forms.Select(attrs={'class': 'form-select'}),
             'taking_start': DateTimePickerInput(options={
                 'format': 'YYYY/MM/DD HH:mm',
                 'locale': 'ja',
@@ -32,6 +37,13 @@ class CompanyMedicineNameForm(forms.ModelForm):
 
 
 class MedicineRegisterForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['kinds'].choices = [
+            ("", "種別")] + list(self.fields['kinds'].choices)[1:]
+        self.fields['dosage_form'].choices = [
+            ("", "剤型")] + list(self.fields['dosage_form'].choices)[1:]
+
     class Meta:
         model = MedicineRegister
         fields = ['kinds', 'dosage_form']

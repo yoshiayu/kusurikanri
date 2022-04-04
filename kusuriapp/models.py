@@ -313,6 +313,9 @@ class CompanyMedicineName(models.Model):
     def __str__(self):
         return str(self.medicine_name)
 
+    # def __str__(self):
+    #   return str(self.company_name)
+
     # サンプル項目1 日付
 
 

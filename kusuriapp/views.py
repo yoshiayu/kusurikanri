@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
-from .forms import TimeSettingForm, ManagementTopForm, CompanyMedicineNameForm, MedicineRegisterForm
+from .forms import TimeSettingForm, CompanyMedicineNameForm, MedicineRegisterForm, MedicineMangementForm
 from django.views.generic import DeleteView, UpdateView, CreateView, ListView
 from django.urls import reverse_lazy
 from django.db import IntegrityError
@@ -149,18 +149,19 @@ def medicineregistrationview(request):
 
 
 def managementtopview(request):
-    form = ManagementTopForm()
+    form = MedicineMangementForm(request.POST)
     object_list = MedicineMangement.objects.all()
-    if request.method == 'POST':
-        form = ManagementTopForm(request.POST)
-        if form.is_valid():
-            MedicineMangement.objects.create(
-                taking_start=request.POST['taking_start'],
-                taking_dossage=request.POST['taking_dossage'],
-                name=request.POST['name'],
-                taking_unit=request.POST['taking_unit'],
-                taking_end=request.POST['taking_end'],
-                text=request.POST['text']
-            )
-            messages.success(request, '登録されました。')
+    if request.method == 'POST' and form.is_valid():
+        medicine_name = request.POST['medicine']
+        taking_start = request.POST['taking_start']
+        taking_dossage = request.POST['taking_dossage']
+        name = request.POST['name']
+        taking_unit = request.POST['taking_unit']
+        taking_end = request.POST['taking_end']
+        text = request.POST['text']
+        medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        MedicineMangement.objects.create(
+            medicine=medicine, taking_start=taking_start, taking_dossage=taking_dossage, name=name, taking_unit=taking_unit, taking_end=taking_end, text=text)
+        return redirect('.')
+
     return render(request, 'management_top.html', {'object_list': object_list, 'form': form})

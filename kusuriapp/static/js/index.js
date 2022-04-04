@@ -57,9 +57,9 @@ async function postSearchText(searchText) {
 function createFilteredElement(id, initials, medicineName, companyName) {
     const listItemElement = document.createElement("div");
     listItemElement.classList.add("s-suggestion");
-    listItemElement.textContent = medicineName;
+    listItemElement.textContent = medicineName + `(${companyName})`;
     listItemElement.addEventListener('click', () => {
-        document.getElementById('js-search-text').value = medicineName;
+        document.getElementById('js-search-text').value = medicineName + `(${companyName})`;
         //const element = document.getElementById('autocomplete-results-container');
         //element.remove();
         const resultsContainer = document.getElementById('autocomplete-results-container');
@@ -67,13 +67,13 @@ function createFilteredElement(id, initials, medicineName, companyName) {
             resultsContainer.removeChild(resultsContainer.lastChild);
         }
 
-        //document.getElementById("medicineSelect").value = medicineName;
-        //console.log(medicineName);
+        //document.getElementById("medicineSelect").value = medicineName, companyName;
+        //console.log(medicineName + `(${companyName})`);
     });
     listItemElement.addEventListener('click', () => {
         const medicineSelect = document.getElementById('medicine-select');
         const option = document.createElement('option');
-        option.textContent = medicineName;
+        option.textContent = medicineName + `(${companyName})`;
         option.selected = true;
         medicineSelect.appendChild(option);
     });
