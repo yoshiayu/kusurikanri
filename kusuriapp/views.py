@@ -137,7 +137,7 @@ def medicineregistrationview(request):
     form = MedicineRegisterForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
-        medicine_name = request.POST['medicine_name']
+        medicine_name = request.POST['medicine_name'].split('(')[0]
         kinds = request.POST['kinds']
         dosage_form = request.POST['dosage_form']
         medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
