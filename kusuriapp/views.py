@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import TakingTimeAlarm, CompanyMedicineName, MedicineMangement, TakingDosage, MedicineRegister
-from .forms import TimeSettingForm, CompanyMedicineNameForm, MedicineRegisterForm, MedicineMangementForm
+from .forms import TimeSettingForm, CompanyMedicineNameForm, MedicineRegisterForm, MedicineMangementForm, TakerManagementForm
 from django.views.generic import DeleteView, UpdateView, CreateView, ListView
 from django.urls import reverse_lazy
 from django.db import IntegrityError
@@ -137,7 +137,7 @@ def medicineregistrationview(request):
     form = MedicineRegisterForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
-        medicine_name = request.POST['medicine_name']
+        medicine_name = request.POST['medicine_name'].split('(')[0]
         kinds = request.POST['kinds']
         dosage_form = request.POST['dosage_form']
         medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
@@ -152,10 +152,10 @@ def managementtopview(request):
     form = MedicineMangementForm(request.POST)
     object_list = MedicineMangement.objects.all()
     if request.method == 'POST' and form.is_valid():
+        name = request.POST['name']
         medicine_name = request.POST['medicine']
         taking_start = request.POST['taking_start']
         taking_dossage = request.POST['taking_dossage']
-        name = request.POST['name']
         taking_unit = request.POST['taking_unit']
         taking_end = request.POST['taking_end']
         text = request.POST['text']
@@ -165,3 +165,18 @@ def managementtopview(request):
         return redirect('.')
 
     return render(request, 'management_top.html', {'object_list': object_list, 'form': form})
+
+
+def takermanegementview(request):
+    object_list = CompanyMedicineName.objects.filter(
+        initials__isnull=False).order_by('initials')
+
+    form = TakerManagementForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        medicine_name = request.POST['medicine_name'].split('(')[0]
+        medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        TakingDosage.objects.create(medicine=medicine)
+        return redirect('.')
+
+    return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})

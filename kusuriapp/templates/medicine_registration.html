@@ -12,26 +12,18 @@
             <h1 class="h5 mb-1 fw-normal">薬登録</h1>
               <div class="nav-search-field" >
                 <nav class="navbar navber-light">
-                <input type="search" id="js-search-text" value="" name="field-keywords" autocomplete="off" placeholder="薬名を入力してください" class="nav-input nav-progressive-attribute" dir="auto" tabindex="0" aria-label="検索"> 
-                  <form id="inputClick" action="" method="POST" class="container-fluid" target="#js-medicine-list">                    
-                    <div id="js-medicine-list" style="position:relative;">
-                      <div class="nav-right">
-                        <div class="nav-search-submit nav-sprite">
-                          <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite nav-progressive-attribute" aria-label="決定">
-                            <input id="js-search-btn" type="submit" class="nav-input" value="決定" tabindex="0">
-                          </span>
-                        </div>
-                      </div>
-                  </form>
+                  <input type="search" id="js-search-text" value="" name="field-keywords" autocomplete="off" placeholder="薬名を入力してください" class="nav-input nav-progressive-attribute" dir="auto" tabindex="0" aria-label="検索"> 
+                    <form id="inputClick" action="" method="POST" class="container-fluid" target="#js-medicine-list">                    
+                      <div id="js-medicine-list" style="position:relative;">                     
+                    </form>
                 </nav>
-                      <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; padding-right: auto; position: absolute; top: 282px; left: 413px; width: 400px;text-align:left;z-index: 1;">
-                        <div id="myid" class="nav-template nav-flyout-content"></div>
-                        <div id="autocomplete-results-container" style="background-color: white;"></div>
-                      </div>
-
-                      <select name="medicine_name" class="form-select" aria-label="Default select example" id="medicine-select">
-                        <option selected>薬名</option>
-                      </select>
+                        <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; padding-right: auto; position: absolute; top: 282px; left: 413px; width: 400px;text-align:left;z-index: 1;">
+                          <div id="myid" class="nav-template nav-flyout-content"></div>
+                            <div id="autocomplete-results-container" style="background-color: white;"></div>
+                        </div>
+                        <select name="medicine_name" class="form-select" aria-label="Default select example" id="medicine-select">
+                          <option selected>薬名</option>
+                        </select>
                       
                       {{ form.kinds }}
                       {{ form.kinds.errors }}
@@ -60,7 +52,7 @@
                       <option value="7">自己注射剤</option>
                       <option value="8">その他</option>
                     </select>
-                    {% endcomment %}
+                    
 
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
@@ -382,6 +374,7 @@
                   </div>
                 </div>
               </div>
+              {% endcomment %}
             <div class="input-button">
                 <br><input type="submit" id="inputButton" class="btn btn-primary" value='登録する'>
             </div>

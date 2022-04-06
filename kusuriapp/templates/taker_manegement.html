@@ -27,7 +27,9 @@
             
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                   <div class="accordion-body">
-                    <strong>登録薬の選択</strong><code>
+                    {{ form.medicine }}
+                    {{ form.company}}
+                    <code>
                   </div>
                 </div>
               </div>
@@ -41,7 +43,9 @@
                   </button>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body">
-                    <strong>登録薬の選択</strong><code>
+                    {{ form.medicine }}
+                    {{ form.company}}
+                    <code>
                   </div>
                 </div>
               </div>
@@ -55,12 +59,13 @@
                   </button>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                   <div class="accordion-body">
-                    <strong>登録薬の選択</strong>
+                    {{ form.medicine }}
+                    {{ form.company}}
+                    <code>
                   </div>
                 </div>
               </div>
             <form action='' method='POST'>{% csrf_token %}  
-              {{ form.as_p}}
             <!-- <input type="submit" value='登録する'> -->
             <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
             </form>

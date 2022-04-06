@@ -267,6 +267,10 @@ class TakingDosage(models.Model):
                              on_delete=models.CASCADE, verbose_name='服用者')
     medicine = models.ForeignKey(
         MedicineMangement, on_delete=models.CASCADE, verbose_name='服用薬')
+
+    def __str__(self):
+        return f'{self.medicine_name}({self.company_name})'
+
     taking_dosage = models.IntegerField(
         verbose_name='服用量',
         blank=True,
@@ -303,7 +307,6 @@ class CompanyMedicineName(models.Model):
         verbose_name='薬ID', blank=True, null=True)
     medicine_name = models.CharField(
         max_length=30, verbose_name='薬名', blank=True, null=True)
-
     initials = models.CharField(
         max_length=1, verbose_name='頭文字', blank=True, null=True)
 
@@ -311,10 +314,13 @@ class CompanyMedicineName(models.Model):
         verbose_name_plural = '薬及び会社リスト'
 
     def __str__(self):
-        return str(self.medicine_name)
+        return f'{self.medicine_name}({self.company_name})'
 
     # def __str__(self):
-    #   return str(self.company_name)
+    #    return str(self.medicine_name)
+
+    # def __str__(self):
+    #     return str(self.company_name)
 
     # サンプル項目1 日付
 

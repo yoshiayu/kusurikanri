@@ -78,6 +78,14 @@ function createFilteredElement(id, initials, medicineName, companyName) {
         medicineSelect.appendChild(option);
     });
 
+    listItemElement.addEventListener('click', () => {
+        const medicineSelect = document.getElementById('takermedicine');
+        const option = document.createElement('option');
+        option.textContent = medicineName + `(${companyName})`;
+        option.selected = true;
+        medicineSelect.appendChild(option);
+    });
+
     //document.getElementById('js-medicine-list');
     //articleListElement.appendChild(listItemElement);
     const resultsContainer = document.getElementById('autocomplete-results-container');

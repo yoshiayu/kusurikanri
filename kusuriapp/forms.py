@@ -1,6 +1,6 @@
 from tkinter import Widget
 from django import forms
-from .models import TakingTimeAlarm, MedicineMangement, CompanyMedicineName, Item, MedicineRegister
+from .models import TakingTimeAlarm, MedicineMangement, CompanyMedicineName, Item, MedicineRegister, TakingDosage
 from bootstrap_datepicker_plus.widgets import DateTimePickerInput, DatePickerInput, TimePickerInput
 
 
@@ -50,4 +50,18 @@ class MedicineRegisterForm(forms.ModelForm):
         widgets = {
             'kinds': forms.Select(attrs={'class': 'form-select'}),
             'dosage_form': forms.Select(attrs={'class': 'form-select'}),
+        }
+
+
+class TakerManagementForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['medicine'].choices = [
+            ("", "服用薬")] + list(self.fields['medicine'].choices)[1:]
+
+    class Meta:
+        model = MedicineMangement
+        fields = {'medicine'}
+        widgets = {
+            'medicine': forms.Select(attrs={'class': 'form-select'}),
         }
