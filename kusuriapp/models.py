@@ -1,4 +1,5 @@
 import datetime
+import schedule
 from tabnanny import verbose
 from django.db import models
 from django.core.mail import send_mail
@@ -14,6 +15,17 @@ class Question(models.Model):
 
 def get_upload_file_name(filename):
     return "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
+
+
+def job():
+    print(datetime.datetime.now())
+    print("I'm taking...")
+
+    schedule.every().day.at("20:56").do(job)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(60)
 
 
 class UserModel(BaseUserManager):
