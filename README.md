@@ -1,3 +1,5 @@
+![薬](./medicine0.png)
+
 # 薬管理アプリのポートフォリオ  
 # (Of the drug management portfolio)
 
