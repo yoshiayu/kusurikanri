@@ -17,6 +17,17 @@
     font-style: oblique;
 }
 
+.form-floating #name {
+    font-size: 15px;
+}
+
+.form-floating #name1 {
+    font-size: 15px;
+}
+
+.form-floating #name2 {
+    font-size: 15px;
+}
 
 .accordion-body {
     font-family: 'Montserrat', sans-serif;
@@ -28,6 +39,8 @@
     width: 250px;
     height: 55px;
     margin-left: -380px;
+    text-align: center;
+    font-size: 25px;
 }
 
 .accordion-button .form-floating {
@@ -38,6 +51,19 @@
 
 .accordion-button::after {
     margin-left: -74px;
+}
+
+.btn-primary{
+    margin-top: -15px;
+}
+
+.text-center .footerLog .footerLogo{
+    margin-top: 10px;
+}
+
+.accordion .accordion-item .accordion-button{
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 @media (max-width:800px) {
