@@ -139,11 +139,11 @@ class MedicineNameManagement(models.Model):
 
 
 TAKING_UNIT = (
-    ('0', '錠'),
-    ('1', '包'),
-    ('2', '滴'),
-    ('3', 'mg'),
-    ('4', 'ml'),
+    (0, '錠'),
+    (1, '包'),
+    (2, '滴'),
+    (3, 'mg'),
+    (4, 'ml'),
 )
 TAKING_TIME = (
     ('0', '朝'),
@@ -188,18 +188,12 @@ class MedicineMangement(models.Model):
         default=datetime.datetime.now()
     )
 
-    def __str__(self):
-        return self.taking_start
-
     taking_end = models.DateTimeField(
         verbose_name='服用終了',
         blank=True,
         null=True,
         default=datetime.datetime.now()
     )
-
-    def __str__(self):
-        return self.taking_end
 
     text = models.TextField(
         verbose_name='薬メモ',
