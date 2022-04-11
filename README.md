@@ -1,6 +1,7 @@
 ![薬](./medicine0.png)
 
-# 薬管理アプリのポートフォリオ(Of the drug management portfolio)
+# 薬管理アプリのポートフォリオ  
+# (Of the drug management portfolio)
 
 ## ポートフォリオについて(About the portfolio)  
 
@@ -15,7 +16,8 @@ and registration of 5 kinds of medicines per person and
 It is an application that can notify the dosing time by push notification.  
 
 
-# 実装にあたり使用した言語等(Language etc. used for implementation)
+# 実装にあたり使用した言語等  
+# (Language etc. used for implementation)
 * Python/Django
 * HTML/CSS
 * javascript
