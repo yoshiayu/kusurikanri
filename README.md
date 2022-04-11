@@ -25,7 +25,6 @@ It is an application that can notify the dosing time by push notification.
 * webp(画像:image)
 * SQLでのデータベース整理(Database organization with SQL)  
 
-https://github-readme-stats.vercel.app/api/top-langs/?yoshiayu=hoge&layout=compact&theme=dracula
 
 # 実装者  
 ## Ayumu Yoshinaga  
