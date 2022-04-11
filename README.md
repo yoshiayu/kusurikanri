@@ -1,4 +1,6 @@
-![薬](./medicine0.png)
+![薬](./medicine0.png)  
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact&theme=dracula)  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoshiayu&show_icons=true&theme=radical)  
 
 # 薬管理アプリのポートフォリオ  
 # (Of the drug management portfolio)
@@ -24,7 +26,6 @@ It is an application that can notify the dosing time by push notification.
 * スクレイピング(Scraping)
 * webp(画像:image)
 * SQLでのデータベース整理(Database organization with SQL)  
-
 
 # 実装者  
 ## Ayumu Yoshinaga  
