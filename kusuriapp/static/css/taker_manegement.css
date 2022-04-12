@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-
+button {
+    margin-left: 10px;
+}
 
 .first-view {
     background-color: rgb(162, 247, 226);
@@ -15,6 +17,8 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-style: oblique;
+    margin-left: 9px;
+    margin-right: 100px;
 }
 
 .form-floating #name {
@@ -35,12 +39,37 @@
     color: blue;
 }
 
-.form-floating #floatingInput {
-    width: 250px;
-    height: 55px;
-    margin-left: -380px;
+.container .form-floating #floatingInput0 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
     text-align: center;
     font-size: 25px;
+    z-index: 1;
+}
+
+.container .form-floating #floatingInput1 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.container .form-floating #floatingInput2 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 1;
 }
 
 .accordion-button .form-floating {
@@ -53,19 +82,30 @@
     margin-left: -74px;
 }
 
-.btn-primary{
+.btn-primary {
     margin-top: -15px;
 }
 
-.text-center .footerLog .footerLogo{
+.text-center .footerLog .footerLogo {
     margin-top: 10px;
 }
 
-.accordion .accordion-item .accordion-button{
+.accordion .accordion-item .form-floating {
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-left: -11px;
+    margin-right: 0px;
+    margin-top: -25px;
+    margin-bottom: -20px;
+    width: 250px;
 }
 
-@media (max-width:800px) {
-    
+.accordion .accordion-item #floatingInput {
+    margin-top: 0px;
 }
+
+input {
+    margin-top: 10px;
+}
+
+@media (max-width:800px) {}
