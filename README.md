@@ -30,11 +30,11 @@ However, it is still an incomplete implementation and needs further improvement.
 
 # 使用方法  
 graph TD  
-    A[signin] -->|Top| B(Top)
-    B --> C{Top}
-    C -->|One| D[managementtop]
-    C -->|Two| E[medicineregistration]
-    C -->|Three| F[settingtop]
+    A[signin] -->|Top| B(Top)  
+    B --> C{Top}  
+    C -->|One| D[managementtop]  
+    C -->|Two| E[medicineregistration]  
+    C -->|Three| F[settingtop]  
 
 # 実装者  
 ## Ayumu Yoshinaga  
