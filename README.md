@@ -11,7 +11,7 @@
 画像、薬データ【約28,000件】及び製造メーカー【273社】が格納されています。  
 本人だけではなく、家族二人分の服用薬を管理することができ、一人5種類の服用薬の登録及び  
 プッシュ通知により服用時間を通知できるアプリとなっています。  
-しかしながら、まだまだ不完全な実装であり、更に改良する必要性があります。  
+しかしながら、まだまだ不完全な実装であり、更に改善する必要性があります。  
 This repository is for publishing @ yoshiayu's portfolio.  
 Images, drug data [about 28,000] and manufacturers [273 companies] are stored.  
 It is possible to manage not only the person but also the medicines taken by two family members,  
@@ -46,6 +46,16 @@ However, it is still an incomplete implementation and needs further improvement.
             H-->C;
             I-->C;
 ```
+# ポートフォリオ実装状態チェック
+- [x] アプリケーション決定
+- [x] 画面設計図
+- [x] 画面遷移図
+- [x] データーベース設計
+- [x] ファイル生成（GitHub）
+- [x] 装飾整理
+- [ ] テスト起動確認
+- [ ] デプロイ
+
 # 実装者  
 ## Ayumu Yoshinaga  
 https://twitter.com/yoshiayu1  
