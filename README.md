@@ -29,7 +29,23 @@ However, it is still an incomplete implementation and needs further improvement.
 * SQLでのデータベース整理(Database organization with SQL)  
 
 # 使用方法  
-
+```mermaid
+    graph TD;
+            A[signin]-->B(login);
+            B-->C{Top};
+            C-->|One|D[managementtop];
+            C-->|Two|E[medicineregistration];
+            C-->|Three|F[settingtop];
+            F-->|One|G[medicineregistration];
+            F-->|Two|H[takermanegement];
+            F-->|Three|I[timesetting];
+            D-->B;
+            E-->B;
+            F-->B;
+            G-->B;
+            H-->B;
+            I-->B;
+```
 # 実装者  
 ## Ayumu Yoshinaga  
 https://twitter.com/yoshiayu1  
