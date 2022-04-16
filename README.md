@@ -31,20 +31,20 @@ However, it is still an incomplete implementation and needs further improvement.
 # 使用方法  
 ```mermaid
     graph TD;
-            A[signin]-->B(login);
-            B-->C{Top};
-            C-->|One|D[managementtop];
-            C-->|Two|E[medicineregistration];
-            C-->|Three|F[settingtop];
-            F-->|One|G[medicineregistration];
-            F-->|Two|H[takermanegement];
-            F-->|Three|I[timesetting];
-            D-->B;
-            E-->B;
-            F-->B;
-            G-->B;
-            H-->B;
-            I-->B;
+            A[サインイン/signin]-->|メールEmail/アドレスAddress|B(ログイン/login);
+            B-->C{薬管理/Top};
+            C-->|服用者,薬名,服用期間,服用間隔,服用時刻,アラームスイッチ,薬メモ|D[薬の管理/managementtop];
+            C-->|薬名,種別,剤型|E[登録薬/medicineregistration];
+            C-->|薬の管理,家族管理,アラーム設定|F[設定/settingtop];
+            F-->|服用者,薬名,服用期間,服用間隔,服用時刻,アラームスイッチ,薬メモ|G[薬の管理/medicineregistration];
+            F-->|服用者3名,服用薬5種|H[家族管理/takermanegement];
+            F-->|服用時間管理,  朝  昼  夕等|I[アラーム時間設定/timesetting];
+            D-->C;
+            E-->C;
+            F-->C;
+            G-->C;
+            H-->C;
+            I-->C;
 ```
 # 実装者  
 ## Ayumu Yoshinaga  
