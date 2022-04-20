@@ -1,3 +1,4 @@
+from datetime import datetime
 from urllib import request
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -19,6 +20,7 @@ class ArticleListView(ListView):
     template_name = "static/static/medicine_registration.html"
 
     def post(self, request, *args, **kwargs):
+
         json_body = request.body.decode("utf-8")
         body = json.loads(json_body)
 
@@ -74,6 +76,7 @@ class SigninCreate(CreateView):
     success_url = reverse_lazy('list')
 
 
+@login_required
 def signinview(request):
     if request.method == 'POST':
         email_data = request.POST['email_data']
@@ -101,7 +104,6 @@ def loginview(request):
     return render(request, 'top.html')
 
 
-# @login_required
 def topview(request):
     return render(request, 'top.html')
 
@@ -180,3 +182,9 @@ def takermanegementview(request):
         return redirect('.')
 
     return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
+
+
+def get_alarm(request):
+    alarm = MedicineMangement.objects.filter(
+        user_id=request.user, taking_start__lte=datetime.now(), taking_end__gte=datetime.now())
+    return JsonResponse(serializers.serialize("json", alarm), safe=False)

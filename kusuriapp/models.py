@@ -188,8 +188,8 @@ class MedicineMangement(models.Model):
         default=datetime.datetime.now()
     )
 
-    def __str__(self):
-        return self.taking_start
+    # def __str__(self):
+    #    return self.taking_start
 
     taking_end = models.DateTimeField(
         verbose_name='服用終了',
@@ -198,8 +198,8 @@ class MedicineMangement(models.Model):
         default=datetime.datetime.now()
     )
 
-    def __str__(self):
-        return self.taking_end
+    # def __str__(self):
+    #    return self.taking_end
 
     text = models.TextField(
         verbose_name='薬メモ',

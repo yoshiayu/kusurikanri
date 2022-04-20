@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import signinview, loginview, topview, timesettingview, takermanegementview, settingtopview, medicineregistrationview, managementtopview, TakermanegemenDelete, MedicineRegistrationCreate, TakerManegementCreate, ManagementTopCreate, SigninCreate, TimeSettingUpdate, ArticleListView
+from .views import signinview, loginview, topview, timesettingview, takermanegementview, settingtopview, medicineregistrationview, managementtopview, TakermanegemenDelete, MedicineRegistrationCreate, TakerManegementCreate, ManagementTopCreate, SigninCreate, TimeSettingUpdate, ArticleListView, get_alarm
 
 urlpatterns = [
     path("signin/", signinview, name="signin"),
@@ -21,5 +21,7 @@ urlpatterns = [
     path('create/<int:pk>', SigninCreate.as_view()),
 
     path('medicine-search/', ArticleListView.as_view(),),
+
+    path('get-alarm/', get_alarm),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
