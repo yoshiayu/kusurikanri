@@ -1,3 +1,4 @@
+from datetime import datetime
 from urllib import request
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -180,3 +181,9 @@ def takermanegementview(request):
         return redirect('.')
 
     return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
+
+
+def get_alarm(request):
+    alarm = MedicineMangement.objects.filter(user_id=request.user, taking_start__lte=datetime.now(), taking_end__gte=datetime.now())
+    return JsonResponse(serializers.serialize("json", alarm), safe=False)
+    
