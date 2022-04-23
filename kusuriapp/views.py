@@ -185,6 +185,5 @@ def takermanegementview(request):
 
 
 def get_alarm(request):
-    alarm = MedicineMangement.objects.filter(
-        user_id=request.user, taking_start__lte=datetime.now(), taking_end__gte=datetime.now())
+    alarm = TakingTimeAlarm.objects.all()
     return JsonResponse(serializers.serialize("json", alarm), safe=False)
