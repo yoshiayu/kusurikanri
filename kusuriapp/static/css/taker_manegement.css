@@ -79,7 +79,11 @@ button {
 }
 
 .accordion-button::after {
-    margin-left: -74px;
+    margin-left: -54px;
+}
+
+.accordion-button:not(.collapsed)::after{
+    margin-left: -10px;
 }
 
 .btn-primary {
@@ -100,8 +104,13 @@ button {
     width: 250px;
 }
 
-.accordion .accordion-item #floatingInput {
-    margin-top: 0px;
+.accordion-item:first-of-type .accordion-button  {
+    margin-left: 350px;
+    width: 40px;
+}
+
+.accordion .accordion-item .accordion-button{
+    margin-left: 357px;
 }
 
 input {

@@ -61,3 +61,4 @@ However, it is still an incomplete implementation and needs further improvement.
 https://twitter.com/yoshiayu1  
 https://www.instagram.com/ayumuyoshi
 
+# kusurikanriapp

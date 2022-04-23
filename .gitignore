@@ -2,6 +2,7 @@
 venv/
 # dbはコミットしない
 db.sqlite3
+sqlite3.db
 # exe ファイルは要らない
 *.exe
 # bin フォルダは要らない

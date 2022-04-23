@@ -14,7 +14,7 @@ let count = 0;
 const countUp = () => {
     console.log(count++);
     const timeoutId = setTimeout(countUp, 1000);
-    if(count > 5){
+    if(count > 10){
         clearTimeout(timeoutId);
     }
 }
