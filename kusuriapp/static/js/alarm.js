@@ -41,8 +41,6 @@ window.onload = function() {
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i])
             }
-
-
             if (previousMinutes !== minutes && minutes % 15 === 0) {
                 previousMinutes = minutes;
                 const notification = new Notification("お薬を飲む時間です!", options);

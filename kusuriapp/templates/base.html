@@ -61,7 +61,51 @@
 {% block content %}
 {% endblock content %}
 
-
+<form>
+  <!-- サーバー送信テキスト-->
+  <input id="textMessage" type="text">
+  <!-- 送信ボタン -->
+  <input onclick="sendMessage()" value="送信" type="button">
+  <!-- 送信終了 -->
+  <input onclick="disconnect()" value="切断" type="button">
+</form>
+<br />
+<!-- 出力 -->
+<textarea id="messageTextArea" rows="10" cols="50"></textarea>
+<script type="text/javascript">
+  //webサーバー接続
+  var webSocket = new WebSocket("ws://localhost:8000/ws/");
+  var messageTextArea = document.getElementById("messageTextArea");
+  //接続で呼び出し
+  webSocket.onopen = function(message){
+    messageTextArea.value += "サーバー接続...\n";
+  };
+  //接続断呼び出し
+  webSocket.onclose = function(message){
+    messageTextArea.value += "サーバー切断...\n";
+  };
+  //エラー呼び出し
+  webSocket.onerror = function(message){
+    messageTextArea.value += "エラー...\n";
+  };
+  //メッセージ受信
+  webSocket.onmessage = function(message){
+    messageTextArea.value += "サーバーから受信 => "+message.data+"\n";
+  };
+  //サーバーに送信
+  function sendMessage(){
+    var message = document.getElementById("textMessage");
+    messageTextArea.value += "サーバーに送信 => "+message.value+"\n";
+  
+  webSocket.send(message.value);
+  message.value = "";
+  }
+  //通信切断
+  function disconnect(){
+    webSocket.close();
+  }
+  console.log(message);
+</script>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
