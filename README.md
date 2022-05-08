@@ -53,8 +53,8 @@ However, it is still an incomplete implementation and needs further improvement.
 - [x] データーベース設計
 - [x] ファイル生成（GitHub）
 - [x] 装飾整理
-- [ ] テスト起動確認
-- [ ] デプロイ
+- [x] テスト起動確認
+- [x] デプロイ
 
 # 実装者  
 ## Ayumu Yoshinaga  
