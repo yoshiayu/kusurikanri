@@ -2,7 +2,6 @@
 venv/
 # dbはコミットしない
 db.sqlite3
-# コミットしない
 sqlite3.db
 # exe ファイルは要らない
 *.exe
