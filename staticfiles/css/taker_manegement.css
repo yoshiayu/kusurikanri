@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+button {
+    margin-left: 10px;
+}
+
+.first-view {
+    background-color: rgb(162, 247, 226);
+}
+
+.container h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+.form-floating {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-style: oblique;
+    margin-left: 9px;
+    margin-right: 100px;
+}
+
+.form-floating #name {
+    font-size: 15px;
+}
+
+.form-floating #name1 {
+    font-size: 15px;
+}
+
+.form-floating #name2 {
+    font-size: 15px;
+}
+
+.accordion-body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: blue;
+}
+
+.container .form-floating #floatingInput0 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.container .form-floating #floatingInput1 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.container .form-floating #floatingInput2 {
+    width: 357px;
+    height: 49px;
+    margin-left: 10px;
+    margin-top: -50px;
+    margin-bottom: 21px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.accordion-button .form-floating {
+    width: 100px;
+    margin-left: -11px;
+    margin-right: 330px;
+}
+
+.accordion-button::after {
+    margin-left: -54px;
+}
+
+.accordion-button:not(.collapsed)::after{
+    margin-left: -10px;
+}
+
+.btn-primary {
+    margin-top: -15px;
+}
+
+.text-center .footerLog .footerLogo {
+    margin-top: 10px;
+}
+
+.accordion .accordion-item .form-floating {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: -11px;
+    margin-right: 0px;
+    margin-top: -25px;
+    margin-bottom: -20px;
+    width: 250px;
+}
+
+.accordion-item:first-of-type .accordion-button  {
+    margin-left: 350px;
+    width: 40px;
+}
+
+.accordion .accordion-item .accordion-button{
+    margin-left: 357px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+@media (max-width:800px) {}
