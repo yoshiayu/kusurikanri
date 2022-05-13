@@ -1,7 +1,7 @@
 ![薬](./medicine04.webp)  
 
 <p align="center"> 
-  <img src="images/Signal.gif" alt="Sample signal" width="70%" height="70%">
+  <img src="images/sample.gif" alt="Sample signal" width="50%" height="50%">
 </p>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact&theme=dracula)  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoshiayu&show_icons=true&theme=radical)  
@@ -64,5 +64,3 @@ However, it is still an incomplete implementation and needs further improvement.
 ## Ayumu Yoshinaga  
 https://twitter.com/yoshiayu1  
 https://www.instagram.com/ayumuyoshi
-
-# kusurikanriapp
