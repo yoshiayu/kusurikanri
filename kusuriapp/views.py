@@ -136,13 +136,14 @@ def medicineregistrationview(request):
     object_list = CompanyMedicineName.objects.filter(
         initials__isnull=False).order_by('initials')
 
-    form = MedicineRegisterForm(request.POST or None)
+    form = MedicineRegisterForm(data=request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
         medicine_name = request.POST['medicine_name'].split('(')[0]
         kinds = request.POST['kinds']
         dosage_form = request.POST['dosage_form']
-        medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        medicine = CompanyMedicineName.objects.filter(
+            medicine_name=medicine_name)
         MedicineRegister.objects.create(
             medicine=medicine, kinds=kinds, dosage_form=dosage_form)
         return redirect('.')
