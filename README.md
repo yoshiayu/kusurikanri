@@ -1,5 +1,3 @@
-![薬](./medicine04.webp)  
-
 <p align="center"> 
   <img src="images/sample.gif" alt="Sample signal" width="50%" height="50%">
 </p>
