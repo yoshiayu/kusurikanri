@@ -105,6 +105,12 @@ img {
 
 @media (max-width:800px) {
     .nav-search-field #js-search-text {
+        width: 400px;
+        height: 46px;
+        margin-left: 358px;
+        background-color: rgb(201, 251, 253);
+    }
+    .nav-search-field #js-search-text {
         width: 300px;
         height: 40px;
         background-color: rgb(201, 251, 253);
