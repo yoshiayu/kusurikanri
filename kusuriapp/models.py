@@ -317,8 +317,8 @@ class CompanyMedicineName(models.Model):
         max_length=20, verbose_name='会社名', blank=True, null=True)
     medicine_id = models.IntegerField(
         verbose_name='薬ID', blank=True, null=True)
-    medicine_name = models.CharField(
-        max_length=30, verbose_name='薬名', blank=True, null=True)
+    medicine_name = models.CharField(unique=True,
+                                     max_length=30, verbose_name='薬名', blank=True, null=True)
     initials = models.CharField(
         max_length=1, verbose_name='頭文字', blank=True, null=True)
 
