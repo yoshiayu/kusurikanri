@@ -18,9 +18,9 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(iterable):
+                def __inter__():
                     uniqued = []
-                    for x in iterable:
+                    for x in duplicated:
                         if not x in uniqued:
                             uniqued.append(x)
 
@@ -30,12 +30,12 @@ class Command(BaseCommand):
                             uniqued = set(duplicated)
                             print(uniqued)
                             # 一行目はヘッダーなのでスキップし、行でループ
-                            # for row in ws.iter_rows(min_row=2):
-                            #    print(sheet_name)
-                            #medicine = CompanyMedicineName()
-                            # medicine.initials = str(
-                            #    Path(f'{folder}/{file}').parent).split('/')[-1][0]
-                            #medicine.company_name = sheet_name
+                            for row in ws.iter_rows(min_row=2):
+                                print(sheet_name)
+                            medicine = CompanyMedicineName()
+                            medicine.initials = str(
+                                Path(f'{folder}/{file}').parent).split('/')[-1][0]
+                            medicine.company_name = sheet_name
 
                             medicine = [CompanyMedicineName]
                             medicine_k = []
@@ -44,10 +44,10 @@ class Command(BaseCommand):
                                     medicine_k.append(i)
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                            # for cell in row:  # セルでループ
-                            #    print(
-                            #        f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
-                            #    if cell.column == 2:
-                            #        medicine.medicine_name = cell.value
-                            #    print(cell.value)
-                            # medicine.save()
+                            for cell in row:  # セルでループ
+                                print(
+                                    f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
+                                if cell.column == 2:
+                                    medicine.medicine_name = cell.value
+                                print(cell.value)
+                            medicine.save()
