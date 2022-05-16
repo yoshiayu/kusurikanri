@@ -1,3 +1,4 @@
+from multiprocessing.reduction import duplicate
 from django.core.management.base import BaseCommand
 from numpy import iterable
 import openpyxl
@@ -22,6 +23,12 @@ class Command(BaseCommand):
                     for x in iterable:
                         if not x in uniqued:
                             uniqued.append(x)
+
+                            duplicated = [CompanyMedicineName]
+                            print(duplicated)
+
+                            uniqued = set(duplicated)
+                            print(uniqued)
                             # 一行目はヘッダーなのでスキップし、行でループ
                             # for row in ws.iter_rows(min_row=2):
                             # print(sheet_name)
