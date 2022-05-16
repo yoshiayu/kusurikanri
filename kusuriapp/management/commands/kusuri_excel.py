@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
                 # def __inter__(iterable):
                     uniqued = []
-                    for x in duplicated:
+                    for x in medicine:
                         if not x in uniqued:
                             uniqued.append(x)
 
@@ -36,12 +36,6 @@ class Command(BaseCommand):
                             medicine.initials = str(
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
-
-                            medicine = [CompanyMedicineName]
-                            medicine_k = []
-                            for i in medicine:
-                                if i not in medicine_k:
-                                    medicine_k.append(i)
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                             for cell in row:  # セルでループ
@@ -50,4 +44,11 @@ class Command(BaseCommand):
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
                                 print(cell.value)
+
+                            medicine = [CompanyMedicineName]
+                            medicine_k = []
+                            for i in medicine:
+                                if i not in medicine_k:
+                                    medicine_k.append(i)
+
                             medicine.save()
