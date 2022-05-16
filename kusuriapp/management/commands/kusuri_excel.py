@@ -18,7 +18,7 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(iterable):
+                # def __inter__(iterable):
                     uniqued = []
                     for x in iterable:
                         if not x in uniqued:
