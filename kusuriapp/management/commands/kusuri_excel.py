@@ -18,20 +18,20 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(iterable):
-                    uniqued = []
-                    for x in iterable:
-                        if not x in uniqued:
-                            uniqued.append(x)
+                # def __inter__(iterable):
+                #    uniqued = []
+                #    for x in iterable:
+                #        if not x in uniqued:
+                #            uniqued.append(x)
 
-                            duplicated = [CompanyMedicineName]
-                            print(duplicated)
+                #            duplicated = [medicine]
+                #            print(duplicated)
 
-                            uniqued = set(duplicated)
-                            print(uniqued)
-                            # 一行目はヘッダーなのでスキップし、行でループ
-                            for row in ws.iter_rows(min_row=2):
-                                print(sheet_name)
+                #            uniqued = set(duplicated)
+                #            print(uniqued)
+                        # 一行目はヘッダーなのでスキップし、行でループ
+                        for row in ws.iter_rows(min_row=2):
+                            print(sheet_name)
                             medicine = CompanyMedicineName()
                             medicine.initials = str(
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
