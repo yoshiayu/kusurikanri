@@ -23,23 +23,23 @@ class Command(BaseCommand):
                         if not x in uniqued:
                             uniqued.append(x)
                             # 一行目はヘッダーなのでスキップし、行でループ
-                            for row in ws.iter_rows(min_row=2):
-                                # print(sheet_name)
-                                #medicine = CompanyMedicineName()
-                                # medicine.initials = str(
-                                #    Path(f'{folder}/{file}').parent).split('/')[-1][0]
-                                #medicine.company_name = sheet_name
+                            # for row in ws.iter_rows(min_row=2):
+                            # print(sheet_name)
+                            #medicine = CompanyMedicineName()
+                            # medicine.initials = str(
+                            #    Path(f'{folder}/{file}').parent).split('/')[-1][0]
+                            #medicine.company_name = sheet_name
 
-                                medicine = [CompanyMedicineName]
-                                medicine_k = []
-                                for i in medicine:
-                                    if i not in medicine_k:
-                                        medicine_k.append(i)
-                           # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                           # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
+                            medicine = [CompanyMedicineName]
+                            medicine_k = []
+                            for i in medicine:
+                                if i not in medicine_k:
+                                    medicine_k.append(i)
+                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
+                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                             # for cell in row:  # セルでループ
                                 # print(f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 # if cell.column == 2:
                                 #    medicine.medicine_name = cell.value
-                                    # print(cell.value)
+                                # print(cell.value)
                             medicine.save()
