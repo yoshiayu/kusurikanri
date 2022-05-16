@@ -20,7 +20,7 @@ class Command(BaseCommand):
                     uniqued = []
                     for x in iterable:
                         if not x in uniqued:
-
+                            uniqued.append(x)
                             # 一行目はヘッダーなのでスキップし、行でループ
                             for row in ws.iter_rows(min_row=2):
                                 # print(sheet_name)
@@ -41,5 +41,4 @@ class Command(BaseCommand):
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
                                     # print(cell.value)
-                            uniqued.append(x)
                             medicine.save()
