@@ -16,7 +16,7 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(medicine):
+                def __inter__(CompanyMedicineName):
                     uniqued = []
                     for x in medicine:
                         if not x in uniqued:
