@@ -16,9 +16,9 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(CompanyMedicineName):
+                def __inter__(medicine):
                     uniqued = []
-                    for x in medicine:
+                    for x in CompanyMedicineName:
                         if not x in uniqued:
                             uniqued.append(x)
                             # 一行目はヘッダーなのでスキップし、行でループ
