@@ -17,6 +17,7 @@ class Command(BaseCommand):
                         ws = wb[sheet_name]
 
                 def __inter__(iterable):
+                    uniqued = set(iterable)
                     uniqued = []
                     for x in iterable:
                         if not x in uniqued:
