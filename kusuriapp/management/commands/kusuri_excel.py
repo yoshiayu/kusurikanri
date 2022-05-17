@@ -20,6 +20,12 @@ class Command(BaseCommand):
                         if not x in uniqued:
                             uniqued.append(x)
                     wb = openpyxl.load_workbook(f'{folder}/{file}')
+                    medicine = [wb]
+                    medicine_k = []
+                    for i in medicine:
+                        if i not in medicine_k:
+                            medicine_k.append(i)
+
                     duplicated = [wb]
                     print(duplicated)
 
@@ -37,11 +43,6 @@ class Command(BaseCommand):
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
 
-                            medicine = [wb]
-                            medicine_k = []
-                            for i in medicine:
-                                if i not in medicine_k:
-                                    medicine_k.append(i)
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                             for cell in row:  # セルでループ
