@@ -10,7 +10,6 @@ from kusuriapp.models import CompanyMedicineName
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
-        # def __inter__(file):
 
         for folder, subFolder, files in os.walk('static'):
             for file in files:
@@ -21,17 +20,17 @@ class Command(BaseCommand):
 
                         medicinename = []
 
-                        for i in range(ws.max_row + 1):
-                            if i == 0:
+                        for Q in range(ws.max_row + 1):
+                            if Q == 0:
                                 continue
                             list = ws.cell(i, 1).value
-                            list_Num = i
+                            list_Num = Q
 
-                            for Q in reversed(range(ws.max_row + 1)):
-                                if Q == 0:
+                            for i in reversed(range(ws.max_row + 1)):
+                                if i == 0:
                                     break
-                                if ws.cell(Q, 1).value == list:
-                                    if Q == i:
+                                if ws.cell(i, 1).value == list:
+                                    if i == Q:
                                         continue
                                 else:
                                     ws.delete_row(i)
