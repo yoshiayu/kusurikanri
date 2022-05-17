@@ -15,11 +15,12 @@ class Command(BaseCommand):
         for folder, subFolder, files in os.walk('static'):
             for file in files:
                 if file.endswith('.xlsx'):
+                    wb = openpyxl.load_workbook(f'{folder}/{file}')
                     uniqued = []
                     for x in wb:
                         if not x in uniqued:
                             uniqued.append(x)
-                    wb = openpyxl.load_workbook(f'{folder}/{file}')
+
                     medicine = [wb]
                     medicine_k = []
                     for i in medicine:
