@@ -16,10 +16,10 @@ class Command(BaseCommand):
             for file in files:
                 if file.endswith('.xlsx'):
                     wb = openpyxl.load_workbook(f'{folder}/{file}')
-                    uniqued = []
-                    for x in wb:
-                        if not x in uniqued:
-                            uniqued.append(x)
+                    #uniqued = []
+                    # for x in wb:
+                    #    if not x in uniqued:
+                    #        uniqued.append(x)
 
                     medicine = [wb]
                     medicine_k = []
@@ -27,11 +27,11 @@ class Command(BaseCommand):
                         if i not in medicine_k:
                             medicine_k.append(i)
 
-                    duplicated = [wb]
-                    print(duplicated)
+                    #duplicated = [wb]
+                    # print(duplicated)
 
-                    uniqued = set(duplicated)
-                    print(uniqued)
+                    #uniqued = set(duplicated)
+                    # print(uniqued)
 
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
