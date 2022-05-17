@@ -18,6 +18,28 @@ class Command(BaseCommand):
                     wb = openpyxl.load_workbook(f'{folder}/{file}')
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
+                        for cell in row:  # セルでループ
+                            print(
+                                f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
+                            if cell.column == 2:
+                                medicine.medicine_name = cell.value
+                            print(cell.value)
+
+                            medicine = []
+                            for i in range(ws.max_row + 1):
+                                if i == 0:
+                                    continue
+                                list = ws.cell(i, 1).value
+                                list_Num = i
+                            for Q in reversed(range(ws.max_row + 1)):
+                                if Q == 0:
+                                    break
+                                if ws.cell(Q, 1).value == list:
+                                    if Q == i:
+                                        continue
+                                    else:
+                                        ws.delete_row(i)
+                            wb.save()
 
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
@@ -29,26 +51,5 @@ class Command(BaseCommand):
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                            for cell in row:  # セルでループ
-                                print(
-                                    f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
-                                if cell.column == 2:
-                                    medicine.medicine_name = cell.value
-                                print(cell.value)
-
-                                medicine = []
-                                for i in range(ws.max_row + 1):
-                                    if i == 0:
-                                        continue
-                                    list = ws.cell(i, 1).value
-                                    list_Num = i
-                                for Q in reversed(range(ws.max_row + 1)):
-                                    if Q == 0:
-                                        break
-                                    if ws.cell(Q, 1).value == list:
-                                        if Q == i:
-                                            continue
-                                        else:
-                                            ws.delete_row(i)
 
                             medicine.save()
