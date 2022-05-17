@@ -18,7 +18,7 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(wb):
+                # def __inter__(file):
                     uniqued = []
                     for x in wb:
                         if not x in uniqued:
