@@ -18,13 +18,13 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                def __inter__(folder, file):
+                def __inter__(wb):
                     uniqued = []
-                    for x in folder:
+                    for x in wb:
                         if not x in uniqued:
                             uniqued.append(x)
 
-                            duplicated = [folder, file]
+                            duplicated = [wb]
                             print(duplicated)
 
                             uniqued = set(duplicated)
@@ -37,7 +37,7 @@ class Command(BaseCommand):
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
 
-                            medicine = [folder, file]
+                            medicine = [wb]
                             medicine_k = []
                             for i in medicine:
                                 if i not in medicine_k:
