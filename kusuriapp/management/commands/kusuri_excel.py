@@ -18,17 +18,17 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                # def __inter__(iterable):
-                #    uniqued = []
-                #    for x in iterable:
-                #        if not x in uniqued:
-                #            uniqued.append(x)
+                def __inter__(iterable):
+                    uniqued = []
+                    for x in iterable:
+                        if not x in uniqued:
+                            uniqued.append(x)
 
-                #            duplicated = [medicine]
-                #            print(duplicated)
+                            duplicated = [file]
+                            print(duplicated)
 
-                #            uniqued = set(duplicated)
-                #            print(uniqued)
+                            uniqued = set(duplicated)
+                            print(uniqued)
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
                             print(sheet_name)
@@ -37,7 +37,7 @@ class Command(BaseCommand):
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
 
-                            medicine = [CompanyMedicineName]
+                            medicine = [file]
                             medicine_k = []
                             for i in medicine:
                                 if i not in medicine_k:
