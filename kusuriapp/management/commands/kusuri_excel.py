@@ -48,7 +48,7 @@ class Command(BaseCommand):
                                 #uniqued = set(duplicated)
                                 # print(uniqued)
 
-                                medicine = [cell]
+                                medicine = [cell.value]
                                 medicine_k = []
                                 for i in medicine:
                                     if i not in medicine_k:
