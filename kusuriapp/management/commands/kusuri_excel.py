@@ -36,6 +36,27 @@ class Command(BaseCommand):
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
                                 print(cell.value)
+                                medicine.save()
+
+                                cell.value = []
+
+                                for Q in range(ws.max_row + 1):
+                                    if Q == 0:
+                                        continue
+
+                                    list = ws.cell(Q, 1).value
+
+                                    list_Num = Q
+
+                                    for i in reversed(range(ws.max_row + 1)):
+                                        if i == 0:
+                                            break
+
+                                        if i == Q:
+                                            continue
+                                        else:
+                                            ws.delete_rows(i)
+                                wb.save(f'{folder}/{file}/1')
 
                                 #uniqued = []
                                 # for x in cell:
@@ -48,9 +69,9 @@ class Command(BaseCommand):
                                 #uniqued = set(duplicated)
                                 # print(uniqued)
 
-                                medicine = [cell.value]
-                                medicine_k = []
-                                for i in medicine:
-                                    if i not in medicine_k:
-                                        medicine_k.append(i)
-                            medicine.save()
+                                #medicine = [cell.value]
+                                #medicine_k = []
+                                # for i in medicine:
+                                #    if i not in medicine_k:
+                                #        medicine_k.append(i)
+                            # medicine.save()
