@@ -20,10 +20,12 @@ class Command(BaseCommand):
 
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
+                        Data_exp = []
 
-                        df = pd.read_excel(".xlsx")
-                        del_list = df.loc[:, cell.value].drop_duplicates(
-                            keep='last').dropna().to_list()
+                        for i in range(1, ws.max_row):
+                            if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                                Data_exp.append(ws.cell(i, 1).value)
+                            Data_exp = list(filter(None, Data_exp))
 
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
@@ -83,3 +85,7 @@ class Command(BaseCommand):
                             #            else:
                             #                ws.delete_rows(i)
                             #    wb.save(f'{folder}/{file}/1')
+
+                            #df = pd.read_excel(".xlsx")
+                            # del_list = df.loc[:, cell.value].drop_duplicates(
+                            # keep='last').dropna().to_list()
