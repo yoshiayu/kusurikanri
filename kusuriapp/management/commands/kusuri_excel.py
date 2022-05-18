@@ -37,16 +37,16 @@ class Command(BaseCommand):
                                     medicine.medicine_name = cell.value
                                 print(cell.value)
 
-                                uniqued = []
-                                for x in cell:
-                                    if not x in uniqued:
-                                        uniqued.append(x)
+                                #uniqued = []
+                                # for x in cell:
+                                #    if not x in uniqued:
+                                #        uniqued.append(x)
 
-                                duplicated = [cell]
-                                print(duplicated)
+                                #duplicated = [cell]
+                                # print(duplicated)
 
-                                uniqued = set(duplicated)
-                                print(uniqued)
+                                #uniqued = set(duplicated)
+                                # print(uniqued)
 
                                 medicine = [cell]
                                 medicine_k = []
