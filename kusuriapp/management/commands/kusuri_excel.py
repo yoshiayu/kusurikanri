@@ -21,6 +21,10 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
+                        df = pd.read_excel(".xlsx")
+                        del_list = df.loc[:, cell.value].drop_duplicates(
+                            keep='last').dropna().to_list()
+
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
                             print(sheet_name)
@@ -38,17 +42,13 @@ class Command(BaseCommand):
                                     medicine.medicine_name = cell.value
                                 print(cell.value)
 
-                                df = pd.read_excel(".xlsx")
-                                del_list = df.loc[:, cell.value].drop_duplicates(
-                                    keep='last').dropna().to_list()
-
                                 medicine.save()
 
-                                medicine = [cell.value]
-                                medicine_k = []
-                                for i in medicine:
-                                    if i not in medicine_k:
-                                        medicine_k.append(i)
+                                #medicine = [cell.value]
+                                #medicine_k = []
+                                # for i in medicine:
+                                #    if i not in medicine_k:
+                                #        medicine_k.append(i)
 
                             # 以下ゴミ
                                 #uniqued = []
