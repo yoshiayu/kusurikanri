@@ -21,12 +21,6 @@ class Command(BaseCommand):
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
 
-                        cell.value = []
-                        for i in range(1, ws.max_row):
-                            if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                cell.value.append(ws.cell(i, 1).value)
-                            cell.value = list(filter(None, cell.value))
-
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
                             print(sheet_name)
@@ -43,6 +37,12 @@ class Command(BaseCommand):
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
                                 print(cell.value)
+
+                                cell.value = []
+                                for i in range(1, ws.max_row):
+                                    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                                        cell.value.append(ws.cell(i, 1).value)
+                                cell.value = list(filter(None, cell.value))
 
                                 medicine.save()
 
