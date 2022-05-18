@@ -38,17 +38,17 @@ class Command(BaseCommand):
                                 print(cell.value)
 
                                 uniqued = []
-                                for x in medicine.medicine_name:
+                                for x in cell:
                                     if not x in uniqued:
                                         uniqued.append(x)
 
-                                duplicated = [medicine.medicine_name]
+                                duplicated = [cell]
                                 print(duplicated)
 
                                 uniqued = set(duplicated)
                                 print(uniqued)
 
-                                medicine = [medicine.medicine_name]
+                                medicine = [cell]
                                 medicine_k = []
                                 for i in medicine:
                                     if i not in medicine_k:
