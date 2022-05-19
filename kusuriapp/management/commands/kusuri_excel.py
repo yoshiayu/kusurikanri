@@ -36,14 +36,15 @@ class Command(BaseCommand):
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
-                                    cell.value = []
+
+                                    medicine.medicine_name = cell.value
+                                    medicine.medicine_name = []
                                 for i in range(1, ws.max_row):
                                     if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                        cell.value.append(
+                                        medicine.medicine_name.append(
                                             ws.cell(i, 1).value)
                                     medicine.medicine_name = list(
                                         filter(None, cell.value))
-                                    medicine.medicine_name = cell.value
 
                                 print(cell.value)
 
