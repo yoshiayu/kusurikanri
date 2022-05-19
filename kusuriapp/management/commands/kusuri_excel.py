@@ -30,7 +30,11 @@ class Command(BaseCommand):
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-
+                            medicine = [cell.value]
+                            medicine_k = []
+                            for i in medicine:
+                                if i not in medicine_k:
+                                    medicine_k.append(i)
                             for cell in row:  # セルでループ
 
                                 print(
@@ -43,11 +47,6 @@ class Command(BaseCommand):
                                 print(cell.value)
 
                                 medicine.save()
-                                medicine = [cell.value]
-                                medicine_k = []
-                                for i in medicine:
-                                    if i not in medicine_k:
-                                        medicine_k.append(i)
 
                             # 以下ゴミ
                             #cell.value = []
