@@ -28,17 +28,17 @@ class Command(BaseCommand):
                             medicine.initials = str(
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
-                            medicine.medicine_name = []
+
+                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
+                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
+                            for cell in row:  # セルでループ
+                                medicine.medicine_name = []
                             for i in range(1, ws.max_row):
                                 if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
                                     medicine.medicine_name.append(
                                         ws.cell(i, 1).value)
                                 medicine.medicine_name = list(
                                     filter(None, medicine.medicine_name))
-
-                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                       # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                            for cell in row:  # セルでループ
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
