@@ -33,14 +33,15 @@ class Command(BaseCommand):
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
 
                             for cell in row:  # セルでループ
+
+                                print(
+                                    f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
+
                                 medicine = [cell.value]
                                 medicine_k = []
                                 for i in medicine:
                                     if i not in medicine_k:
                                         medicine_k.append(i)
-
-                                print(
-                                    f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
 
                                 if cell.column == 2:
 
