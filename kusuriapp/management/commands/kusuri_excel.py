@@ -37,8 +37,8 @@ class Command(BaseCommand):
                                 if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
                                     cell.value.append(
                                         ws.cell(i, 1).value)
-                                cell.value = list(
-                                    filter(None, medicine.medicine_name))
+                                medicine.medicine_name = list(
+                                    filter(None, cell.value))
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
