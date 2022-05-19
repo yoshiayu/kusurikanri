@@ -5,7 +5,6 @@ import openpyxl
 import os
 from pathlib import Path
 from kusuriapp.models import CompanyMedicineName
-import pandas as pd
 
 
 class Command(BaseCommand):
@@ -38,17 +37,17 @@ class Command(BaseCommand):
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
 
                                 if cell.column == 2:
-                                    medicine = [cell.value]
-                                medicine_k = []
-                                for i in medicine:
-                                    if i not in medicine_k:
-                                        medicine_k.append(i)
 
                                     medicine.medicine_name = cell.value
 
                                 print(cell.value)
 
                                 medicine.save()
+                                medicine = [cell.value]
+                                medicine_k = []
+                                for i in medicine:
+                                    if i not in medicine_k:
+                                        medicine_k.append(i)
 
                             # 以下ゴミ
                             #cell.value = []
