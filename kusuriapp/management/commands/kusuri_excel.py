@@ -32,16 +32,17 @@ class Command(BaseCommand):
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                             for cell in row:  # セルでループ
-                                cell.value = []
-                            for i in range(1, ws.max_row):
-                                if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    cell.value.append(
-                                        ws.cell(i, 1).value)
-                                medicine.medicine_name = list(
-                                    filter(None, cell.value))
+
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
+                                    cell.value = []
+                                for i in range(1, ws.max_row):
+                                    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                                        cell.value.append(
+                                            ws.cell(i, 1).value)
+                                    medicine.medicine_name = list(
+                                        filter(None, cell.value))
                                     medicine.medicine_name = cell.value
 
                                 print(cell.value)
