@@ -33,6 +33,11 @@ class Command(BaseCommand):
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
 
                             for cell in row:  # セルでループ
+                                medicine = [cell.value]
+                                medicine_k = []
+                                for i in medicine:
+                                    if i not in medicine_k:
+                                        medicine_k.append(i)
 
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
@@ -40,25 +45,20 @@ class Command(BaseCommand):
                                 if cell.column == 2:
 
                                     medicine.medicine_name = cell.value
-                                    cell.value = []
-                            for i in range(1, ws.max_row):
-                                if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    cell.value.append(
-                                        ws.cell(i, 1).value)
-                                    cell.value = list(
-                                        filter(None, medicine.medicine_name))
 
                                 print(cell.value)
 
                                 medicine.save()
 
-                                #medicine = [cell.value]
-                                #medicine_k = []
-                                # for i in medicine:
-                                #    if i not in medicine_k:
-                                #        medicine_k.append(i)
-
                             # 以下ゴミ
+                            #cell.value = []
+                            # for i in range(1, ws.max_row):
+                            #    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                            #        cell.value.append(
+                            #            ws.cell(i, 1).value)
+                            #        cell.value = list(
+                            #            filter(None, medicine.medicine_name))
+
                                 #uniqued = []
                                 # for x in cell:
                                 #    if not x in uniqued:
