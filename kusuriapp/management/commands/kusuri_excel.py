@@ -31,12 +31,12 @@ class Command(BaseCommand):
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                            cell.value = []
+                            medicine.medicine_name = []
                             for i in range(1, ws.max_row):
                                 if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    cell.value.append(
+                                    medicine.medicine_name.append(
                                         ws.cell(i, 1).value)
-                                    cell.value = list(
+                                    medicine.medicine_name = list(
                                         filter(None, cell.value))
 
                             for cell in row:  # セルでループ
