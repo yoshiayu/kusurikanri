@@ -28,11 +28,13 @@ class Command(BaseCommand):
                             medicine.initials = str(
                                 Path(f'{folder}/{file}').parent).split('/')[-1][0]
                             medicine.company_name = sheet_name
-                            cell.value = []
+                            medicine.medicine_name = []
                             for i in range(1, ws.max_row):
                                 if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    cell.value.append(ws.cell(i, 1).value)
-                                cell.value = list(filter(None, cell.value))
+                                    medicine.medicine_name.append(
+                                        ws.cell(i, 1).value)
+                                medicine.medicine_name = list(
+                                    filter(None, medicine.medicine_name))
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
