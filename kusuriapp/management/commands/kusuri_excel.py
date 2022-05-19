@@ -37,13 +37,12 @@ class Command(BaseCommand):
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
 
-                                medicine = [cell.value]
+                                if cell.column == 2:
+                                    medicine = [cell.value]
                                 medicine_k = []
                                 for i in medicine:
                                     if i not in medicine_k:
                                         medicine_k.append(i)
-
-                                if cell.column == 2:
 
                                     medicine.medicine_name = cell.value
 
