@@ -31,6 +31,14 @@ class Command(BaseCommand):
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
+                            medicine.medicine_name = []
+                            for i in range(1, ws.max_row):
+                                if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                                    medicine.medicine_name.append(
+                                        ws.cell(i, 1).value)
+                                    medicine.medicine_name = list(
+                                        filter(None, cell.value))
+
                             for cell in row:  # セルでループ
 
                                 print(
@@ -38,13 +46,6 @@ class Command(BaseCommand):
                                 if cell.column == 2:
 
                                     medicine.medicine_name = cell.value
-                                    medicine.medicine_name = []
-                                for i in range(1, ws.max_row):
-                                    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                        medicine.medicine_name.append(
-                                            ws.cell(i, 1).value)
-                                    medicine.medicine_name = list(
-                                        filter(None, cell.value))
 
                                 print(cell.value)
 
