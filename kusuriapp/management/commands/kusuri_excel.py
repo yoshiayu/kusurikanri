@@ -35,8 +35,11 @@ class Command(BaseCommand):
                                 if cell.column == 2:
 
                                     medicine.medicine_name = cell.value
+                                    print(
+                                        f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
 
                                 print(cell.value)
+
                                 cell.value = []
 
                                 for Q in range(ws.max_row + 1):
@@ -57,10 +60,7 @@ class Command(BaseCommand):
                                             ws.delete_rows(i)
                                 wb.save(list_Num)
 
-                                print(
-                                    f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
-
-                                medicine.save()
+                                # medicine.save()
 
                             # 以下ゴミ
                             #cell.value = []
