@@ -50,7 +50,7 @@ class Command(BaseCommand):
                             medicine.save()
 
 
-df = pd.read_excel('All.xlsx')
+df = pd.read_excel('/.xlsx/')
 del_list = df.loc[:, 'cell.value'].drop_duplicates(
     keep='last').dropna().to_list()
 
