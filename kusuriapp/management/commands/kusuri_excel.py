@@ -36,8 +36,9 @@ class Command(BaseCommand):
 
                             for i in range(1, ws.max_row):
                                 if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    cell.value.append(ws.cell(i, 1).value)
-                                medicine.medicine_name = list(filter(None))
+                                    medicine.medicine_name.append(
+                                        ws.cell(i, 1).value)
+                                cell.value = list(filter(None))
 
                             # print(cell.value)
 
