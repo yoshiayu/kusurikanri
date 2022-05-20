@@ -3,6 +3,11 @@ import openpyxl
 import os
 from pathlib import Path
 from kusuriapp.models import CompanyMedicineName
+import pandas as pd
+
+df = pd.read_excel(".xlsx")
+del_list = df.loc[:, "cell.value"].drop_duplicates(
+    keep='last').dropna().to_list()
 
 
 class Command(BaseCommand):
