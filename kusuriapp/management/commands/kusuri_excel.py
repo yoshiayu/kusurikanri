@@ -32,7 +32,12 @@ class Command(BaseCommand):
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
 
                             for cell in row:  # セルでループ
-                                #cell.value = []
+                                if cell.column == 2:
+
+                                    medicine.medicine_name = cell.value
+
+                                print(cell.value)
+                                cell.value = []
 
                                 for Q in range(ws.max_row + 1):
                                     if Q == 0:
@@ -54,12 +59,6 @@ class Command(BaseCommand):
 
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
-
-                                if cell.column == 2:
-
-                                    medicine.medicine_name = cell.value
-
-                                print(cell.value)
 
                                 medicine.save()
 
