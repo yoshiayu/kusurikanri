@@ -42,20 +42,20 @@ class Command(BaseCommand):
 
                             medicine.save()
 
-                            cell.value = []
+                            #cell.value = []
 
-                            for Q in range(ws.max_row + 1):
-                                if Q == 0:
-                                    continue
-                            list = ws.cell(i, 1).value
-                            list_Num = Q
+                            # for Q in range(ws.max_row + 1):
+                            #    if Q == 0:
+                            #        continue
+                            #list = ws.cell(i, 1).value
+                            #list_Num = Q
 
-                            for i in reversed(range(ws.max_row + 1)):
-                                if i == 0:
-                                    break
-                                if ws.cell(i, 1).value == list:
-                                    if i == Q:
-                                        continue
-                                else:
-                                    ws.delete_row(i)
-                            wb.save(medicine.medicine_name)
+                            # for i in reversed(range(ws.max_row + 1)):
+                            #    if i == 0:
+                            #        break
+                            #    if ws.cell(i, 1).value == list:
+                            #        if i == Q:
+                            #            continue
+                            #    else:
+                            #        ws.delete_row(i)
+                            # wb.save(medicine.medicine_name)
