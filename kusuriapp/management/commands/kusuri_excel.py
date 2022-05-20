@@ -5,9 +5,9 @@ from pathlib import Path
 from kusuriapp.models import CompanyMedicineName
 import pandas as pd
 
-df = pd.read_excel('All.xlsx')
-del_list = df.loc[:, 'cell.value'].drop_duplicates(
-    keep='last').dropna().to_list()
+#df = pd.read_excel('All.xlsx')
+# del_list = df.loc[:, 'cell.value'].drop_duplicates(
+#    keep='last').dropna().to_list()
 
 
 class Command(BaseCommand):
@@ -49,26 +49,31 @@ class Command(BaseCommand):
 
                             medicine.save()
 
-                            #medicine = [cell.value]
-                            #medicine_k = []
-                            # for i in medicine:
-                            #    if i not in medicine_k:
-                            #        medicine_k.append(i)
 
-                            #cell.value = []
+df = pd.read_excel('All.xlsx')
+del_list = df.loc[:, 'cell.value'].drop_duplicates(
+    keep='last').dropna().to_list()
 
-                            # for Q in range(ws.max_row + 1):
-                            #    if Q == 0:
-                            #        continue
-                            #list = ws.cell(i, 1).value
-                            #list_Num = Q
+#medicine = [cell.value]
+#medicine_k = []
+# for i in medicine:
+#    if i not in medicine_k:
+#        medicine_k.append(i)
 
-                            # for i in reversed(range(ws.max_row + 1)):
-                            #    if i == 0:
-                            #        break
-                            #    if ws.cell(i, 1).value == list:
-                            #        if i == Q:
-                            #            continue
-                            #    else:
-                            #        ws.delete_row(i)
-                            # wb.save(medicine.medicine_name)
+#cell.value = []
+
+# for Q in range(ws.max_row + 1):
+#    if Q == 0:
+#        continue
+#list = ws.cell(i, 1).value
+#list_Num = Q
+
+# for i in reversed(range(ws.max_row + 1)):
+#    if i == 0:
+#        break
+#    if ws.cell(i, 1).value == list:
+#        if i == Q:
+#            continue
+#    else:
+#        ws.delete_row(i)
+# wb.save(medicine.medicine_name)
