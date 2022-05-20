@@ -5,9 +5,9 @@ from pathlib import Path
 from kusuriapp.models import CompanyMedicineName
 import pandas as pd
 
-#df = pd.read_excel('All.xlsx')
-# del_list = df.loc[:, 'cell.value'].drop_duplicates(
-#    keep='last').dropna().to_list()
+df = pd.read_excel('/.xlsx/')
+del_list = df.loc[:, 'cell.value'].drop_duplicates(
+    keep='last').dropna().to_list()
 
 
 class Command(BaseCommand):
@@ -37,22 +37,18 @@ class Command(BaseCommand):
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
 
-                            cell.value = []
+                            #cell.value = []
 
-                            for i in range(1, ws.max_row):
-                                if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                                    medicine.medicine_name.append(
-                                        ws.cell(i, 1).value)
-                                cell.value = list(filter(None))
+                            # for i in range(1, ws.max_row):
+                            #    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
+                            #        medicine.medicine_name.append(
+                            #            ws.cell(i, 1).value)
+                            #    cell.value = list(filter(None))
 
                             # print(cell.value)
 
                             medicine.save()
 
-
-df = pd.read_excel('/.xlsx/')
-del_list = df.loc[:, 'cell.value'].drop_duplicates(
-    keep='last').dropna().to_list()
 
 #medicine = [cell.value]
 #medicine_k = []
