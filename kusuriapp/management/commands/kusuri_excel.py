@@ -30,12 +30,27 @@ class Command(BaseCommand):
 
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
                        # print(str(Path(f'{folder}/{file}').parent).split('/')[-1][0])
-                            medicine = [cell.value]
-                            medicine_k = []
-                            for i in medicine:
-                                if i not in medicine_k:
-                                    medicine_k.append(i)
+
                             for cell in row:  # セルでループ
+                                #cell.value = []
+
+                                for Q in range(ws.max_row + 1):
+                                    if Q == 0:
+                                        continue
+
+                                    list = ws.cell(Q, 1).value
+
+                                    list_Num = Q
+
+                                    for i in reversed(range(ws.max_row + 1)):
+                                        if i == 0:
+                                            break
+
+                                        if i == Q:
+                                            continue
+                                        else:
+                                            ws.delete_rows(i)
+                                wb.save(list_Num)
 
                                 print(
                                     f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
@@ -70,26 +85,16 @@ class Command(BaseCommand):
 
                             # medicine.save()
 
-                            #cell.value = []
-
-                            #    for Q in range(ws.max_row + 1):
-                            #        if Q == 0:
-                            #            continue
-
-                            #        list = ws.cell(Q, 1).value
-
-                            #        list_Num = Q
-
-                            #        for i in reversed(range(ws.max_row + 1)):
-                            #            if i == 0:
-                            #                break
-
-                            #            if i == Q:
-                            #                continue
-                            #            else:
-                            #                ws.delete_rows(i)
-                            #    wb.save(f'{folder}/{file}/1')
-
                             #df = pd.read_excel(".xlsx")
                             # del_list = df.loc[:, cell.value].drop_duplicates(
                             # keep='last').dropna().to_list()
+
+                            #medicine = [cell.value]
+                            #medicine_k = []
+                            # for i in medicine:
+                            #    if i not in medicine_k:
+                            #        medicine_k.append(i)medicine = [cell.value]
+                            #medicine_k = []
+                            # for i in medicine:
+                            #    if i not in medicine_k:
+                            #        medicine_k.append(i)
