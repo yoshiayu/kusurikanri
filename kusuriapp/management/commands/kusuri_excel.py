@@ -31,6 +31,17 @@ class Command(BaseCommand):
                                 # print(f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
+
+                            medicine = [cell.value]
+                            medicine_k = []
+                            for i in medicine:
+                                if i not in medicine_k:
+                                    medicine_k.append(i)
+
+                            # print(cell.value)
+
+                            medicine.save()
+
                             cell.value = []
 
                             for Q in range(ws.max_row + 1):
@@ -48,6 +59,3 @@ class Command(BaseCommand):
                                 else:
                                     ws.delete_row(i)
                             wb.save(medicine.medicine_name)
-                            # print(cell.value)
-
-                            medicine.save()
