@@ -6,7 +6,7 @@ from kusuriapp.models import CompanyMedicineName
 import pandas as pd
 
 df = pd.read_excel('/static/.xlsx/')
-del_list = df.loc['cell.value'].drop_duplicates()
+del_list = df.drop_duplicates()
 
 
 class Command(BaseCommand):
