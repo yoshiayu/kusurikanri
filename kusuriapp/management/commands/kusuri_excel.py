@@ -6,7 +6,7 @@ from kusuriapp.models import CompanyMedicineName
 import pandas as pd
 
 df = pd.read_excel('/static/.xlsx/')
-df = df.loc[:, 'cell.value'].drop_duplicates(
+df = df.drop_duplicates(
     keep='last').dropna().to_list()
 
 
