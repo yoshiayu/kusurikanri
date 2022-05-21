@@ -46,8 +46,12 @@ class Command(BaseCommand):
                                 medicine_name_list.append(
                                     medicine.medicine_name)
 
+                            # medicine.save()
+
                         # ここで保存
                         # for medicine in medicinename_list:
-                        #    medicine.save()
+
         CompanyMedicineName.objects.bulk_create(
             medicine_object_list)
+
+        # medicine.save()
