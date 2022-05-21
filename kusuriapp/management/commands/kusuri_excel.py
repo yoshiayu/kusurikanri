@@ -49,30 +49,5 @@ class Command(BaseCommand):
                         # ここで保存
                         # for medicine in medicinename_list:
                         #    medicine.save()
-        CompanyMedicineName.object.bulk_create(
+        CompanyMedicineName.objects.bulk_create(
             medicine_object_list)
-
-
-#medicine = [cell.value]
-#medicine_k = []
-# for i in medicine:
-#    if i not in medicine_k:
-#        medicine_k.append(i)
-
-#cell.value = []
-
-# for Q in range(ws.max_row + 1):
-#    if Q == 0:
-#        continue
-#list = ws.cell(i, 1).value
-#list_Num = Q
-
-# for i in reversed(range(ws.max_row + 1)):
-#    if i == 0:
-#        break
-#    if ws.cell(i, 1).value == list:
-#        if i == Q:
-#            continue
-#    else:
-#        ws.delete_row(i)
-# wb.save(medicine.medicine_name)
