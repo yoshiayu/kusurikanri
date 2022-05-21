@@ -3,23 +3,23 @@ import openpyxl
 import os
 from pathlib import Path
 from kusuriapp.models import CompanyMedicineName
-import pandas as pd
-
-df = pd.read_excel('/static/.xlsx/')
-df = df.drop_duplicates(
-    keep='last').dropna().to_list()
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
+        medicine_object_list = []
+        medicine_name_list = []
 
         for folder, subFolder, files in os.walk('static'):
+
             for file in files:
                 if file.endswith('.xlsx'):
                     wb = openpyxl.load_workbook(f'{folder}/{file}')
+
                     for sheet_name in wb.sheetnames:  # シートでループ
                         ws = wb[sheet_name]
+
                         # 一行目はヘッダーなのでスキップし、行でループ
                         for row in ws.iter_rows(min_row=2):
                             # print(sheet_name)
@@ -36,18 +36,21 @@ class Command(BaseCommand):
                                 # print(f'row: {cell.row}, column: {cell.column}, value: {cell.value}')
                                 if cell.column == 2:
                                     medicine.medicine_name = cell.value
-
-                            #cell.value = []
-
-                            # for i in range(1, ws.max_row):
-                            #    if ws.cell(i, 1).value != ws.cell(i-1, 1).value:
-                            #        medicine.medicine_name.append(
-                            #            ws.cell(i, 1).value)
-                            #    cell.value = list(filter(None))
-
                             # print(cell.value)
 
-                            medicine.save()
+                            # medicine.save()
+                            # 重複していないリストを作成
+
+                            if medicine.medicine_name not in medicine_name_list:
+                                medicine_object_list.append(medicine)
+                                medicine_name_list.append(
+                                    medicine.medicine_name)
+
+                        # ここで保存
+                        # for medicine in medicinename_list:
+                        #    medicine.save()
+        CompanyMedicineName.object.bulk_create(
+            medicine_object_list)
 
 
 #medicine = [cell.value]
