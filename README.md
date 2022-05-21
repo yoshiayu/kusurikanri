@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img src="images/sample.gif" alt="Sample signal" width="40%" height="40%">
+  <img src="images/sample.gif" alt="Sample signal" width="60%" height="60%">
 </p>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=yoshiayu&layout=compact&theme=dracula)  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoshiayu&show_icons=true&theme=radical)  
