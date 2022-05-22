@@ -91,5 +91,57 @@ img {
 }
 
 @media (max-width:800px) {
+    .container {
+        padding: 0px;
+        margin: auto;
+        display: block;
+        position: relative;
+    }
+    .text-center .main {
+        margin: 2px 20px 2px 2px;
+        padding-left: 5px;
+        padding-right: 20px;
+        text-align: center;
+        display: block;
+        position: relative;
+    }
+
+    .form-floating #floatingInput {
+        width: 347px;
+        height: 50px;
+        margin-left: -275px;
+        margin-right: 0px;
+        padding-left: 5px;
+        padding-right: 0px;
+        font-variant: inherit;
+        display: block;
+        position: relative;
+    }
+    .form-floating #name1 {
+        width: 347px;
+        margin-left: -415px;
+        display: block;
+    }
+
+    .switch label {
+        margin-left: -450px;
+        margin-top: 5px;
+        font-size: 20px;
+        padding-right: 300px;
+        display: block;
+    }
+    textarea.form-control {
+        width: 88%;
+        display: block;
+    }
+    .form-control {
+        margin-left: -270px;
+        margin-right: 0px;
+        display: block;
+    }
+    .btn-primary {
+        margin-left: -420px;
+        display: block;
+    }
     
 }
