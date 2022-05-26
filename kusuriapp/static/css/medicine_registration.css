@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 *,
-::before
+::before,
 ::after{
     padding: 0;
     margin: 0;
@@ -14,9 +14,9 @@
 }
 
 .nav-search-field #js-search-text {
-    width: 400px;
+    width: 465px;
     height: 46px;
-    margin-left: 358px;
+    margin: 2px auto;
     background-color: rgb(201, 251, 253);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .nav-search-field .form-select {
-    margin: 2px auto 2px 357px;
+    margin: 2px auto;
     display: block;
     width: 36%;
     height: 40px;
@@ -122,7 +122,7 @@ img {
     .nav-search-field #js-search-text {
         width: 50%;
         height: 45px;
-        margin: 2px auto 2px 175px;
+        margin: 2px auto;
         padding-left: 5px;
         padding-right: 20px;
         display: block;
@@ -131,7 +131,7 @@ img {
     }
    
     .nav-search-field .form-select {
-        margin: 2px auto 2px 175px;
+        margin: 2px auto;
         display: block;
         width: 50%;
         height: 100%;
