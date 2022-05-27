@@ -6,7 +6,10 @@
     padding: 0;
     margin: 0;
 }
-
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
 .container {
     background-color: rgb(211, 248, 239);
 }
@@ -32,6 +35,10 @@ p {
 }
 
 @media (max-width:800px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
     .d-grid a {
         margin-left: 10px;
     }

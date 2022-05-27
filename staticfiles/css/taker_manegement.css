@@ -6,6 +6,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
 button {
     margin-left: 10px;
 }
@@ -124,6 +128,10 @@ input {
 }
 
 @media (max-width:800px) {
+    body .text-center{
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
     
     .form-floating #name {
         margin-left: 10px;

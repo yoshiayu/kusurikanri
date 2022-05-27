@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
+
 .title label{
     font-size: 15px;
 }
@@ -93,6 +98,10 @@ img {
 }
 
 @media (max-width:800px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
     .link-btn{
         margin-right: 70px;
     }
