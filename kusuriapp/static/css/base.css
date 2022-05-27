@@ -7,7 +7,14 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+.lang-en{
+    padding: 0;
+    margin: 0;
+}
+.titel {
+    padding: 0;
+    margin: 0;
+}
 .link-button-area a {
     text-decoration: none;
     color: rgb(5, 5, 5);
@@ -35,5 +42,8 @@
 }
 
 @media (max-width:800px) {
-    
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
 }

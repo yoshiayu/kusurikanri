@@ -6,7 +6,10 @@
     padding: 0;
     margin: 0;
 }
-
+body {
+    padding: 0;
+    margin: 0;
+}
 .container {
     background-color: rgb(211, 248, 239);
 }
