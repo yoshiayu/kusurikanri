@@ -44,3 +44,10 @@ body .text-center{
     }
     
 }
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
+    
+}

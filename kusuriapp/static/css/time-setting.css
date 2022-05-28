@@ -21,3 +21,13 @@ body .text-center{
         display: block;
     }
 }
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
+    .btn-primary{
+        margin-left: 0px;
+        display: block;
+    }
+}

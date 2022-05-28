@@ -43,3 +43,12 @@ p {
         margin-left: 10px;
     }
 }
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
+    .d-grid a {
+        margin-left: 10px;
+    }
+}

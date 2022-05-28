@@ -224,3 +224,120 @@ input {
         margin-left: 0px;
     }
 }
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
+
+    .accordion-item #panelsStayOpen-headingThree{
+        margin-left: -100px;
+    }
+    
+    .form-floating #name {
+        margin-left: 10px;
+        font-size: 15px;
+    }
+    .accordion .accordion-item .form-floating #name1 {
+        padding-left: 100px;
+        margin-left: -170px;
+        font-size: 15px;
+    }
+    .form-floating #name2 {
+        margin-left: 10px;
+        font-size: 15px;
+    }
+    .accordion-button:not(.collapsed)::after{
+        margin-left: -10px;
+    }
+    .footer-logo{
+        margin-left: 0px;
+        margin-top: 100px;
+    }
+    .text-muted{
+        margin-left: 0px;
+    }
+    
+    .form-select {
+        margin-left: -120px;
+    }
+    .accordion .accordion-item .form-floating {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-left: -100px;
+        margin-right: 0px;
+        margin-top: -25px;
+        margin-bottom: -20px;
+        width: 250px;
+    }
+    .accordion .accordion-item .form-floating #floatingInput0 {
+        width: 355px;
+        height: 49px;
+        margin-left: -20px;
+        margin-top: -50px;
+        margin-bottom: 21px;
+        text-align: center;
+        font-size: 25px;
+        z-index: 1;
+    }
+    .accordion .accordion-item .form-floating #floatingInput1 {
+        width: 355px;
+        height: 49px;
+        margin-left: -20px;
+        margin-top: -50px;
+        margin-bottom: 21px;
+        text-align: center;
+        font-size: 25px;
+        z-index: 1;
+    }
+    .accordion .accordion-item .form-floating #floatingInput2 {
+        width: 355px;
+        height: 49px;
+        margin-left: -20px;
+        margin-top: -50px;
+        margin-bottom: 21px;
+        text-align: center;
+        font-size: 25px;
+        z-index: 1;
+    }
+    .accordion-item:first-of-type .accordion-button  {
+        margin-left: 200px;
+        width: 40px;
+    }
+    .accordion .accordion-item .accordion-button{
+        margin-left: 235px;
+    }
+    .form-floating #name1{
+        margin-left: 500px;
+        padding-left: 500px;
+    }
+    .form-floating>.form-control{
+        margin: 1px 84px 2px 14px;
+    }
+    .accordion-item:first-of-type {
+        padding: 0;
+        margin: 2px 500px 2px 280px;
+        
+    }
+    .accordion-item:last-of-type {
+        padding: 0;
+        margin: 0px 480px 0px 200px;
+    }
+    .accordion .accordion-item:last-of-type{
+        margin-left: 350px;
+    }
+    #accordionPanelsStayOpenExample{
+        margin-left: -190px;
+    }
+    code .btn-primary{
+        margin-left: -250px;
+    }
+    .footer-logo img {
+        margin-left: -250px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .text-muted {
+        margin-left: -250px;
+    }
+}
