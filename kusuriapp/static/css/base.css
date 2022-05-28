@@ -37,14 +37,7 @@ body .text-center{
     background-color: rgb(181, 247, 208);
 }
 
-@media (max-width:800px) {
-    body .text-center{
-        padding: 0px 0px 0px 30px;
-        margin: 0;
-    }
-}
-
-@media (max-width:500px) {
+@media (min-width:500px) and (max-width:1200px) {
     body .text-center{
         padding: 0px 0px 0px 30px;
         margin: 0;

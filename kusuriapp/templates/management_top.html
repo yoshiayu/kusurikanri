@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% block style %}
+{{ block.super }}
 {% load static %}
+<link href="{% static 'css/management_top.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
 
 <div class="text-center">
     <main class="main">
@@ -80,9 +86,9 @@
                         </div> 
                         <div class="footerLog">
                             <a class="footerLogo">
-                                <img class="mt-5 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
+                                <img class="footer-logo" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
                             </a>
-                                <p class="mt-1 mb-3 m-lg-5 text-muted">&copy; 2017–2021</p>
+                                <p class="text-muted">&copy; 2017–2021</p>
                         </div>
                 </div>
             </form>

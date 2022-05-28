@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
-{% load static %}
 
+{% block style %}
+{{ block.super }}
+{% load static %}
+<link href="{% static 'css/medicine_registration.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
 
 <div class="text-center">
   <main class="main">

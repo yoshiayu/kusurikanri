@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% block style %}
+{{ block.super }}
 {% load static %}
+<link href="{% static 'css/taker_manegement.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
 
 <form action='' method = "POST">{% csrf_token %}
   <!-- <input type = "submit" value='削除' > -->
