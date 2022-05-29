@@ -6,28 +6,31 @@
     padding: 0;
     margin: 0;
 }
+body {
+    width: 100%;
+}
 body .text-center{
     padding: 0px 0px 0px 0px;
     margin: auto;
 }
 .form-floating #floatingInput{
-    width: 500px;
+    width: 40%;
     height: 50px;
     margin: 0px auto;
 }
 .nav-search-field .form-select {
-    width: 500px;
+    width: 40%;
     margin: 0px auto;
 }
 label{
-    margin-left: 305px;
+    margin-left: 30%;
 }
 .switch{
-    margin: 0px 320px auto;
+    margin: 0% 31% auto;
 }
 .form-check-label {
     margin-top: 5px;
-    margin-left: -250px;
+    margin-left: 0%;
 }
 .switch .form-check .form-check-input{
     width: 60px;
@@ -36,26 +39,26 @@ label{
     margin-bottom: 10px;
 }
 .footer-title {
-    margin: 0px 310px auto;
-    width: 500px;
+    margin: 0% 30% auto;
+    width: 40%;
     height: 100px;
 }
 .footerLog .footer-logo {
     margin-top: 50px;
 }
 
-@media (max-width:800px) {  
+@media screen and (max-width:480px) {
     .form-floating #floatingInput{
-        width: 500px;
+        width: 70%;
         height: 50px;
         margin: 0px auto;
     }
     .nav-search-field .form-select {
-        width: 500px;
+        width: 70%;
         margin: 0px auto;
     }
     label{
-        margin-left: 100px;
+        margin-left: 70%;
     }
     .switch{
         margin: 0px 110px auto;
@@ -78,45 +81,7 @@ label{
     }
     .footer-title {
         margin: 0px 300px auto;
-        width: 500px;
-        height: 100px;
-    }
-}
-@media (max-width:500px) {
-    .form-floating #floatingInput{
-        width: 200px;
-        height: 50px;
-        margin: 0px auto;
-    }
-    .nav-search-field .form-select {
-        width: 200px;
-        margin: 0px auto;
-    }
-    label{
-        margin-left: 135px;
-    }
-    .switch{
-        margin: 0px 145px auto;
-    }
-    .form-check-label {
-        margin-top: 5px;
-        margin-left: 0px;
-    }
-    .switch .form-check .form-check-input{
-        width: 60px;
-        height: 25px;
-        margin-left: -50px;
-        margin-bottom: 10px;
-    }
-    textarea.form-control {
-        margin-left: -165px;
-    }
-    .btn-primary {
-        margin-left: -330px;
-    }
-    .footer-title {
-        margin: 0px 300px auto;
-        width: 200px;
+        width: 70%;
         height: 100px;
     }
 }

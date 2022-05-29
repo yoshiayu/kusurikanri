@@ -7,6 +7,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    width: 100%;
+}
 .container {
     background-color: rgb(211, 248, 239);
 }
@@ -40,7 +43,10 @@ body .text-center{
     background-color: rgb(181, 247, 208);
 }
 
-@media (min-width:500px) and (max-width:1200px) {
+@media screen and (min-width:480px) and (max-width:959px) {
+    body {
+        width: 100%;
+    }
     body .text-center{
         padding: 0px 0px 0px 30px;
         margin: 0;
