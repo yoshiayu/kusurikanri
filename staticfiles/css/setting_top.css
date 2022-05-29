@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+}
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
+.container {
+    background-color: rgb(211, 248, 239);
+}
+
+.title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+.d-grid a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+}
+
+.footer {
+    background-color: rgb(211, 248, 239);
+    
+}
+
+@media (max-width:800px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
+    .d-grid a {
+        margin-left: 10px;
+    }
+}
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
+    .d-grid a {
+        margin-left: 10px;
+    }
+}

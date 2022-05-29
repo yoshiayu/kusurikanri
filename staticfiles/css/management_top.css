@@ -5,183 +5,118 @@
 ::after{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
 }
-
 body .text-center{
     padding: 0px 0px 0px 0px;
-    margin: 0;
+    margin: auto;
 }
-
-.title label{
-    font-size: 15px;
-}
-
-label{
-    margin-left: -10px;
-}
-.switch input {
-    margin-top: 8px;
-}
-
-.form-floating {
-    margin-left: 367px;
-    margin-right: 330px;
-
-}
-
-.footer-title {
-    margin-left: 360px;
-    width: 400px;
-    height: 100px;
-}
-
 .form-floating #floatingInput{
-    width: 400px;
+    width: 500px;
     height: 50px;
-    margin-left: -10px;
-
+    margin: 0px auto;
 }
-
-.accordion {
-    margin-left: -60px;
-    width: 1080px;
+.nav-search-field .form-select {
+    width: 500px;
+    margin: 0px auto;
 }
-
-
-.nav-search-field {
-    width: 119%;
-    margin-left: -77px;
-
+label{
+    margin-left: 305px;
 }
-
-.nav-search-field .form-select #form{
-    width: 42%;
-    margin-left: 50px;
-}
-
 .switch{
-    margin-left: 360px;
+    margin: 0px 320px auto;
 }
-
-.switch .form-check {
-    margin-left: 10px;
+.form-check-label {
+    margin-top: 5px;
+    margin-left: -250px;
 }
-
 .switch .form-check .form-check-input{
     width: 60px;
     height: 25px;
     margin-left: -50px;
     margin-bottom: 10px;
 }
-
-.switch label {
-    margin-left: -210px;
-    margin-top: 5px;
-    font-size: 20px;
-    padding-right: 300px;
+.footer-title {
+    margin: 0px 300px auto;
+    width: 500px;
+    height: 100px;
+}
+.footerLog .footer-logo {
+    margin-top: 50px;
 }
 
-.footer-title label {
-    font-size: 20px;
-    color: rgb(182, 186, 190);
-    width: 100%;
-    height: 50px;
-}
-
-.footerLog .footerLogo {
-    margin-left: 10px;
-}
-
-img {
-    margin-left: 28px;
-}
-
-@media (max-width:800px) {
-    body .text-center{
-        padding: 0px 0px 0px 30px;
-        margin: 0;
+@media (max-width:800px) {  
+    .form-floating #floatingInput{
+        width: 500px;
+        height: 50px;
+        margin: 0px auto;
     }
-    .link-btn{
-        margin-right: 70px;
+    .nav-search-field .form-select {
+        width: 500px;
+        margin: 0px auto;
     }
     label{
-        margin-left: -200px;
+        margin-left: 100px;
     }
-    .title .form-floating{
-        margin-left: 368px;
+    .switch{
+        margin: 0px 110px auto;
     }
-    .container {
-        padding: 0px;
-        margin: auto;
-        display: block;
-        position: relative;
-    }
-    .text-center .main {
-        margin: 2px 20px 2px 2px;
-        padding-left: 5px;
-        padding-right: 20px;
-        text-align: center;
-        display: block;
-        position: relative;
-    }
-
-    .form-floating #floatingInput {
-        width: 350px;
-        height: 50px;
-        margin-left: -195px;
-        margin-right: 0px;
-        padding-left: 5px;
-        padding-right: 0px;
-        font-variant: inherit;
-        display: block;
-        position: relative;
-    }
-    .form-floating #name1 {
-        width: 347px;
-        margin-left: -415px;
-        display: block;
-    }
-
-    .switch label {
-        margin-left: -450px;
+    .form-check-label {
         margin-top: 5px;
-        font-size: 20px;
-        padding-right: 300px;
-        display: block;
-    }
-    textarea.form-control {
-        width: 88%;
-        display: block;
-    }
-    .form-control {
-        margin-left: -270px;
-        margin-right: 0px;
-        display: block;
+        margin-left: -250px;
     }
     .switch .form-check .form-check-input{
         width: 60px;
         height: 25px;
-        margin-left: 50px;
+        margin-left: -50px;
         margin-bottom: 10px;
     }
-    .form-check-label{
-        margin-left: 10px;
+    textarea.form-control {
+        margin-left: -200px;
     }
-    .switch label {
-        margin-left: -210px;
-        margin-top: -5px;
-        font-size: 20px;
-        padding-right: 160px;
+    .btn-primary {
+        margin-left: -400px;
     }
     .footer-title {
-        margin-left: 444px;
-        width: 400px;
+        margin: 0px 300px auto;
+        width: 500px;
         height: 100px;
     }
-    .footer-title .btn-primary {
-        margin-left: -135px;
-        display: block;
+}
+@media (max-width:500px) {
+    .form-floating #floatingInput{
+        width: 200px;
+        height: 50px;
+        margin: 0px auto;
     }
-    
+    .nav-search-field .form-select {
+        width: 200px;
+        margin: 0px auto;
+    }
+    label{
+        margin-left: 135px;
+    }
+    .switch{
+        margin: 0px 145px auto;
+    }
+    .form-check-label {
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+    .switch .form-check .form-check-input{
+        width: 60px;
+        height: 25px;
+        margin-left: -50px;
+        margin-bottom: 10px;
+    }
+    textarea.form-control {
+        margin-left: -165px;
+    }
+    .btn-primary {
+        margin-left: -330px;
+    }
+    .footer-title {
+        margin: 0px 300px auto;
+        width: 200px;
+        height: 100px;
+    }
 }

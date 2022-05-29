@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 body .text-center{
-    padding: 0px 0px 0px 30px;
+    padding: 0px 0px 0px 0px;
     margin: 0;
 }
 .nav-search-field {
@@ -17,7 +17,7 @@ body .text-center{
 }
 
 .nav-search-field #js-search-text {
-    width: 465px;
+    width: 35%;
     height: 46px;
     margin: 2px auto;
     background-color: rgb(201, 251, 253);
@@ -142,8 +142,7 @@ img {
         display: block;
         width: 50%;
         height: 100%;
-    }
-    
+    } 
 }
 @media (max-width:500px) {
     body .text-center{
@@ -182,12 +181,9 @@ img {
         width: 50%;
         height: 100%;
     }
-    .footer-logo {
-        margin-left: 0px;
-        margin-top: 10px;
-    }
-    .btn-primary {
-        margin-top: 0px;
-    }
-    
+    img {
+    margin-left: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    }   
 }
