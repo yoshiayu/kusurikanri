@@ -47,7 +47,7 @@ label{
     margin-top: 50px;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:350px) {
     .form-floating #floatingInput{
         width: 70%;
         height: 50px;
