@@ -67,21 +67,3 @@
     margin-left: -50px;
     margin-bottom: 10px;
 }
-
-.switch label {
-    margin-left: -210px;
-    margin-top: 5px;
-    font-size: 20px;
-    padding-right: 300px;
-}
-
-.footer-title label {
-    font-size: 20px;
-    color: rgb(182, 186, 190);
-    width: 100%;
-    height: 50px;
-}
-
-.footerLog .footerLogo {
-    margin-left: 10px;
-}
