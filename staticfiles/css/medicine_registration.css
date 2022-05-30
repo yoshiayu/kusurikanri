@@ -41,10 +41,12 @@ body .text-center{
 }
 
 .s-suggestion {
-    padding: 7px 10px;
+    padding: 5px 10px;
+    width: 40%;
+    margin: 0 30%;
     font-size: 16px;
     cursor: pointer;
-    position: fixed;
+    background-color: aliceblue;
 }
 
 .s-suggestion:hover {
@@ -112,6 +114,14 @@ img {
         padding: 0px 0px 0px 0px;
         margin: 0;
     }
+    .s-suggestion {
+        padding: 5px 10px;
+        width: 40%;
+        margin: 0 30%;
+        font-size: 10px;
+        cursor: pointer;
+        background-color: aliceblue;
+    }
 
     .container, .container-md, .container-sm {
         padding: 0px;
@@ -143,12 +153,20 @@ img {
         display: block;
         width: 50%;
         height: 100%;
-    }
+    } 
 }
-@media (max-width:500px) {
+@media (max-width:350px) {
     body .text-center{
         padding: 0px 0px 0px 0px;
         margin: 0;
+    }
+    .s-suggestion {
+        padding: 5px 10px;
+        width: 40%;
+        margin: 0 30%;
+        font-size: 10px;
+        cursor: pointer;
+        background-color: aliceblue;
     }
 
     .container, .container-md, .container-sm {
@@ -186,5 +204,5 @@ img {
     margin-left: 0px;
     margin-top: 2px;
     margin-bottom: 2px;
-    }  
+    }
 }
