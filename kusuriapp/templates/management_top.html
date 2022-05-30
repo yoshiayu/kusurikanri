@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
-{% block content %}
-{% load static %}
 
-<div class="text-center">
-    <main class="main">
-        <div class="container">
+{% block style %}
+{{ block.super }}
+{% load static %}
+<link href="{% static 'css/management_top.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center">
+        <main class="main">
             <form class="form-top" method='post'>{% csrf_token %}
                 <div class="title">
                     <img class="mb-4" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
                     <h1 class="h3 mb-3 fw-normal">薬管理</h1>
-                </div>
-    
+                </div>    
                 <div class="title">
                     <div class="form-floating">
                         <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name=name required>
@@ -25,7 +30,6 @@
                     </select>
                 -->
                 </div>
-                
                 <div class="nav-search-field" id="form2">
                     <select class="form-select">
                         <option selected>服用期間</option>
@@ -66,27 +70,23 @@
                                     <label class="form-check-label" for="flexSwitchCheckDefault">アラームスイッチ</label>
                             </div>
                         </div>
-                    </div>
-                        <div class="footer-title">
-                            
-                                <textarea class="form-control" placeholder="薬メモ" id="floatingTextarea"></textarea>
-                                <form action='' method='POST'>{% csrf_token %}  
-                                <!-- {{ form.as_p}} -->
-                                <!-- <input type="submit" value='登録する'> -->
-                                    <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
-                                </form>
-                                
-                            
-                        </div> 
-                        <div class="footerLog">
-                            <a class="footerLogo">
-                                <img class="mt-5 mb-3" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
-                            </a>
-                                <p class="mt-1 mb-3 m-lg-5 text-muted">&copy; 2017–2021</p>
-                        </div>
+                </div>
+                <div class="footer-title">
+                    <textarea class="form-control" placeholder="薬メモ" id="floatingTextarea"></textarea>
+                    <form action='' method='POST'>{% csrf_token %}
+                    <!-- {{ form.as_p}} -->
+                    <!-- <input type="submit" value='登録する'> -->
+                        <br><input type="submit" id="login_button" class="btn btn-primary" value='登録する'>
+                    </form>
+                </div> 
+                <div class="footerLog">
+                    <a class="footerLogo">
+                        <img class="footer-logo" src="{% static './kusuriapp/medicine11.webp' %}" alt="薬のイメージ図" width="150" height="150">
+                    </a>
+                        <p class="text-muted">&copy; 2017–2021</p>
                 </div>
             </form>
-        </div>
-    </main>
+        </main>
+    </div>
 </div>
 {% endblock content %} 

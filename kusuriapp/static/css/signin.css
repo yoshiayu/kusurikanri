@@ -1,5 +1,15 @@
 @charset "utf-8";
-
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
 .first-view {
     background-color: rgb(162, 247, 226);
 }
@@ -28,5 +38,16 @@
 }
 
 @media (max-width:800px) {
+    body .text-center{
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
+    
+}
+@media (max-width:500px) {
+    body .text-center{
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
     
 }

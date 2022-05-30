@@ -1,5 +1,22 @@
 @charset "utf-8";
 
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+}
+.container {
+    background-color: rgb(211, 248, 239);
+}
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+}
 .link-button-area a {
     text-decoration: none;
     color: rgb(5, 5, 5);
@@ -26,6 +43,12 @@
     background-color: rgb(181, 247, 208);
 }
 
-@media (max-width:800px) {
-    
+@media screen and (min-width:480px) and (max-width:959px) {
+    body {
+        width: 100%;
+    }
+    body .text-center{
+        padding: 0px 0px 0px 30px;
+        margin: 0;
+    }
 }

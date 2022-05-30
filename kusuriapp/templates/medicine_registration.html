@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% block style %}
+{{ block.super }}
 {% load static %}
+<link href="{% static 'css/medicine_registration.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
 
+{% block content %}
 
-<div class="text-center">
-  <main class="main">
-    <div class="container">
+<div class="container">
+  <div class="text-center">
+    <main class="main">
       <form class="form-top" method='post' novalidate>{% csrf_token %}
         <div class="title">
           <img class="mb-2" src="{% static './kusuriapp/medicine07.webp' %}" alt="薬のイメージ図" width="150" height="150">
@@ -14,7 +19,7 @@
                 <nav class="navbar navber-light">
                   <input type="search" id="js-search-text" value="" name="field-keywords" autocomplete="off" placeholder="薬名を入力してください" class="nav-input nav-progressive-attribute" dir="auto" tabindex="0" aria-label="検索"> 
                     <form id="inputClick" action="" method="POST" class="container-fluid" target="#js-medicine-list">                    
-                      <div id="js-medicine-list" style="position:relative;">                     
+                      <div id="js-medicine-list" style="position:relative;">
                     </form>
                 </nav>
                         <div id="nav-flyout-searchAjax" class="nav-issFlyout nav-flyout" style="display: block; padding-right: auto; position: absolute; top: 282px; left: 413px; width: 400px;text-align:left;z-index: 1;">
@@ -384,7 +389,7 @@
             </div> 
         </div>
       </form>
-    </div>           
-  </main>
+    </main>           
+  </div>
 </div>
 {% endblock content %}

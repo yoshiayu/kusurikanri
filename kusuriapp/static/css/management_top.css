@@ -1,69 +1,87 @@
 @charset "utf-8";
 
 *,
-::before
+::before,
 ::after{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
 }
-
-
-.title label{
-    font-size: 15px;
+body {
+    width: 100%;
 }
-
-.switch input {
-    margin-top: 8px;
+body .text-center{
+    padding: 0px 0px 0px 0px;
+    margin: auto;
 }
-
-.form-floating {
-    margin-left: 367px;
-    margin-right: 330px;
-
-}
-
-.footer-title {
-    margin-left: 360px;
-    width: 400px;
-    height: 100px;
-}
-
 .form-floating #floatingInput{
-    width: 400px;
+    width: 40%;
     height: 50px;
-    margin-left: -10px;
-
+    margin: 0px auto;
 }
-
-.accordion {
-    margin-left: -60px;
-    width: 1080px;
+.nav-search-field .form-select {
+    width: 40%;
+    margin: 0px auto;
 }
-
-
-.nav-search-field {
-    width: 119%;
-    margin-left: -77px;
-
+label{
+    margin-left: 30%;
 }
-
-.nav-search-field .form-select #form{
-    width: 42%;
-    margin-left: 50px;
-}
-
 .switch{
-    margin-left: 360px;
+    margin: 0% 31% auto;
 }
-
-.switch .form-check {
-    margin-left: 10px;
+.form-check-label {
+    margin-top: 5px;
+    margin-left: 0%;
 }
-
 .switch .form-check .form-check-input{
     width: 60px;
     height: 25px;
     margin-left: -50px;
     margin-bottom: 10px;
+}
+.footer-title {
+    margin: 0% 30% auto;
+    width: 40%;
+    height: 100px;
+}
+.footerLog .footer-logo {
+    margin-top: 50px;
+}
+
+@media screen and (max-width:480px) {
+    .form-floating #floatingInput{
+        width: 70%;
+        height: 50px;
+        margin: 0px auto;
+    }
+    .nav-search-field .form-select {
+        width: 70%;
+        margin: 0px auto;
+    }
+    label{
+        margin-left: 70%;
+    }
+    .switch{
+        margin: 0px 110px auto;
+    }
+    .form-check-label {
+        margin-top: 5px;
+        margin-left: -250px;
+    }
+    .switch .form-check .form-check-input{
+        width: 60px;
+        height: 25px;
+        margin-left: -50px;
+        margin-bottom: 10px;
+    }
+    textarea.form-control {
+        margin-left: -200px;
+    }
+    .btn-primary {
+        margin-left: -400px;
+    }
+    .footer-title {
+        margin: 0px 300px auto;
+        width: 70%;
+        height: 100px;
+    }
 }

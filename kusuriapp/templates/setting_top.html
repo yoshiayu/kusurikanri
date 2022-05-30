@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% block style %}
+{{ block.super }}
 {% load static %}
+<link href="{% static 'css/setting_top.css' %}?{% now "U" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
 
 <div class="text-center">
     <main class="main">
