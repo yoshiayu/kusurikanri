@@ -1,4 +1,5 @@
 import datetime
+from unicodedata import name
 import schedule
 from tabnanny import verbose
 from django.db import models
@@ -230,15 +231,36 @@ DOSAGE_FORM = (
 
 
 class MedicineRegister(models.Model):
-    '''
-    name = models.ForeignKey(MedicineNameManagement,
-                             on_delete=models.CASCADE, verbose_name='服用者')
-    '''
+    # '''
+    # name = models.ForeignKey(MedicineNameManagement,
+    #                         on_delete=models.CASCADE, verbose_name='服用者')
+    # '''
+
     medicine = models.ForeignKey(
         'CompanyMedicineName', on_delete=models.CASCADE, verbose_name='服用薬', blank=True, null=True, default=1)
 
+    # def __init__(self, medicine):
+    #    self.medicine = medicine
+    #self.medicine_name = name
+
+    # def __repr__(self):
+    #    return str(self.medicine.medicine_name)
+
     # def __str__(self):
-    #    return str(self.medicine)
+    #    return str(self.medicine.medicine_name)
+    # return str('{}.format(self.medicine.medicine_name)')
+    #    return str(format(self.medicine.medicine_name))
+    # self.medicine(self)
+    # return str(self.medicine)
+    # myMedicine = "Medicine: {}".format(self.medicine)
+    # return myMedicine
+
+    # def medicine(self):
+    # self.medicine(self)
+    # return self.medicine
+    # return f'self.medicine'
+    # return str(self.medicine.medicine_name)
+    # return self.medicine.medicine_name
 
     kinds = models.CharField(
         verbose_name='種別',
@@ -270,6 +292,9 @@ class MedicineRegister(models.Model):
     #    default='',
     #    choices=COMPANY_LIST
     # )
+
+    def __str__(self):
+        return str(self.medicine.medicine_name)
 
 
 class TakingDosage(models.Model):
