@@ -29,8 +29,9 @@ label{
     margin: 0% 31% auto;
 }
 .form-check-label {
-    margin-top: 5px;
-    margin-left: 0%;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: 0px;
 }
 .switch .form-check .form-check-input{
     width: 60px;
@@ -47,7 +48,7 @@ label{
     margin-top: 50px;
 }
 
-@media screen and (max-width:350px) {
+@media (max-width:330px) {
     .form-floating #floatingInput{
         width: 70%;
         height: 50px;
@@ -64,8 +65,9 @@ label{
         margin: 0px 110px auto;
     }
     .form-check-label {
-        margin-top: 5px;
-        margin-left: -250px;
+        font-size: 5px;
+        margin-top: 10px;
+        margin-left: 10%;
     }
     .switch .form-check .form-check-input{
         width: 60px;
