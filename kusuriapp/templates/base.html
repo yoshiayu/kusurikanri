@@ -40,9 +40,10 @@
  
   </head>
   <body>
-    <button class="small">小</button>
-    <button class="medium">中</button>
-    <button class="large">大</button>
+    <button type="button" class="small btn btn-danger">サイズ小</button>
+    <button type="button" class="medium btn btn-warning">サイズ中</button>
+    <button type="button" class="large btn btn-primary">サイズ大</button>
+    
 
 {% block header %}
 <div class="link-button-area">
@@ -105,13 +106,13 @@
   <script>
     $(function(){
       $('.small').click(function(){
-        $("p,a,h1,form,input,label,select,textarea").css('font-size','1rem');
+        $("p,a,h1,form,input,label,select,textarea").css('font-size','0.5rem');
       })
       $('.medium').click(function(){
-        $("p,a,h1,form,input,label,select,textarea").css('font-size','1.5rem');
+        $("p,a,h1,form,input,label,select,textarea").css('font-size','1rem');
       })
       $('.large').click(function(){
-        $("p,a,h1,form,input,label,select,textarea").css('font-size','2rem');
+        $("p,a,h1,form,input,label,select,textarea").css('font-size','1.5rem');
       })
     });
 
