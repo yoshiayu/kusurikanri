@@ -10,6 +10,9 @@
 body {
     width: 100%;
 }
+.btn-danger {
+    margin-left: 70%;
+}
 .container {
     background-color: rgb(211, 248, 239);
 }
@@ -24,6 +27,7 @@ body .text-center{
 
 .link-button-area {
     text-align: right;
+    margin-top: 15px;
     margin-right: 70px;
     
 }
@@ -43,9 +47,12 @@ body .text-center{
     background-color: rgb(181, 247, 208);
 }
 
-@media screen and (min-width:480px) and (max-width:959px) {
+@media screen and (min-width:350px) and (max-width:959px) {
     body {
         width: 100%;
+    }
+    .btn-danger {
+        margin-left: 20%;
     }
     body .text-center{
         padding: 0px 0px 0px 30px;
