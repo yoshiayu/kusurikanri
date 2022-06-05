@@ -12,6 +12,8 @@ body {
 }
 .btn-danger {
     margin-left: 70%;
+    display: inline-block;
+    min-width: 5%;
 }
 .container {
     background-color: rgb(211, 248, 239);
@@ -21,7 +23,9 @@ body .text-center{
     margin: 0;
 }
 .link-button-area a {
+    text-align: center;
     text-decoration: none;
+    line-height: 100%;
     color: rgb(5, 5, 5);
 }
 
