@@ -1,3 +1,13 @@
+"""_summary_
+
+    Raises:
+        ValueError: _description_
+        ValueError: _description_
+        ValueError: _description_
+
+    Returns:
+        _type_: _description_
+"""
 import datetime
 from unicodedata import name
 import schedule
@@ -11,17 +21,29 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class Question(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
     pass
 
 
 def get_upload_file_name(filename):
+    """_summary_
+
+    Args:
+        filename (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     return "uploaded_files/%s_%s" % (str(time()).replace(".", "_"), filename)
 
 
 def job():
     print(datetime.datetime.now())
     print("I'm taking...")
-
     schedule.every().day.at("20:56").do(job)
 
     while True:
@@ -30,11 +52,34 @@ def job():
 
 
 class UserModel(BaseUserManager):
+    """_summary_
 
+    Args:
+        BaseUserManager (_type_): _description_
+
+    Raises:
+        ValueError: _description_
+        ValueError: _description_
+        ValueError: _description_
+
+    Returns:
+        _type_: _description_
+    """
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
+        """_summary_
 
+        Args:
+            email (_type_): _description_
+            password (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+
+        Returns:
+            _type_: _description_
+        """
         if not email:
             raise ValueError('The given email must be set')
         email = self.normalize_email(email)
@@ -45,11 +90,33 @@ class UserModel(BaseUserManager):
         return user
 
     def create_user(self, email, password=None, **extra_fields):
+        """_summary_
+
+        Args:
+            email (_type_): _description_
+            password (_type_, optional): _description_. Defaults to None.
+
+        Returns:
+            _type_: _description_
+        """
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
+        """_summary_
+
+        Args:
+            email (_type_): _description_
+            password (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+            ValueError: _description_
+
+        Returns:
+            _type_: _description_
+        """
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
@@ -62,7 +129,15 @@ class UserModel(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    """_summary_
 
+    Args:
+        AbstractBaseUser (_type_): _description_
+        PermissionsMixin (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     email = models.EmailField(('email address'), unique=True)
     first_name = models.CharField(('first name'), max_length=30, blank=True)
     last_name = models.CharField(('last name'), max_length=150, blank=True)
@@ -90,6 +165,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     class Meta:
+
         verbose_name = ('user')
         verbose_name_plural = ('users')
 
@@ -125,6 +201,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class MedicineNameManagement(models.Model):
+
     user_id = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.CharField(
@@ -163,6 +240,7 @@ TAKING_TIME = (
 
 
 class MedicineMangement(models.Model):
+
     user_id = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.ForeignKey(MedicineNameManagement,
@@ -231,6 +309,7 @@ DOSAGE_FORM = (
 
 
 class MedicineRegister(models.Model):
+
     # '''
     # name = models.ForeignKey(MedicineNameManagement,
     #                         on_delete=models.CASCADE, verbose_name='服用者')
@@ -298,6 +377,7 @@ class MedicineRegister(models.Model):
 
 
 class TakingDosage(models.Model):
+
     user_id = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.ForeignKey(MedicineNameManagement,

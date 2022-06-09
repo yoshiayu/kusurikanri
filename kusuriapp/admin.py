@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
@@ -9,6 +10,11 @@ from import_export.fields import Field
 
 
 class MyUserChangeForm(UserChangeForm):
+    """_summary_
+
+    Args:
+        UserChangeForm (_type_): _description_
+    """
     class Meta:
         model = User
         fields = '__all__'

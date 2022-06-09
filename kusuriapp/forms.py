@@ -1,3 +1,4 @@
+""""""
 from tkinter import Widget
 from django import forms
 from .models import TakingTimeAlarm, MedicineMangement, CompanyMedicineName, Item, MedicineRegister, TakingDosage
@@ -5,12 +6,14 @@ from bootstrap_datepicker_plus.widgets import DateTimePickerInput, DatePickerInp
 
 
 class TimeSettingForm(forms.ModelForm):
+
     class Meta:
         model = TakingTimeAlarm
         fields = '__all__'
 
 
 class MedicineMangementForm(forms.ModelForm):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['medicine'].choices = [
@@ -37,6 +40,12 @@ class CompanyMedicineNameForm(forms.ModelForm):
 
 
 class MedicineRegisterForm(forms.ModelForm):
+    """_summary_
+
+    Args:
+        forms (_type_): _description_
+    """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['kinds'].choices = [
