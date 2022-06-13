@@ -378,8 +378,8 @@ class MedicineRegister(models.Model):
 
 class TakingDosage(models.Model):
 
-    user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, verbose_name='ユーザーID')
+    # user_id = models.ForeignKey(
+    #    User, on_delete=models.CASCADE, verbose_name='ユーザーID')
     name = models.ForeignKey(MedicineNameManagement,
                              on_delete=models.CASCADE, verbose_name='服用者')
     medicine = models.ForeignKey(
@@ -388,24 +388,24 @@ class TakingDosage(models.Model):
     def __str__(self):
         return f'{self.medicine_name}({self.company_name})'
 
-    taking_dosage = models.IntegerField(
-        verbose_name='服用量',
-        blank=True,
-        null=True,
-        default=0,
-    )
-    taking_unit = models.IntegerField(
-        verbose_name='服用単位',
-        blank=True,
-        null=True,
-        default=0,
-    )
-    taking_number = models.IntegerField(
-        verbose_name='服用回数',
-        blank=True,
-        null=True,
-        default=0,
-    )
+    # taking_dosage = models.IntegerField(
+    #    verbose_name='服用量',
+    #    blank=True,
+    #    null=True,
+    #    default=0,
+    # )
+    # taking_unit = models.IntegerField(
+    #    verbose_name='服用単位',
+    #    blank=True,
+    #    null=True,
+    #    default=0,
+    # )
+    # taking_number = models.IntegerField(
+    #    verbose_name='服用回数',
+    #    blank=True,
+    #    null=True,
+    #    default=0,
+    # )
 
 
 class TakingTimeAlarm(models.Model):
