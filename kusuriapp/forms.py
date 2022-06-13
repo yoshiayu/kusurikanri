@@ -67,6 +67,7 @@ class TakerManagementForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['medicine'].choices = [
             ("", "服用薬")] + list(self.fields['medicine'].choices)[1:]
+        self.fields['medicine'].required = False
 
     class Meta:
         model = MedicineMangement
