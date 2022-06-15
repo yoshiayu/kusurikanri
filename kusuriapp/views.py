@@ -177,10 +177,19 @@ def takermanegementview(request):
     form = TakerManagementForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
-        medicine_name = request.POST['medicine_name'].split('(')[0]
-        medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
-        TakingDosage.objects.create(medicine=medicine)
+        print(request.POST)
+        #medicine_name = request.POST['medicine_name'].split('(')[0]
+        #str = request.POST['medicine_name'].split('(')[0]
+        #medicine_name = request.POST.get('medicine_name').split('(')[0]
+        #medicine_name = request.POST('medicine_name')
+        #medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        # TakingDosage.objects.create(medicine=medicine)
+        # TakingDosage.objects.create(medicine=medicine, medicine_name=medicine_name)
+
         return redirect('.')
+
+        # def __str__(self):
+        #    return str(self.medicine_name)
 
     return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
 
