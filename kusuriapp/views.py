@@ -172,25 +172,39 @@ def managementtopview(request):
 
 def takermanegementview(request):
     form = TakerManagementForm(request.POST)
-    object_list = MedicineNameMangement.objects.all()
-    # object_list = CompanyMedicineName.objects.all()
-    # object_list = CompanyMedicineName.objects.filter(
-    #    initials__isnull=False).order_by('initials')
+    object_list = CompanyMedicineName.objects.all()
     if request.method == 'POST' and form.is_valid():
-        medicine_name = request.POST['medicine']
-        medicine = MedicineMangement.objects.get
-        name = MedicineNameMangement
-        # medicine = request.POST['medicine']
-        #medicine_name = request.POST['medicine_name']
-        #medicine = TakingDosage.objects.all()
-        #medicine = CompanyMedicineName.objects.all()
-        # medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
-        TakingDosage.objects.create(
-            medicine=medicine, name=name)
-        # TakingDosage.objects.create(medicine=medicine)
-        # return redirect(safe=False)
-        return redirect('.')
+        # print(request.POST)
+        # print(request.POST.getlist('medicine'))
+        # print(request.POST.getlist('name'))
+        # print(type(request.POST.getlist('name')))
 
+        medicine_list = request.POST.getlist('medicine')
+        medicine1 = medicine_list[0]
+        medicine2 = medicine_list[1]
+        medicine3 = medicine_list[2]
+        medicine4 = medicine_list[3]
+        medicine5 = medicine_list[4]
+        medicine6 = medicine_list[5]
+        medicine7 = medicine_list[6]
+        medicine8 = medicine_list[7]
+        medicine9 = medicine_list[8]
+        medicine10 = medicine_list[9]
+        medicine11 = medicine_list[10]
+        medicine12 = medicine_list[11]
+        medicine13 = medicine_list[12]
+        medicine14 = medicine_list[13]
+        medicine15 = medicine_list[14]
+
+        medicine_register = MedicineRegister.objects.get(pk=medicine1)
+
+        name_list = request.POST.getlist('name')
+        name1 = name_list[0]
+        name2 = name_list[1]
+        name3 = name_list[2]
+
+        TakingDosage.objects.create(medicine=medicine_register, name=name1)
+        return redirect('.')
     return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
     # object_list = CompanyMedicineName.objects.filter(
     #    initials__isnull=False).order_by('initials')

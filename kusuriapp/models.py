@@ -380,13 +380,14 @@ class TakingDosage(models.Model):
 
     # user_id = models.ForeignKey(
     #    User, on_delete=models.CASCADE, verbose_name='ユーザーID')
-    name = models.ForeignKey(MedicineNameManagement,
-                             on_delete=models.CASCADE, verbose_name='服用者')
+    # name = models.ForeignKey(MedicineNameManagement,
+    #                          on_delete=models.CASCADE, verbose_name='服用者')
+    name = models.CharField(max_length=50, verbose_name='服用者')
     medicine = models.ForeignKey(
-        MedicineMangement, on_delete=models.CASCADE, verbose_name='服用薬')
+        MedicineRegister, on_delete=models.CASCADE, verbose_name='服用薬')
 
     def __str__(self):
-        return f'{self.medicine_name}({self.company_name})'
+        return f'{self.name} x {self.medicine}'
 
     # taking_dosage = models.IntegerField(
     #    verbose_name='服用量',
