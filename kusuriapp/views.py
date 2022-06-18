@@ -179,7 +179,6 @@ def takermanegementview(request):
         # print(request.POST.getlist('name'))
         # print(type(request.POST.getlist('name')))
 
-        medicine_name = request.POST['medicine']
         medicine_list = request.POST.getlist('medicine')
         medicine1 = medicine_list[0]
         medicine2 = medicine_list[1]
