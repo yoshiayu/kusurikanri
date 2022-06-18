@@ -171,27 +171,43 @@ def managementtopview(request):
 
 
 def takermanegementview(request):
-    object_list = CompanyMedicineName.objects.filter(
-        initials__isnull=False).order_by('initials')
-
-    form = TakerManagementForm(request.POST or None)
-
+    form = TakerManagementForm(request.POST)
+    object_list = MedicineNameMangement.objects.all()
+    # object_list = CompanyMedicineName.objects.all()
+    # object_list = CompanyMedicineName.objects.filter(
+    #    initials__isnull=False).order_by('initials')
     if request.method == 'POST' and form.is_valid():
-        print(request.POST)
-        #medicine_name = request.POST['medicine_name'].split('(')[0]
-        #str = request.POST['medicine_name'].split('(')[0]
-        #medicine_name = request.POST.get('medicine_name').split('(')[0]
-        #medicine_name = request.POST('medicine_name')
-        #medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        medicine_name = request.POST['medicine']
+        medicine = MedicineMangement.objects.get
+        name = MedicineNameMangement
+        # medicine = request.POST['medicine']
+        #medicine_name = request.POST['medicine_name']
+        #medicine = TakingDosage.objects.all()
+        #medicine = CompanyMedicineName.objects.all()
+        # medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+        TakingDosage.objects.create(
+            medicine=medicine, name=name)
         # TakingDosage.objects.create(medicine=medicine)
-        # TakingDosage.objects.create(medicine=medicine, medicine_name=medicine_name)
-
+        # return redirect(safe=False)
         return redirect('.')
 
-        # def __str__(self):
-        #    return str(self.medicine_name)
-
     return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
+    # object_list = CompanyMedicineName.objects.filter(
+    #    initials__isnull=False).order_by('initials')
+    # form = TakerManagementForm(request.POST or None)
+    # if request.method == 'POST' and form.is_valid():
+    #    print(request.POST)
+    # medicine_name = request.POST['medicine_name'].split('(')[0]
+    # str = request.POST['medicine_name'].split('(')[0]
+    # medicine_name = request.POST.get('medicine_name').split('(')[0]
+    # medicine_name = request.POST('medicine_name')
+    # medicine = CompanyMedicineName.objects.get(medicine_name=medicine_name)
+    # TakingDosage.objects.create(medicine=medicine)
+    # TakingDosage.objects.create(medicine=medicine, medicine_name=medicine_name)
+    #    return redirect('.')
+    # def __str__(self):
+    #    return str(self.medicine_name)
+    # return render(request, 'taker_manegement.html', {'object_list': object_list, 'form': form})
 
 
 def get_alarm(request):
